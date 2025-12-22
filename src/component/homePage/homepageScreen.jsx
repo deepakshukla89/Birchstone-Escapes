@@ -1,5 +1,6 @@
 import React from 'react';
 import SEOMetaTags from '../common/SEOMetaTags';
+import BookingCard from '../common/BookingCard';
 import './homepageScreen.css';
 
 export default function HomepageScreen() {
@@ -12,7 +13,11 @@ export default function HomepageScreen() {
       />
 
       <div className="homepage">
-        Home page
+        {/* Hero and other sections will go here */}
+        <p style={{ padding: '100px 20px', textAlign: 'center' }}>Home page content coming soon...</p>
+
+        {/* Booking Card - Above Footer */}
+        <BookingCard />
       </div>
     </>
   );
