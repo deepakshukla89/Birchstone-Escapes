@@ -7,17 +7,13 @@ const BookingOptionCard = ({
     platform,
     link,
     isImageCard = false,
-    imageSrc = null,
-    order = 0
+    imageSrc = null
 }) => {
     if (isImageCard) {
         return (
             <div
                 className="booking-option-card booking-option-image"
-                style={{
-                    backgroundImage: imageSrc ? `url(${imageSrc})` : 'none',
-                    order: order
-                }}
+                style={{ backgroundImage: imageSrc ? `url(${imageSrc})` : 'none' }}
                 aria-hidden="true"
             />
         );
@@ -32,7 +28,6 @@ const BookingOptionCard = ({
             aria-label={`${label} ${platform}`}
             itemScope
             itemType="https://schema.org/BookAction"
-            style={{ order: order }}
         >
             <div className="booking-option-content">
                 <span className="booking-option-label">{label}</span>
@@ -44,20 +39,12 @@ const BookingOptionCard = ({
 };
 
 const HowToBook = ({
-    title = "How to book your stay?",
-    bookingOptions = []
+    title = "How to book your stay?"
 }) => {
-    // Default booking options - order for mobile: image first, then text
-    const defaultOptions = [
-        { isImageCard: true, imageSrc: `${process.env.PUBLIC_URL}/image/b1.png`, mobileOrder: 1 },
-        { label: 'Book on', platform: 'Airbnb', link: 'https://airbnb.com/birchstoneescapes', mobileOrder: 2 },
-        { label: 'Book on', platform: 'VRBO', link: 'https://vrbo.com/birchstoneescapes', mobileOrder: 4 },
-        { isImageCard: true, imageSrc: `${process.env.PUBLIC_URL}/image/b2.png`, mobileOrder: 3 },
-        { isImageCard: true, imageSrc: `${process.env.PUBLIC_URL}/image/b3.png`, mobileOrder: 5 },
-        { label: 'Book direct & Save(15%)', platform: 'Website', link: '/booking', mobileOrder: 6 }
-    ];
-
-    const options = bookingOptions.length > 0 ? bookingOptions : defaultOptions;
+    // Images
+    const b1 = `${process.env.PUBLIC_URL}/image/b1.png`;
+    const b2 = `${process.env.PUBLIC_URL}/image/b2.png`;
+    const b3 = `${process.env.PUBLIC_URL}/image/b3.png`;
 
     // Schema.org structured data
     const schemaData = {
@@ -67,13 +54,11 @@ const HowToBook = ({
             "@type": "LodgingBusiness",
             "name": "Birchstone Escapes"
         },
-        "potentialAction": options
-            .filter(opt => !opt.isImageCard)
-            .map(opt => ({
-                "@type": "BookAction",
-                "target": opt.link,
-                "name": `Book on ${opt.platform}`
-            }))
+        "potentialAction": [
+            { "@type": "BookAction", "target": "https://airbnb.com/birchstoneescapes", "name": "Book on Airbnb" },
+            { "@type": "BookAction", "target": "https://vrbo.com/birchstoneescapes", "name": "Book on VRBO" },
+            { "@type": "BookAction", "target": "/booking", "name": "Book on Website" }
+        ]
     };
 
     return (
@@ -99,11 +84,26 @@ const HowToBook = ({
                     {title}
                 </h2>
 
-                {/* Booking Grid */}
+                {/* Desktop: 3 rows with 2 columns each */}
+                {/* Mobile: Each row becomes image + text stacked */}
                 <div className="how-to-book-grid" role="list">
-                    {options.map((option, index) => (
-                        <BookingOptionCard key={index} {...option} />
-                    ))}
+                    {/* Row 1: b2 image | Airbnb */}
+                    <div className="how-to-book-row how-to-book-row-1">
+                        <BookingOptionCard isImageCard imageSrc={b2} />
+                        <BookingOptionCard label="Book on" platform="Airbnb" link="https://airbnb.com/birchstoneescapes" />
+                    </div>
+
+                    {/* Row 2: VRBO | b1 image */}
+                    <div className="how-to-book-row how-to-book-row-2">
+                        <BookingOptionCard label="Book on" platform="VRBO" link="https://vrbo.com/birchstoneescapes" />
+                        <BookingOptionCard isImageCard imageSrc={b1} />
+                    </div>
+
+                    {/* Row 3: b3 image | Website */}
+                    <div className="how-to-book-row how-to-book-row-3">
+                        <BookingOptionCard isImageCard imageSrc={b3} />
+                        <BookingOptionCard label="Book direct & Save(15%)" platform="Website" link="/booking" />
+                    </div>
                 </div>
             </div>
         </section>

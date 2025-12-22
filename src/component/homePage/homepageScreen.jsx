@@ -1,7 +1,10 @@
 import React from 'react';
 import SEOMetaTags from '../common/SEOMetaTags';
 import Hero from '../common/Hero';
+import AboutSection from '../common/AboutSection';
+import FeaturesSection from '../common/FeaturesSection';
 import HowToBook from '../common/HowToBook';
+import ExperienceSection from '../common/ExperienceSection';
 import Testimonials from '../common/Testimonials';
 import FAQ from '../common/FAQ';
 import BookingCard from '../common/BookingCard';
@@ -36,12 +39,21 @@ export default function HomepageScreen() {
         url="https://birchstoneescapes.com"
       />
 
-      <div className="homepage">
+      <main className="homepage">
         {/* Hero Section */}
         <Hero />
 
+        {/* About Us */}
+        <AboutSection />
+
+        {/* Features/Amenities */}
+        <FeaturesSection />
+
         {/* How To Book */}
         <HowToBook />
+
+        {/* How It Works - Experience */}
+        <ExperienceSection />
 
         {/* Testimonials */}
         <Testimonials />
@@ -51,7 +63,7 @@ export default function HomepageScreen() {
 
         {/* Booking Card - Above Footer */}
         <BookingCard />
-      </div>
+      </main>
     </>
   );
 }

@@ -1,0 +1,264 @@
+/* ===== Experience Section - Modern Timeline ===== */
+.experience-section {
+    padding: 100px 20px;
+    background-color: var(--color-white);
+}
+
+.experience-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Header */
+.experience-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.experience-label {
+    display: block;
+    font-family: var(--font-nav);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+}
+
+.experience-title {
+    font-family: var(--font-logo);
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-black);
+    margin: 0;
+}
+
+/* ===== Timeline ===== */
+.experience-timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+/* Step */
+.experience-step {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* Icon Wrapper */
+.step-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 32px;
+}
+
+/* Icon Circle */
+.step-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--color-bg);
+    border: 2px solid var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.step-icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--color-primary);
+}
+
+/* Connector Line */
+.step-connector {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + 50px);
+    width: calc(100% - 50px);
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, rgba(235, 151, 63, 0.2) 100%);
+    z-index: 1;
+}
+
+/* Step Content */
+.step-content {
+    max-width: 200px;
+}
+
+.step-number {
+    display: block;
+    font-family: var(--font-logo);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-primary);
+    opacity: 0.6;
+    margin-bottom: 8px;
+}
+
+.step-title {
+    font-family: var(--font-logo);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--color-black);
+    margin: 0 0 8px 0;
+}
+
+.step-description {
+    font-family: var(--font-nav);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-black);
+    opacity: 0.65;
+    margin: 0;
+}
+
+/* ===== CTA Button ===== */
+.experience-cta-wrapper {
+    text-align: center;
+}
+
+.experience-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 32px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    font-family: var(--font-nav);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.experience-cta:hover {
+    background-color: #ffffff;
+}
+
+.experience-cta-arrow {
+    font-size: 18px;
+    transition: transform 0.3s ease;
+}
+
+.experience-cta:hover .experience-cta-arrow {
+    transform: translateX(4px);
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 900px) {
+    .experience-section {
+        padding: 60px 20px;
+    }
+
+    .experience-header {
+        margin-bottom: 50px;
+    }
+
+    .experience-title {
+        font-size: 32px;
+    }
+
+    /* Vertical Timeline on Mobile */
+    .experience-timeline {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .experience-step {
+        flex-direction: row;
+        text-align: left;
+        align-items: flex-start;
+        gap: 24px;
+        padding-bottom: 40px;
+    }
+
+    .experience-step:last-child {
+        padding-bottom: 0;
+    }
+
+    .step-icon-wrapper {
+        width: auto;
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+
+    .step-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .step-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .step-connector {
+        position: relative;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 40px;
+        background: linear-gradient(180deg, var(--color-primary) 0%, rgba(235, 151, 63, 0.2) 100%);
+        margin-top: 8px;
+    }
+
+    .step-content {
+        max-width: none;
+        flex: 1;
+        padding-top: 8px;
+    }
+
+    .step-title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .experience-section {
+        padding: 40px 16px;
+    }
+
+    .experience-title {
+        font-size: 28px;
+    }
+
+    .step-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .step-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .step-title {
+        font-size: 20px;
+    }
+
+    .step-description {
+        font-size: 14px;
+    }
+
+    .experience-cta {
+        width: 100%;
+        justify-content: center;
+    }
+}
