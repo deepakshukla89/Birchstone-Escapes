@@ -1,9 +1,10 @@
 import React from 'react';
 import SEOMetaTags from '../common/SEOMetaTags';
-import BookingCard from '../common/BookingCard';
-import FAQ from '../common/FAQ';
-import Testimonials from '../common/Testimonials';
+import Hero from '../common/Hero';
 import HowToBook from '../common/HowToBook';
+import Testimonials from '../common/Testimonials';
+import FAQ from '../common/FAQ';
+import BookingCard from '../common/BookingCard';
 import './homepageScreen.css';
 
 export default function HomepageScreen() {
@@ -30,14 +31,14 @@ export default function HomepageScreen() {
   return (
     <>
       <SEOMetaTags
-        title="Birchstone Escapes"
+        title="Birchstone Escapes | Luxury Vacation Rentals"
         description="At Birchstone Escapes, we believe a great stay is more than a getaway — it's a feeling. Beautifully designed vacation homes hosted with genuine warmth."
         url="https://birchstoneescapes.com"
       />
 
       <div className="homepage">
-        {/* Hero and other sections will go here */}
-        <p style={{ padding: '100px 20px', textAlign: 'center' }}>Home page content coming soon...</p>
+        {/* Hero Section */}
+        <Hero />
 
         {/* How To Book */}
         <HowToBook />
