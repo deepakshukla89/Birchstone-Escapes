@@ -3,6 +3,7 @@ import SEOMetaTags from '../common/SEOMetaTags';
 import BookingCard from '../common/BookingCard';
 import FAQ from '../common/FAQ';
 import Testimonials from '../common/Testimonials';
+import HowToBook from '../common/HowToBook';
 import './homepageScreen.css';
 
 export default function HomepageScreen() {
@@ -37,6 +38,9 @@ export default function HomepageScreen() {
       <div className="homepage">
         {/* Hero and other sections will go here */}
         <p style={{ padding: '100px 20px', textAlign: 'center' }}>Home page content coming soon...</p>
+
+        {/* How To Book */}
+        <HowToBook />
 
         {/* Testimonials */}
         <Testimonials />
