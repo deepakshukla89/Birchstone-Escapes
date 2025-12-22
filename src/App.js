@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import Layout from "./component/common/Layout";
 import HomepageScreen from "./component/homePage/homepageScreen";
+import AboutPage from "./component/pages/aboutPage";
 
-// ScrollToTop component to handle scroll position on page navigation
+// ScrollToTop component
 const ScrollToTop = () => {
   const location = useLocation();
 
@@ -17,9 +19,12 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<HomepageScreen />} />
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomepageScreen />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 }

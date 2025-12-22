@@ -1,8 +1,6 @@
 import React from 'react';
 import SEOMetaTags from '../common/SEOMetaTags';
-import Header from '../common/header';
-import Footer from '../common/footer';
-import './aboutPage.css';
+// import './aboutPage.css';
 
 export default function AboutPage() {
     return (
@@ -12,11 +10,10 @@ export default function AboutPage() {
                 description="At Birchstone Escapes, we believe a great stay is more than a getaway — it's a feeling. Learn about our mission to create unforgettable stays."
                 url="https://birchstoneescapes.com/about"
             />
-            <Header />
 
-            about
-
-            <Footer />
+            <div className="about-page">
+                About page
+            </div>
         </>
     );
 }
