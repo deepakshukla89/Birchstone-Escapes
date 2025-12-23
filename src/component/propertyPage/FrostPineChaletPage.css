@@ -245,3 +245,108 @@
         height: 250px;
     }
 }
+
+/* ===== Property Highlights Section ===== */
+.property-highlights {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    padding: 0;
+    margin-top: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid rgba(235, 151, 63, 0.2);
+}
+
+.property-highlights-container {
+    width: 100%;
+    max-width: 1187px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.property-highlights-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 68px;
+    width: 100%;
+}
+
+.property-highlight-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.property-highlight-icon {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.property-highlight-label {
+    font-family: var(--font-logo);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 36px;
+    color: var(--color-black);
+    white-space: nowrap;
+}
+
+/* ===== Highlights Responsive ===== */
+@media (max-width: 1200px) {
+    .property-highlights-list {
+        gap: 40px;
+    }
+
+    .property-highlight-label {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 900px) {
+    .property-highlights-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .property-highlights-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .property-highlights-list {
+        justify-content: flex-start;
+        gap: 32px;
+        padding-bottom: 8px;
+        width: max-content;
+    }
+
+    .property-highlight-label {
+        font-size: 20px;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 600px) {
+    .property-highlights {
+        margin-top: 24px;
+        gap: 24px;
+    }
+
+    .property-highlight-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .property-highlight-label {
+        font-size: 18px;
+    }
+
+}
