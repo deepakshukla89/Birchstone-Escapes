@@ -4,6 +4,7 @@ import PropertyHero from '../components/property/PropertyHero';
 import PropertyHighlights from '../components/property/PropertyHighlights';
 import PropertyOffers from '../components/property/PropertyOffers';
 import FacilitiesSection from '../components/property/FacilitiesSection';
+import VisualJournal from '../components/property/VisualJournal';
 // Assuming the CSS was moved to src/components/property/
 import '../components/property/FrostPineChaletPage.css';
 
@@ -157,6 +158,7 @@ const PropertyIndex = () => {
                 <PropertyHighlights />
                 <FacilitiesSection />
                 <PropertyOffers offersRows={offersRows} />
+                <VisualJournal />
             </main>
         </>
     );
