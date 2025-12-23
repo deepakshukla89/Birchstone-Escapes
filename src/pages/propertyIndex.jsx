@@ -3,6 +3,7 @@ import SEOMetaTags from '../components/common/SEOMetaTags';
 import PropertyHero from '../components/property/PropertyHero';
 import PropertyHighlights from '../components/property/PropertyHighlights';
 import PropertyOffers from '../components/property/PropertyOffers';
+import FacilitiesSection from '../components/property/FacilitiesSection';
 // Assuming the CSS was moved to src/components/property/
 import '../components/property/FrostPineChaletPage.css';
 
@@ -154,6 +155,7 @@ const PropertyIndex = () => {
             <main className="property-page">
                 <PropertyHero property={property} schemaData={schemaData} />
                 <PropertyHighlights />
+                <FacilitiesSection />
                 <PropertyOffers offersRows={offersRows} />
             </main>
         </>
