@@ -5,6 +5,7 @@ import AboutSection from '../common/AboutSection';
 import FeaturesSection from '../common/FeaturesSection';
 import HowToBook from '../common/HowToBook';
 import ExperienceSection from '../common/ExperienceSection';
+import AccommodationsSection from '../common/AccommodationsSection';
 import Testimonials from '../common/Testimonials';
 import FAQ from '../common/FAQ';
 import BookingCard from '../common/BookingCard';
@@ -42,6 +43,9 @@ export default function HomepageScreen() {
       <main className="homepage">
         {/* Hero Section */}
         <Hero />
+
+        {/* Accommodations */}
+        <AccommodationsSection />
 
         {/* About Us */}
         <AboutSection />
