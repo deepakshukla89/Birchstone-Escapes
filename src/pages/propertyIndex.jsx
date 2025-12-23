@@ -5,6 +5,9 @@ import PropertyHighlights from '../components/property/PropertyHighlights';
 import PropertyOffers from '../components/property/PropertyOffers';
 import FacilitiesSection from '../components/property/FacilitiesSection';
 import VisualJournal from '../components/property/VisualJournal';
+import Testimonials from '../components/common/Testimonials';
+import FAQ from '../components/common/FAQ';
+import BookingCard from '../components/common/BookingCard';
 // Assuming the CSS was moved to src/components/property/
 import '../components/property/FrostPineChaletPage.css';
 
@@ -21,6 +24,58 @@ const PropertyIndex = () => {
         image: `${process.env.PUBLIC_URL}/image/pd1.png`,
         bookingLink: "https://airbnb.com/birchstoneescapes"
     };
+
+    // Property-specific testimonials
+    const propertyTestimonials = [
+        {
+            text: "Frost Pine Chalet exceeded all our expectations! The views of the mountains were breathtaking, and waking up to the misty mornings was magical. The hot tub under the stars was the highlight of our trip!",
+            author: "Jennifer M."
+        },
+        {
+            text: "We stayed here for our anniversary and it was absolutely perfect. The chalet is beautifully designed, super clean, and has everything you need. The fireplace made our evenings so cozy!",
+            author: "Michael & Sarah"
+        },
+        {
+            text: "Best family vacation we've ever had! The kids loved exploring the outdoors while we relaxed on the patio. The kitchen was fully equipped and the beds were incredibly comfortable.",
+            author: "The Anderson Family"
+        },
+        {
+            text: "This chalet is a hidden gem! The modern amenities combined with the rustic mountain feel made for an unforgettable stay. Already planning our return trip!",
+            author: "David R."
+        },
+        {
+            text: "The attention to detail in this property is remarkable. From the quality linens to the thoughtful welcome guide with local recommendations - everything was perfect!",
+            author: "Emily T."
+        }
+    ];
+
+    // Property-specific FAQs
+    const propertyFaqs = [
+        {
+            question: "What is the check-in and check-out time at Frost Pine Chalet?",
+            answer: "Check-in is at 4:00 PM and check-out is at 11:00 AM. Early check-in or late check-out may be available upon request, subject to availability. We use a smart lock for self check-in, so you'll receive a unique code before your arrival."
+        },
+        {
+            question: "Is the hot tub available year-round?",
+            answer: "Yes! The private hot tub is available year-round and is regularly maintained. It's especially magical during winter with snow falling around you, or in summer under the starry mountain sky."
+        },
+        {
+            question: "How far is Frost Pine Chalet from the nearest ski resort?",
+            answer: "The chalet is located just 15 minutes from Sunday River Ski Resort, making it perfect for ski trips. We provide a ski storage area and boot warmers for your convenience."
+        },
+        {
+            question: "Is the property pet-friendly?",
+            answer: "We welcome well-behaved dogs at Frost Pine Chalet! There's a $50 pet fee per stay. Please let us know in advance if you're bringing your furry friend, and note we have a 2-dog maximum."
+        },
+        {
+            question: "What's included in the kitchen?",
+            answer: "The fully-equipped kitchen features Fisher & Paykel appliances, a built-in wine fridge, Nespresso coffee maker, high-end cookware, and all the essentials for preparing meals. We also provide basic pantry items like coffee, tea, oil, and spices."
+        },
+        {
+            question: "Is there WiFi and what's the speed like?",
+            answer: "Yes, we have high-speed WiFi (100+ Mbps) throughout the property. It's perfect for streaming, video calls, or remote work. We also have a dedicated workspace area if you need to get some work done."
+        }
+    ];
 
     // Offers data organized by rows with their specific icons (72 total amenities)
     const offersRows = [
@@ -159,9 +214,13 @@ const PropertyIndex = () => {
                 <FacilitiesSection />
                 <PropertyOffers offersRows={offersRows} />
                 <VisualJournal />
+                <Testimonials testimonials={propertyTestimonials} />
+                <FAQ title="Frost Pine Chalet FAQs" faqs={propertyFaqs} />
+                <BookingCard />
             </main>
         </>
     );
 };
 
 export default PropertyIndex;
+
