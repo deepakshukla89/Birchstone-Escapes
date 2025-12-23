@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import Layout from "./component/common/Layout";
-import HomepageScreen from "./component/homePage/homepageScreen";
-import AboutPage from "./component/pages/aboutPage";
-import FrostPineChaletPage from "./component/propertyPage/FrostPineChaletPage";
+import Layout from "./components/common/Layout";
+import HomepageScreen from "./pages/homeIndex";
+import AboutPage from "./pages/aboutIndex";
+import FrostPineChaletPage from "./pages/propertyIndex";
 
 // ScrollToTop component
 const ScrollToTop = () => {
