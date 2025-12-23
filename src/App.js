@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Layout from "./component/common/Layout";
 import HomepageScreen from "./component/homePage/homepageScreen";
 import AboutPage from "./component/pages/aboutPage";
+import FrostPineChaletPage from "./component/propertyPage/FrostPineChaletPage";
 
 // ScrollToTop component
 const ScrollToTop = () => {
@@ -23,6 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomepageScreen />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/property/frost-pine-chalet" element={<FrostPineChaletPage />} />
         </Routes>
       </Layout>
     </Router>

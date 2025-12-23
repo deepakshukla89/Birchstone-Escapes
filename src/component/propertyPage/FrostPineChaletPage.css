@@ -1,0 +1,247 @@
+/* ===== Property Page ===== */
+.property-page {
+    min-height: 100vh;
+}
+
+/* ===== Hero Section ===== */
+.property-hero {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 702px;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid rgba(235, 151, 63, 0.2);
+    overflow: hidden;
+    background: #FFFDF5;
+    padding: 64px 0;
+}
+
+.property-hero-container {
+    max-width: 1146px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 602px;
+
+}
+
+/* ===== Left: Text Content ===== */
+.property-hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    width: 400px;
+    position: relative;
+    z-index: 2;
+    margin-top: 2.8%;
+}
+
+.property-hero-title {
+    font-family: var(--font-logo);
+    font-size: 56px;
+    font-weight: 400;
+    line-height: 73px;
+    color: #ECAE6D;
+    margin: 0;
+}
+
+.property-hero-description {
+    font-family: var(--font-nav);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 29px;
+    color: var(--color-black);
+    margin: 0;
+    white-space: pre-line;
+}
+
+.property-tagline {
+    font-weight: 500;
+}
+
+/* CTA Button */
+.property-hero-cta {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 24px;
+    width: fit-content;
+    border: 1px solid var(--color-primary);
+    border-radius: 58px;
+    font-family: var(--font-nav);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-black);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.property-hero-cta:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* ===== Right: Media Section (overlaps to right edge) ===== */
+.property-hero-media {
+    position: absolute;
+    top: 0;
+    left: 501px;
+    right: calc(-1 * ((100vw - 1146px) / 2));
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* Stats Row */
+.property-stats {
+    display: flex;
+    flex-direction: row;
+    gap: 176px;
+    padding-left: 0;
+}
+
+.property-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.property-stat-label {
+    font-family: var(--font-nav);
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 23px;
+    color: var(--color-black);
+    text-transform: uppercase;
+}
+
+.property-stat-value {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-logo);
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 36px;
+    color: var(--color-primary);
+}
+
+.property-rating-star {
+    color: var(--color-primary);
+    font-size: 24px;
+}
+
+.property-rating-score {
+    color: var(--color-primary);
+}
+
+.property-rating-reviews {
+    color: var(--color-primary);
+}
+
+/* Hero Image - extends to right edge */
+.property-hero-image {
+    width: 100%;
+    min-width: 793px;
+    height: 505px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* ===== Responsive Wrapper ===== */
+@media (min-width: 1440px) {
+    .property-hero-media {
+        right: 0;
+    }
+}
+
+/* ===== Tablet Responsive ===== */
+@media (max-width: 1200px) {
+    .property-hero {
+        min-height: auto;
+    }
+
+    .property-hero-container {
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .property-hero-text {
+        width: 100%;
+        margin-top: 0;
+        padding-left: 0;
+        order: 2;
+    }
+
+    .property-hero-media {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        order: 1;
+    }
+
+    .property-hero-image {
+        min-width: auto;
+        margin-top: 32px;
+        height: 400px;
+    }
+
+    .property-stats {
+        gap: 60px;
+    }
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+    .property-hero-container {
+        padding: 32px 16px;
+    }
+
+    .property-hero-title {
+        font-size: 40px;
+        line-height: 1.2;
+    }
+
+    .property-hero-description {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .property-stats {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .property-stat-value {
+        font-size: 24px;
+    }
+
+    .property-hero-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .property-hero-title {
+        font-size: 32px;
+    }
+
+    .property-hero-text {
+        gap: 24px;
+    }
+
+    .property-hero-cta {
+        width: 100%;
+    }
+
+    .property-hero-image {
+        height: 250px;
+    }
+}
