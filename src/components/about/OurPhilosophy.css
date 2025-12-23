@@ -1,0 +1,128 @@
+/* Our Philosophy Section */
+.philosophy-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #FFFDF5 0%, #FFF8E7 100%);
+}
+
+.philosophy-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* Quote Side */
+.philosophy-quote-wrapper {
+    position: relative;
+    padding-left: 40px;
+}
+
+.philosophy-quote-mark {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    font-family: 'Instrument Serif', serif;
+    font-size: 160px;
+    line-height: 1;
+    color: #ECAE6D;
+    opacity: 0.3;
+}
+
+.philosophy-quote {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 44px;
+    color: #1A1A1A;
+    margin: 0;
+    border-left: 3px solid #ECAE6D;
+    padding-left: 30px;
+}
+
+/* Values Side */
+.philosophy-values {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.philosophy-value {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.philosophy-value:hover {
+    background: rgba(255, 255, 255, 0.9);
+    transform: translateX(10px);
+}
+
+.value-number {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #ECAE6D;
+    letter-spacing: 2px;
+}
+
+.value-title {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: #1A1A1A;
+    margin: 0;
+}
+
+.value-description {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4A4A4A;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .philosophy-container {
+        gap: 60px;
+    }
+
+    .philosophy-quote {
+        font-size: 26px;
+        line-height: 38px;
+    }
+}
+
+@media (max-width: 768px) {
+    .philosophy-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .philosophy-quote-wrapper {
+        padding-left: 20px;
+    }
+
+    .philosophy-quote-mark {
+        font-size: 100px;
+        top: -20px;
+    }
+
+    .philosophy-quote {
+        font-size: 22px;
+        line-height: 32px;
+    }
+
+    .philosophy-value:hover {
+        transform: none;
+    }
+}

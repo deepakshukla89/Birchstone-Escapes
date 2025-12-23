@@ -8,7 +8,7 @@ import OurPromise from '../components/about/OurPromise';
 import Testimonials from '../components/common/Testimonials';
 import BookingCard from '../components/common/BookingCard';
 
-const AboutIndex = () => {
+const About = () => {
     // About page testimonials
     const aboutTestimonials = [
         {
@@ -72,4 +72,4 @@ const AboutIndex = () => {
     );
 };
 
-export default AboutIndex;
+export default About;

@@ -1,0 +1,124 @@
+/* Meet Host Section Styles */
+.meet-host-section {
+    padding: 100px 0;
+    background-color: var(--color-bg);
+}
+
+.meet-host-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 149px;
+}
+
+/* Content Side */
+.meet-host-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+    max-width: 649px;
+    flex: 1;
+}
+
+.meet-host-title {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 56px;
+    line-height: 73px;
+    color: #000000;
+    margin: 0;
+}
+
+.host-name-italic {
+    font-style: italic;
+}
+
+.meet-host-description {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+    margin: 0;
+}
+
+/* Image Side */
+.meet-host-image-wrapper {
+    position: relative;
+    width: 352.6px;
+    height: 374.97px;
+    flex-shrink: 0;
+}
+
+.meet-host-image-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: #FFFEF8;
+}
+
+.meet-host-image {
+    position: absolute;
+    width: 321.03px;
+    height: 343.39px;
+    top: 15.79px;
+    left: 15.79px;
+    object-fit: cover;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .meet-host-container {
+        gap: 60px;
+    }
+
+    .meet-host-title {
+        font-size: 42px;
+        line-height: 54px;
+    }
+
+    .meet-host-description {
+        font-size: 18px;
+        line-height: 26px;
+    }
+}
+
+@media (max-width: 768px) {
+    .meet-host-container {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .meet-host-content {
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .meet-host-title {
+        font-size: 36px;
+        line-height: 46px;
+    }
+
+    .meet-host-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .meet-host-image-wrapper {
+        width: 280px;
+        height: 300px;
+    }
+
+    .meet-host-image {
+        width: 256px;
+        height: 274px;
+    }
+}
