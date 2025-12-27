@@ -74,7 +74,9 @@
     text-transform: uppercase;
     color: var(--color-black);
     background: transparent;
+    cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .property-hero-cta:hover {

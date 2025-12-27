@@ -1,6 +1,6 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
 
-const PropertyHero = ({ property, schemaData }) => {
+const PropertyHero = ({ property, schemaData, onBookNow }) => {
     return (
         <section
             className="property-hero"
@@ -25,14 +25,32 @@ const PropertyHero = ({ property, schemaData }) => {
                             {property.description}
                         </p>
                     </div>
-                    <a
-                        href={property.bookingLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="property-hero-cta"
-                    >
-                        Book My Stay!
-                    </a>
+                    {onBookNow ? (
+                        <button
+                            onClick={onBookNow}
+                            className="property-hero-cta"
+                        >
+                            Book My Stay!
+                        </button>
+                    ) : (
+                        property.bookingLink.startsWith('http') ? (
+                            <a
+                                href={property.bookingLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="property-hero-cta"
+                            >
+                                Book My Stay!
+                            </a>
+                        ) : (
+                            <Link
+                                to={property.bookingLink}
+                                className="property-hero-cta"
+                            >
+                                Book My Stay!
+                            </Link>
+                        )
+                    )}
                 </div>
 
                 <div className="property-hero-media">

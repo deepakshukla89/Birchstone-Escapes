@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SEOMetaTags from '../components/common/SEOMetaTags';
 import PropertyHero from '../components/property/PropertyHero';
 import PropertyHighlights from '../components/property/PropertyHighlights';
@@ -10,8 +10,14 @@ import FAQ from '../components/common/FAQ';
 import BookingCard from '../components/common/BookingCard';
 // Assuming the CSS was moved to src/components/property/
 import '../components/property/FrostPineChaletPage.css';
+import ReadyToBook from './ReadyToBook';
 
 const PropertyIndex = () => {
+    const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+
+    const handleOpenBooking = () => setIsBookingModalOpen(true);
+    const handleCloseBooking = () => setIsBookingModalOpen(false);
+
     // Property data
     const property = {
         name: "Frost Pine Chalet",
@@ -22,7 +28,7 @@ const PropertyIndex = () => {
         reviews: 9,
         location: "Entire home in Newry, Maine",
         image: `${process.env.PUBLIC_URL}/image/pd1.png`,
-        bookingLink: "https://airbnb.com/birchstoneescapes"
+        bookingLink: "/ready-to-book/frost-pine-chalet"
     };
 
     // Property-specific testimonials
@@ -209,15 +215,25 @@ const PropertyIndex = () => {
             />
 
             <main className="property-page">
-                <PropertyHero property={property} schemaData={schemaData} />
+                <PropertyHero
+                    property={property}
+                    schemaData={schemaData}
+                    onBookNow={handleOpenBooking}
+                />
                 <PropertyHighlights />
                 <FacilitiesSection />
                 <PropertyOffers offersRows={offersRows} />
                 <VisualJournal />
                 <Testimonials testimonials={propertyTestimonials} />
                 <FAQ title="Frost Pine Chalet FAQs" faqs={propertyFaqs} />
-                <BookingCard />
+                <BookingCard onBookNow={handleOpenBooking} />
             </main>
+
+            <ReadyToBook
+                isOpen={isBookingModalOpen}
+                onClose={handleCloseBooking}
+                propertyName={property.name}
+            />
         </>
     );
 };

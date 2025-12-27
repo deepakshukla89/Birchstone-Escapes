@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './BookingCard.css';
 
-const BookingCard = () => {
+const BookingCard = ({ onBookNow }) => {
     return (
         <section
             className="booking-card"
@@ -47,13 +47,23 @@ const BookingCard = () => {
                     <h2 className="booking-card-heading" itemProp="name">
                         Ready to book your family getaway!
                     </h2>
-                    <Link
-                        to="/booking"
-                        className="booking-card-btn"
-                        aria-label="Book your vacation stay now"
-                    >
-                        BOOK MY STAY!
-                    </Link>
+                    {onBookNow ? (
+                        <button
+                            onClick={onBookNow}
+                            className="booking-card-btn"
+                            aria-label="Book your vacation stay now"
+                        >
+                            BOOK MY STAY!
+                        </button>
+                    ) : (
+                        <Link
+                            to="/ready-to-book/frost-pine-chalet"
+                            className="booking-card-btn"
+                            aria-label="Book your vacation stay now"
+                        >
+                            BOOK MY STAY!
+                        </Link>
+                    )}
                 </div>
             </div>
         </section>
