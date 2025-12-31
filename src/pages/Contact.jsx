@@ -49,7 +49,7 @@ const ContactPage = () => {
                 setStatus({ type: 'success', message: result.data.message });
                 setFormData({ name: '', email: '', phone: '', dates: '', message: '' });
             } else {
-                setStatus({ type: 'error', message: result.error });
+                setStatus({ type: 'error', message: result.error || 'Failed to submit inquiry' });
             }
         } catch (err) {
             setStatus({ type: 'error', message: 'Something went wrong. Please try again.' });

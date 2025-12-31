@@ -1,16 +1,15 @@
 /**
  * Split-Screen Booking Modal
  * Left: Promotional Image | Right: Booking Content
+ * Uses direct Hospitable calendar data with frontend pricing calculation
  */
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { format, addDays, parseISO, startOfDay, isSameDay, isWithinInterval } from 'date-fns';
+import { format, addDays } from 'date-fns';
 import {
     getPropertyAvailability,
-    calculatePricing,
-    createBooking,
     getPropertyData,
     calculateNights,
 } from '../services/api';
@@ -36,9 +35,9 @@ const BookingModal = ({ isOpen, onClose, propertyName }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // Property & Availability
+    // Property & Calendar Data (complete Hospitable structure)
     const [propertyData, setPropertyData] = useState(null);
-    const [bookedDates, setBookedDates] = useState([]);
+    const [calendarData, setCalendarData] = useState([]); // Full calendar from Hospitable
 
     // Date Selection
     const [startDate, setStartDate] = useState(null);
@@ -89,57 +88,157 @@ const BookingModal = ({ isOpen, onClose, propertyName }) => {
         };
     }, [isOpen]);
 
-    useEffect(() => {
-        if (startDate && endDate) {
-            fetchPricing();
-        } else {
-            setPricing(null);
-        }
-    }, [startDate, endDate, guests.adults, guests.children]);
-
+    // Fetch calendar data from backend (exact Hospitable structure)
     const fetchAvailability = async () => {
         setIsLoading(true);
+        setError(null);
         try {
             const result = await getPropertyAvailability(
-                'frost-pine-chalet',
+                null,
                 new Date(),
-                addDays(new Date(), 365)
+                addDays(new Date(), 30) // 1 month only
             );
             if (result.success) {
-                setBookedDates(result.data.bookedDates.map(d => parseISO(d)));
-                setPropertyData(getPropertyData());
+                setCalendarData(result.data.calendar || []);
+                setPropertyData(await getPropertyData());
+                console.log('📅 Loaded calendar:', result.data.calendar?.length || 0, 'days');
+            } else {
+                // API failed - close modal
+                console.error('API failed:', result.error);
+                setError('Failed to load availability');
+                onClose(); // Close modal on API fail
             }
         } catch (err) {
             console.error('Failed to fetch availability:', err);
+            setError('Failed to load availability');
+            onClose(); // Close modal on API fail
         } finally {
             setIsLoading(false);
         }
     };
 
-    const fetchPricing = async () => {
-        if (!startDate || !endDate) return;
+    // =========================================================================
+    // CALENDAR HELPER FUNCTIONS
+    // =========================================================================
 
-        try {
-            const totalGuests = guests.adults + guests.children;
-            const result = await calculatePricing(
-                'frost-pine-chalet',
-                startDate,
-                endDate,
-                totalGuests
-            );
+    // Get day data from calendar for a specific date
+    const getDayData = useCallback((date) => {
+        if (!date || !calendarData.length) return null;
+        const dateStr = format(date, 'yyyy-MM-dd');
+        return calendarData.find(d => d.date === dateStr);
+    }, [calendarData]);
 
-            if (result.success) {
-                setPricing(result.data);
-                setError(null);
-            } else {
-                setError(result.error);
-                setPricing(null);
-            }
-        } catch (err) {
-            setError('Failed to calculate pricing');
-            setPricing(null);
+    // Check if date is beyond 1-month range
+    const maxBookingDate = useMemo(() => addDays(new Date(), 30), []);
+
+    // Check if date is "Checkout only" (closed_for_checkin but available)
+    const isCheckoutOnly = useCallback((date) => {
+        const dayData = getDayData(date);
+        if (!dayData) return false;
+        return dayData.status?.available && dayData.closed_for_checkin;
+    }, [getDayData]);
+
+    // Get array of unavailable dates for excludeDates prop
+    const unavailableDates = useMemo(() => {
+        if (!calendarData.length) return [];
+
+        return calendarData
+            .filter(day => !day.status?.available) // RESERVED, BLOCKED, etc.
+            .map(day => new Date(day.date + 'T00:00:00')); // Convert to Date objects
+    }, [calendarData]);
+
+    // Check if date should be disabled in calendar
+    const isDateDisabled = useCallback((date) => {
+        // Beyond 2-month range
+        if (date > maxBookingDate) return true;
+
+        const dayData = getDayData(date);
+
+        // Not in calendar = disabled
+        if (!dayData) return true;
+
+        // Not available (RESERVED, BLOCKED, etc.)
+        if (!dayData.status?.available) return true;
+
+        // If selecting check-in date:
+        // Disable if closed_for_checkin (but will show as "Checkout only")
+        if (!startDate && dayData.closed_for_checkin) return true;
+
+        // If selecting check-out date:
+        // Disable if closed_for_checkout
+        if (startDate && !endDate && dayData.closed_for_checkout) return true;
+
+        return false;
+    }, [startDate, endDate, maxBookingDate, getDayData]);
+
+    // Validate date range (min_stay, no unavailable dates in between)
+    const validateDateRange = useCallback((start, end) => {
+        if (!start || !end) return { valid: false, error: 'Select dates' };
+
+        const startDayData = getDayData(start);
+        if (!startDayData) return { valid: false, error: 'Invalid start date' };
+
+        const nightsCount = calculateNights(start, end);
+        const minStay = startDayData.min_stay || 1;
+
+        // Check minimum stay requirement
+        if (nightsCount < minStay) {
+            return { valid: false, error: `Minimum stay is ${minStay} nights` };
         }
-    };
+
+        // Check if any date in range is unavailable
+        const currentDate = new Date(start);
+        while (currentDate < end) {
+            const dayData = getDayData(currentDate);
+            if (!dayData || !dayData.status?.available) {
+                return { valid: false, error: 'Selected range contains unavailable dates' };
+            }
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+
+        return { valid: true };
+    }, [calendarData, getDayData]);
+
+    // =========================================================================
+    // FRONTEND PRICING CALCULATION (No API call)
+    // =========================================================================
+
+    const calculatedPricing = useMemo(() => {
+        if (!startDate || !endDate || !calendarData.length) return null;
+
+        const nightsCount = calculateNights(startDate, endDate);
+        let accommodationTotal = 0;
+
+        // Sum up daily prices from calendar data
+        const currentDate = new Date(startDate);
+        for (let i = 0; i < nightsCount; i++) {
+            const dayData = getDayData(currentDate);
+            if (dayData?.price?.amount) {
+                // Price is in cents, convert to dollars
+                accommodationTotal += dayData.price.amount / 100;
+            }
+            currentDate.setDate(currentDate.getDate() + 1);
+        }
+
+        // Simple 10% tax
+        const taxes = Math.round(accommodationTotal * 0.10);
+        const total = Math.round(accommodationTotal + taxes);
+
+        return {
+            nights: nightsCount,
+            accommodationTotal: Math.round(accommodationTotal),
+            taxes,
+            taxPercent: 10,
+            total,
+            currency: 'USD',
+            currencySymbol: '$'
+        };
+    }, [startDate, endDate, calendarData, getDayData]);
+
+    // Update pricing when calculated
+    useEffect(() => {
+        setPricing(calculatedPricing);
+    }, [calculatedPricing]);
 
     const submitBooking = async () => {
         if (!validateForm()) return;
@@ -147,32 +246,20 @@ const BookingModal = ({ isOpen, onClose, propertyName }) => {
         setIsLoading(true);
         setError(null);
 
-        try {
-            const result = await createBooking({
-                propertyId: 'frost-pine-chalet',
-                checkIn: startDate,
-                checkOut: endDate,
-                guests: {
-                    adults: guests.adults,
-                    children: guests.children,
-                    infants: guests.infants,
-                    total: guests.adults + guests.children,
-                },
-                guestInfo,
-                pricing,
+        // API call removed - showing static confirmation
+        setTimeout(() => {
+            const confirmationNumber = `BE-${new Date().getFullYear()}-${Math.random().toString(36).substring(2, 6).toUpperCase()}`;
+            setBookingConfirmation({
+                confirmationNumber,
+                propertyName: propertyName || 'Frost Pine Chalet',
+                checkIn: format(startDate, 'yyyy-MM-dd'),
+                checkOut: format(endDate, 'yyyy-MM-dd'),
+                guestEmail: guestInfo.email,
+                total: pricing?.total || 0,
             });
-
-            if (result.success) {
-                setBookingConfirmation(result.data);
-                setCurrentStep(STEPS.CONFIRMATION);
-            } else {
-                setError(result.error);
-            }
-        } catch (err) {
-            setError('Failed to create booking. Please try again.');
-        } finally {
+            setCurrentStep(STEPS.CONFIRMATION);
             setIsLoading(false);
-        }
+        }, 1000);
     };
 
     const resetModal = () => {
@@ -199,16 +286,10 @@ const BookingModal = ({ isOpen, onClose, propertyName }) => {
         const [start, end] = dates;
 
         if (start && end) {
-            // Check if range contains booked dates
-            const hasBookedDate = bookedDates.some(bookedDate => {
-                const booked = startOfDay(bookedDate);
-                const startDay = startOfDay(start);
-                const endDay = startOfDay(end);
-                return isWithinInterval(booked, { start: startDay, end: endDay });
-            });
-
-            if (hasBookedDate) {
-                setError('Selected range contains unavailable dates');
+            // Validate the date range using our new validation
+            const validation = validateDateRange(start, end);
+            if (!validation.valid) {
+                setError(validation.error);
                 return;
             }
         }
@@ -216,12 +297,6 @@ const BookingModal = ({ isOpen, onClose, propertyName }) => {
         setStartDate(start);
         setEndDate(end);
         setError(null);
-    };
-
-    const isDateBooked = (date) => {
-        return bookedDates.some(bookedDate =>
-            isSameDay(date, bookedDate)
-        );
     };
 
     const updateGuests = (type, operation) => {
@@ -339,8 +414,30 @@ const BookingModal = ({ isOpen, onClose, propertyName }) => {
                     inline
                     monthsShown={1}
                     minDate={new Date()}
-                    excludeDates={bookedDates}
-                    dayClassName={(date) => isDateBooked(date) ? 'booked-date' : null}
+                    maxDate={maxBookingDate}
+                    excludeDates={unavailableDates}
+                    dayClassName={(date) => {
+                        const dayData = getDayData(date);
+                        // No data for this date = disabled
+                        if (!dayData) return 'unavailable-date';
+                        // Not available (RESERVED, BLOCKED)
+                        if (!dayData.status?.available) return 'unavailable-date';
+                        // Checkout only
+                        if (isCheckoutOnly(date)) return 'checkout-only-date';
+                        return null;
+                    }}
+                    renderDayContents={(day, date) => {
+                        const dayData = getDayData(date);
+                        const checkoutOnly = isCheckoutOnly(date);
+                        const isUnavailable = !dayData || !dayData.status?.available;
+
+                        return (
+                            <div className={`day-content ${checkoutOnly ? 'has-tooltip' : ''} ${isUnavailable ? 'is-unavailable' : ''}`}>
+                                <span>{day}</span>
+                                {checkoutOnly && <span className="checkout-tooltip">Checkout only</span>}
+                            </div>
+                        );
+                    }}
                     calendarClassName="booking-calendar"
                 />
             </div>
@@ -436,27 +533,17 @@ const BookingModal = ({ isOpen, onClose, propertyName }) => {
                         <div className="accordion-content">
                             <div className="pricing-breakdown">
                                 <div className="price-item">
-                                    <span>${pricing.baseRate} × {pricing.nights} nights</span>
+                                    <span>{pricing.nights} nights accommodation</span>
                                     <span>${pricing.accommodationTotal}</span>
                                 </div>
                                 <div className="price-item">
-                                    <span>Cleaning fee</span>
-                                    <span>${pricing.cleaningFee}</span>
-                                </div>
-                                <div className="price-item">
-                                    <span>Service fee</span>
-                                    <span>${pricing.serviceFee}</span>
-                                </div>
-                                <div className="price-item">
-                                    <span>Taxes</span>
+                                    <span>Taxes ({pricing.taxPercent}%)</span>
                                     <span>${pricing.taxes}</span>
                                 </div>
-                                {pricing.discount > 0 && (
-                                    <div className="price-item discount">
-                                        <span>{pricing.discountLabel}</span>
-                                        <span>-${pricing.discount}</span>
-                                    </div>
-                                )}
+                                <div className="price-item total">
+                                    <span>Total (USD)</span>
+                                    <span>${pricing.total}</span>
+                                </div>
                             </div>
                         </div>
                     )}

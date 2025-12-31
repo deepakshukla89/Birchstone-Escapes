@@ -333,6 +333,69 @@
     pointer-events: none;
 }
 
+/* Unavailable dates (RESERVED, BLOCKED) */
+.unavailable-date {
+    color: #ccc !important;
+    text-decoration: line-through !important;
+    cursor: not-allowed !important;
+}
+
+/* Block clicks on unavailable dates */
+.is-unavailable {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+/* Checkout only dates styling */
+.checkout-only-date {
+    color: #999 !important;
+}
+
+/* Day content wrapper for tooltip */
+.day-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Checkout only tooltip */
+.checkout-tooltip {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 4px 8px;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 100;
+    pointer-events: none;
+}
+
+.checkout-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: #333;
+}
+
+.has-tooltip:hover .checkout-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
 .react-datepicker__navigation {
     top: -4px !important;
 }
