@@ -4,6 +4,7 @@ import Layout from "./components/common/Layout";
 import HomepageScreen from "./pages/homeIndex";
 import AboutPage from "./pages/aboutIndex";
 import FrostPineChaletPage from "./pages/propertyIndex";
+import ContactPage from "./pages/Contact";
 
 // ScrollToTop component
 const ScrollToTop = () => {
@@ -24,6 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomepageScreen />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="/property/frost-pine-chalet" element={<FrostPineChaletPage />} />
         </Routes>
       </Layout>

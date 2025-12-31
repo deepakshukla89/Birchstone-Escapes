@@ -1,0 +1,1253 @@
+/**
+ * Booking Modal - Clean & Responsive Styling
+ * Mobile-first approach with full-screen support
+ */
+
+/* ============================================================================
+   MODAL OVERLAY & CONTAINER
+   ============================================================================ */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(26, 26, 26, 0.6);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-container {
+    background: var(--color-white);
+    width: 100%;
+    max-width: 1100px;
+    max-height: 90vh;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.35s ease;
+    position: relative;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.confirmation-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+.modal-container.confirmation-layout {
+    max-width: 600px;
+}
+
+.confirmation-layout .right-panel {
+    width: 100%;
+    max-width: 580px;
+    padding: 40px 20px;
+    background: transparent;
+}
+
+.close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+    color: var(--color-black);
+    box-shadow: var(--shadow-sm);
+}
+
+.close-btn:hover {
+    transform: rotate(90deg);
+    box-shadow: var(--shadow-md);
+}
+
+/* ============================================================================
+   LEFT PANEL - PROMOTIONAL
+   ============================================================================ */
+
+.promo-panel {
+    padding: 48px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    position: relative;
+    min-height: 500px;
+    background: var(--color-bg);
+}
+
+.promo-image {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    border-radius: var(--radius-md);
+}
+
+.promo-content {
+    text-align: center;
+    color: var(--color-white);
+}
+
+.promo-content h3 {
+    font-family: var(--font-logo);
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin: 0 0 6px 0;
+}
+
+.discount-text {
+    font-family: var(--font-nav);
+    font-size: 1.15rem;
+    font-weight: 300;
+    margin: 0;
+    letter-spacing: 1px;
+    opacity: 0.95;
+}
+
+/* ============================================================================
+   RIGHT PANEL - CONTENT
+   ============================================================================ */
+
+.right-panel {
+    background: var(--color-bg);
+    padding: 32px;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.content-panel {
+    margin: 0 auto;
+    padding: 12px;
+    background: var(--color-bg-secondary);
+    border-radius: 16px;
+    overflow-y: auto;
+    max-height: calc(90vh - 80px);
+}
+
+.content-panel h3 {
+    font-family: var(--font-logo);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 16px 0;
+}
+
+.error-alert {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: #fff5f5;
+    border: 1px solid #ffcdd2;
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
+    color: #c62828;
+    font-family: var(--font-primary);
+    font-size: 0.875rem;
+}
+
+/* ============================================================================
+   PROPERTY CARD
+   ============================================================================ */
+
+.property-card-compact {
+    display: flex;
+    gap: 14px;
+    background: var(--color-bg);
+    padding: 14px;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+}
+
+.property-thumbnail {
+    width: 90px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+}
+
+.property-details h4 {
+    font-family: var(--font-logo);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 4px 0;
+}
+
+.property-details p {
+    font-family: var(--font-nav);
+    font-size: 0.8125rem;
+    color: var(--color-gray-light);
+    margin: 0 0 6px 0;
+}
+
+.property-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-family: var(--font-nav);
+    font-size: 0.75rem;
+    color: var(--color-gray);
+}
+
+/* ============================================================================
+   CALENDAR SECTION
+   ============================================================================ */
+
+.calendar-section {
+    padding: 20px;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+    background: var(--color-bg);
+}
+
+.booking-calendar {
+    font-family: var(--font-nav) !important;
+    border: none !important;
+    width: 100%;
+}
+
+.react-datepicker {
+    font-family: var(--font-nav) !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.react-datepicker__month-container {
+    width: 100%;
+}
+
+.react-datepicker__header {
+    background: transparent !important;
+    border-bottom: 1px solid var(--color-bg-secondary) !important;
+    padding-top: 0 !important;
+}
+
+.react-datepicker__current-month {
+    font-family: var(--font-logo) !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: var(--color-black) !important;
+    text-align: center !important;
+    padding: 8px 0 16px 0;
+}
+
+.react-datepicker__day-names {
+    margin-top: 8px;
+}
+
+.react-datepicker__day-name {
+    font-family: var(--font-nav) !important;
+    font-size: 0.75rem !important;
+    color: var(--color-gray-light) !important;
+    width: 2.5rem !important;
+    margin: 0.2rem !important;
+}
+
+.react-datepicker__day {
+    font-family: var(--font-nav) !important;
+    font-size: 0.875rem !important;
+    color: var(--color-black) !important;
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    line-height: 2.5rem !important;
+    margin: 0.2rem !important;
+    border-radius: 50% !important;
+    transition: var(--transition);
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range {
+    background: var(--color-primary) !important;
+    color: var(--color-white) !important;
+}
+
+.react-datepicker__day--keyboard-selected {
+    background: var(--color-primary-light) !important;
+    color: var(--color-white) !important;
+}
+
+.react-datepicker__day--disabled {
+    color: #ddd !important;
+    text-decoration: line-through;
+}
+
+.react-datepicker__day--today {
+    font-weight: 600 !important;
+    border: 2px solid var(--color-primary) !important;
+    background: transparent !important;
+    color: var(--color-primary) !important;
+}
+
+.react-datepicker__day--today.react-datepicker__day--selected {
+    background: var(--color-primary) !important;
+    color: var(--color-white) !important;
+}
+
+.booked-date {
+    color: #ccc !important;
+    text-decoration: line-through !important;
+    pointer-events: none;
+}
+
+.react-datepicker__navigation {
+    top: -4px !important;
+}
+
+/* ============================================================================
+   DATE DISPLAY
+   ============================================================================ */
+
+.date-display {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-gray);
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+}
+
+.date-box {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.date-label {
+    font-family: var(--font-nav);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-gray-light);
+}
+
+.date-value {
+    font-family: var(--font-nav);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-black);
+}
+
+.arrow {
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.nights-count {
+    padding: 6px 14px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--radius-lg);
+    font-family: var(--font-nav);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* ============================================================================
+   GUEST ACCORDION
+   ============================================================================ */
+
+.guest-accordion {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.guest-accordion-header {
+    width: 100%;
+    padding: 16px 20px;
+    background: var(--color-bg);
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-nav);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-black);
+}
+
+.guest-summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-gray);
+    font-weight: 400;
+}
+
+.guest-dropdown {
+    padding: 0 20px 16px;
+    border-top: 1px solid var(--color-bg);
+}
+
+.guest-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-bg);
+}
+
+.guest-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.guest-label {
+    font-family: var(--font-nav);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-black);
+}
+
+.guest-desc {
+    font-family: var(--font-nav);
+    font-size: 0.8125rem;
+    color: var(--color-gray-light);
+}
+
+.guest-controls {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.guest-controls button {
+    width: 32px;
+    height: 32px;
+    border: 1.5px solid #e0e0e0;
+    border-radius: 50%;
+    background: var(--color-white);
+    font-size: 1.125rem;
+    font-weight: 300;
+    color: var(--color-gray);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.guest-controls button:hover:not(:disabled) {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.guest-controls button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.guest-controls span {
+    min-width: 20px;
+    text-align: center;
+    font-family: var(--font-nav);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-black);
+}
+
+/* ============================================================================
+   SCROLLBAR STYLES
+   ============================================================================ */
+
+.right-panel::-webkit-scrollbar,
+.content-panel::-webkit-scrollbar {
+    width: 4px;
+}
+
+.right-panel::-webkit-scrollbar-track,
+.content-panel::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.right-panel::-webkit-scrollbar-thumb,
+.content-panel::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+.right-panel::-webkit-scrollbar-thumb:hover,
+.content-panel::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.right-panel,
+.content-panel {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.15) transparent;
+}
+
+/* ============================================================================
+   PRICING ACCORDION
+   ============================================================================ */
+
+.pricing-accordion {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 18px 20px;
+    background: var(--color-bg);
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.accordion-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    font-family: var(--font-nav);
+}
+
+.accordion-title span:first-child {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-black);
+}
+
+.total-price {
+    font-family: var(--font-logo);
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-right: 14px;
+}
+
+.chevron {
+    color: var(--color-gray);
+    transition: transform 0.3s ease;
+}
+
+.chevron.open {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    padding: 0 20px 18px;
+}
+
+.pricing-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid var(--color-bg);
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-nav);
+    font-size: 0.875rem;
+    color: var(--color-gray);
+}
+
+.price-item.discount {
+    color: #2e7d32;
+}
+
+/* ============================================================================
+   BUTTONS
+   ============================================================================ */
+
+.btn-continue {
+    width: auto;
+    padding: 12px 28px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-nav);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    float: right;
+}
+
+.btn-continue:hover:not(:disabled) {
+    background: var(--color-primary-dark);
+}
+
+.btn-continue:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ============================================================================
+   FORM FIELDS - Step 2
+   ============================================================================ */
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    font-family: var(--font-primary);
+    font-size: 0.95rem;
+    color: var(--color-black);
+    background: var(--color-white);
+    border: 1.5px solid #ececec;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-primary);
+    background: var(--color-white);
+    box-shadow: 0 0 0 4px rgba(235, 151, 63, 0.08);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Unified Form Labels */
+.form-fields label,
+.phone-group-container label {
+    font-family: var(--font-nav);
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-black);
+    margin-bottom: 2px;
+    margin-left: 4px;
+    display: block;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.form-group input:focus+label,
+.form-group input:not(:placeholder-shown)+label,
+.phone-group-container:focus-within label {
+    color: var(--color-primary);
+}
+
+.error-text {
+    display: block;
+    margin-top: 6px;
+    font-family: var(--font-nav);
+    font-size: 0.75rem;
+    color: #e53935;
+}
+
+.phone-group-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Consolidated Phone Group Labels handled by .form-fields label */
+
+.phone-group {
+    display: flex;
+    align-items: center;
+    background: var(--color-white);
+    border: 1.5px solid #ececec;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+.phone-group:focus-within {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(235, 151, 63, 0.08);
+}
+
+.phone-group select {
+    width: 100px;
+    padding: 14px 12px;
+    background: #f8f8f8;
+    border: none;
+    border-right: 1.5px solid #ececec;
+    font-family: var(--font-nav);
+    font-size: 0.9rem;
+    color: var(--color-black);
+    cursor: pointer;
+    outline: none;
+}
+
+.phone-group input {
+    flex: 1;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 14px 16px !important;
+    box-shadow: none !important;
+}
+
+/* Checkbox Styling */
+.checkbox-group {
+    margin: 24px 0 12px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    border: 1px dashed #dec4a1;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-family: var(--font-nav);
+    font-size: 0.9rem;
+    color: var(--color-black);
+    line-height: 1.4;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    flex-shrink: 0;
+    display: block;
+    border: 2px solid #dec4a1;
+    border-radius: 6px;
+    background: var(--color-white);
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked~.checkmark {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: scale(1.05);
+}
+
+.checkbox-wrapper input[type="checkbox"]:checked~.checkmark::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-label {
+    font-weight: 500;
+}
+
+.checkbox-label a {
+    color: var(--color-primary);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-primary);
+}
+
+/* ============================================================================
+   BOOKING SUMMARY
+   ============================================================================ */
+
+/* Booking Summary Card */
+.booking-summary {
+    background: var(--color-white);
+    padding: 24px;
+    border-radius: 20px;
+    margin: 24px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f0f0f0;
+}
+
+.booking-summary h4 {
+    font-family: var(--font-logo);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin: 0 0 16px 0;
+    border-bottom: 2px solid var(--color-bg-secondary);
+    padding-bottom: 12px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    font-family: var(--font-nav);
+    font-size: 0.9rem;
+    color: var(--color-gray);
+}
+
+.summary-item.total {
+    margin-top: 8px;
+    padding-top: 16px;
+    border-top: 2px solid #f8f8f8;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-black);
+}
+
+.summary-item.total span:last-child {
+    color: var(--color-primary);
+    font-family: var(--font-logo);
+    font-size: 1.25rem;
+}
+
+/* ============================================================================
+   ACTION BUTTONS
+   ============================================================================ */
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 12px;
+}
+
+.btn-back {
+    padding: 14px;
+    background: var(--color-white);
+    color: var(--color-gray);
+    border: 1.5px solid #e0e0e0;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-nav);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-back:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-confirm {
+    padding: 14px 24px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-confirm:hover:not(:disabled) {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-confirm:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ============================================================================
+   CONFIRMATION STEP
+   ============================================================================ */
+
+.content-panel.confirmation {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.success-icon {
+    margin: 0 auto 24px;
+    width: 72px;
+    height: 72px;
+}
+
+.success-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: #4caf50;
+    stroke-width: 3;
+}
+
+.success-icon circle {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    animation: strokeCircle 0.6s ease forwards;
+}
+
+.success-icon path {
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: strokeCheck 0.3s ease 0.6s forwards;
+}
+
+@keyframes strokeCircle {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes strokeCheck {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.content-panel.confirmation h2 {
+    font-family: var(--font-logo);
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--color-black);
+    margin: 0 0 8px 0;
+}
+
+.conf-number {
+    font-family: var(--font-nav);
+    font-size: 0.875rem;
+    color: var(--color-gray-light);
+    margin: 0 0 28px 0;
+}
+
+.conf-details {
+    background: var(--color-white);
+    padding: 20px;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+    text-align: left;
+    box-shadow: var(--shadow-sm);
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-bg);
+    font-family: var(--font-nav);
+    font-size: 0.875rem;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+}
+
+.detail-item span {
+    color: var(--color-gray-light);
+}
+
+.detail-item strong {
+    color: var(--color-black);
+    font-weight: 500;
+}
+
+.conf-message {
+    font-family: var(--font-nav);
+    font-size: 0.875rem;
+    color: var(--color-gray);
+    line-height: 1.6;
+    margin-bottom: 28px;
+}
+
+.conf-message strong {
+    color: var(--color-black);
+}
+
+.btn-done {
+    padding: 14px 40px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-done:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN - TABLET
+   ============================================================================ */
+
+@media (max-width: 900px) {
+    .split-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .promo-panel {
+        display: none;
+    }
+
+    .right-panel {
+        max-height: 90vh;
+    }
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN - MOBILE (Full Screen)
+   ============================================================================ */
+
+@media (max-width: 600px) {
+    .modal-overlay {
+        padding: 0;
+        align-items: stretch;
+        justify-content: stretch;
+    }
+
+    .modal-container {
+        width: 100%;
+        height: 100%;
+        max-width: 100%;
+        max-height: 100%;
+        min-height: 100vh;
+        min-height: 100dvh;
+        border-radius: 0;
+    }
+
+    .split-layout {
+        grid-template-columns: 1fr;
+        height: 100%;
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    .promo-panel {
+        display: none;
+    }
+
+    .right-panel {
+        padding: 16px;
+        width: 100%;
+        height: 100%;
+        min-height: 100vh;
+        min-height: 100dvh;
+        max-height: none;
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+
+    .content-panel {
+        width: 100%;
+        max-width: none;
+        max-height: none;
+        min-height: calc(100vh - 100px);
+        min-height: calc(100dvh - 100px);
+        margin: 0;
+        padding: 16px;
+        box-sizing: border-box;
+        overflow-y: visible;
+    }
+
+    .close-btn {
+        top: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .property-card-compact {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .property-thumbnail {
+        width: 80px;
+        height: 64px;
+    }
+
+    .calendar-section {
+        padding: 12px;
+    }
+
+    .react-datepicker__day-name,
+    .react-datepicker__day {
+        width: 2rem !important;
+        height: 2rem !important;
+        line-height: 2rem !important;
+        margin: 0.15rem !important;
+        font-size: 0.8rem !important;
+    }
+
+    .date-display {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .date-box {
+        flex: 1 1 40%;
+        min-width: 80px;
+    }
+
+    .arrow {
+        display: none;
+    }
+
+    .nights-count {
+        flex: 1 1 100%;
+        text-align: center;
+        margin-top: 4px;
+    }
+
+    .guest-accordion-header,
+    .accordion-header {
+        padding: 14px 16px;
+    }
+
+    .guest-dropdown {
+        padding: 0 16px 12px;
+    }
+
+    .btn-continue {
+        width: 100%;
+        float: none;
+        padding: 14px;
+    }
+
+    .action-buttons {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .btn-back {
+        order: 2;
+    }
+
+    .btn-confirm {
+        order: 1;
+    }
+
+    .booking-summary {
+        padding: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 14px 12px 8px;
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+    }
+
+    .phone-group select {
+        width: 80px;
+        padding: 12px 6px;
+    }
+
+    .phone-group label {
+        left: 90px;
+    }
+
+    .phone-group input:focus+label,
+    .phone-group input:not(:placeholder-shown)+label {
+        left: 86px;
+    }
+}
+
+/* ============================================================================
+   EXTRA SMALL SCREENS
+   ============================================================================ */
+
+@media (max-width: 360px) {
+    .right-panel {
+        padding: 12px;
+    }
+
+    .content-panel {
+        padding: 12px;
+    }
+
+    .property-card-compact {
+        flex-direction: column;
+    }
+
+    .property-thumbnail {
+        width: 100%;
+        height: 120px;
+    }
+
+    .react-datepicker__day-name,
+    .react-datepicker__day {
+        width: 1.8rem !important;
+        height: 1.8rem !important;
+        line-height: 1.8rem !important;
+        font-size: 0.75rem !important;
+    }
+}

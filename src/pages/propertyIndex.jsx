@@ -8,9 +8,8 @@ import VisualJournal from '../components/property/VisualJournal';
 import Testimonials from '../components/common/Testimonials';
 import FAQ from '../components/common/FAQ';
 import BookingCard from '../components/common/BookingCard';
-// Assuming the CSS was moved to src/components/property/
 import '../components/property/FrostPineChaletPage.css';
-import ReadyToBook from './ReadyToBook';
+import BookingModal from './BookingModal';
 
 const PropertyIndex = () => {
     const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -229,7 +228,7 @@ const PropertyIndex = () => {
                 <BookingCard onBookNow={handleOpenBooking} />
             </main>
 
-            <ReadyToBook
+            <BookingModal
                 isOpen={isBookingModalOpen}
                 onClose={handleCloseBooking}
                 propertyName={property.name}
