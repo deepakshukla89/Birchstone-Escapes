@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SEOMetaTags from '../components/common/SEOMetaTags';
-import { sendInquiry } from '../services/api';
+// API import removed for disabled form
 import './Contact.css';
 
 const ContactPage = () => {
@@ -38,24 +38,8 @@ const ContactPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!validate()) return;
-
-        setIsLoading(true);
-        setStatus({ type: '', message: '' });
-
-        try {
-            const result = await sendInquiry(formData);
-            if (result.success) {
-                setStatus({ type: 'success', message: result.data.message });
-                setFormData({ name: '', email: '', phone: '', dates: '', message: '' });
-            } else {
-                setStatus({ type: 'error', message: result.error });
-            }
-        } catch (err) {
-            setStatus({ type: 'error', message: 'Something went wrong. Please try again.' });
-        } finally {
-            setIsLoading(false);
-        }
+        // Form is disabled
+        return;
     };
 
     // Schema.org structured data for SEO & AEO
@@ -244,9 +228,9 @@ const ContactPage = () => {
                                 <button
                                     type="submit"
                                     className="btn-submit-contact"
-                                    disabled={isLoading}
+                                    disabled={true}
                                 >
-                                    {isLoading ? 'Sending...' : 'Send Inquiry'}
+                                    Send Inquiry (Disabled)
                                 </button>
                             </form>
                         </div>
