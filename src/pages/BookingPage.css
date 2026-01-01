@@ -434,3 +434,12 @@
 
 /* Guest Note styling update if needed, typically standard note style is sufficient but ensuring it matches */
 
+
+/* Prevent text wrapping on inputs and toggles */
+.booking-input,
+.booking-date-toggle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
