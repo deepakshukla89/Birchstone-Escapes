@@ -57,7 +57,7 @@ const BookingCard = ({ onBookNow }) => {
                         </button>
                     ) : (
                         <Link
-                            to="/ready-to-book/frost-pine-chalet"
+                            to="/booking"
                             className="booking-card-btn"
                             aria-label="Book your vacation stay now"
                         >

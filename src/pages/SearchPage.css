@@ -1,0 +1,43 @@
+.search-page {
+    min-height: 80vh;
+    padding-top: 100px;
+    background-color: var(--color-bg);
+}
+
+.search-hero {
+    text-align: center;
+    padding: 60px 0 40px;
+}
+
+.search-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-black);
+    margin-bottom: 16px;
+}
+
+.search-subtitle {
+    font-family: var(--font-primary);
+    color: var(--color-gray);
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.search-widget-section {
+    padding-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+    .search-page {
+        padding-top: 80px;
+    }
+
+    .search-hero {
+        padding: 40px 0 30px;
+    }
+
+    .search-widget-section {
+        padding-bottom: 60px;
+    }
+}
