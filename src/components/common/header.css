@@ -1,7 +1,12 @@
 /* ===== Header ===== */
 .header {
+    position: sticky;
+    top: 0;
     background-color: var(--color-bg);
     padding: 19px 0;
+    z-index: 999;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .header-container {
