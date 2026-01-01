@@ -22,7 +22,7 @@ const BookingPage = () => {
     const [adults, setAdults] = useState(2);
     const [children, setChildren] = useState(0);
     const [infants, setInfants] = useState(0);
-    const [pets, setPets] = useState(0);
+    const [pets] = useState(0);
     const [showGuestPicker, setShowGuestPicker] = useState(false);
 
     // Close dropdowns when clicking outside

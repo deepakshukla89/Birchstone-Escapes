@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import SEOMetaTags from '../components/common/SEOMetaTags';
 import PropertyHero from '../components/property/PropertyHero';
 import PropertyHighlights from '../components/property/PropertyHighlights';
@@ -13,9 +14,18 @@ import BookingModal from './BookingModal';
 
 const PropertyIndex = () => {
     const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+    const location = useLocation();
 
     const handleOpenBooking = () => setIsBookingModalOpen(true);
     const handleCloseBooking = () => setIsBookingModalOpen(false);
+
+    // Auto-open booking modal if search params are present (coming from search page)
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        if (params.has('checkin') || params.has('checkout')) {
+            setIsBookingModalOpen(true);
+        }
+    }, [location.search]);
 
     // Property data
     const property = {

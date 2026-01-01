@@ -1,78 +1,40 @@
 import React, { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
 import SEOMetaTags from '../components/common/SEOMetaTags';
 import './SearchPage.css';
 
 const SearchPage = () => {
-    const [searchParams] = useSearchParams();
-
     useEffect(() => {
-        // Load Hospitable script
+        // Load Hospitable widget script
         const script = document.createElement('script');
         script.src = "https://hospitable.b-cdn.net/direct-property-search-widget/hospitable-search-widget.prod.js";
         script.async = true;
         document.body.appendChild(script);
 
-        // Event listener for Hospitable widget redirects
-        const handleWidgetMessage = (event) => {
-            // Log all messages to see what the widget is sending
-            console.log('Widget message received:', event.data);
-
-            // Check if message is from Hospitable widget
-            if (event.data && event.data.hospitable_widget_redirect) {
-                const redirectUrl = event.data.hospitable_widget_redirect;
-                console.log('Redirecting to:', redirectUrl);
-                // Redirect to the Hospitable booking page
-                window.location.href = redirectUrl;
-            }
-        };
-
-        // Add message event listener
-        window.addEventListener('message', handleWidgetMessage);
-
-        // Prevent navigation to /null
-        const preventNullNavigation = (e) => {
-            if (e.target.href && e.target.href.includes('/null')) {
-                e.preventDefault();
-                console.log('Prevented navigation to /null');
-            }
-        };
-
-        document.addEventListener('click', preventNullNavigation, true);
-
-        // Function to remove the gray background from Hospitable widget
+        // Remove gray background from widget
         const removeGrayBackground = () => {
-            // Try to find and modify the element with the gray background
-            const searchBarContainerBg = document.querySelector('.search-bar-container-bg');
-            if (searchBarContainerBg) {
-                searchBarContainerBg.style.backgroundColor = 'transparent';
-                searchBarContainerBg.style.background = 'transparent';
-            }
+            // Target elements in main DOM
+            const bgs = document.querySelectorAll('.search-bar-container-bg');
+            bgs.forEach(bg => {
+                bg.style.backgroundColor = 'transparent';
+                bg.style.background = 'transparent';
+            });
 
-            // Also try to target inside shadow DOM if accessible
+            // Target elements in Shadow DOM
             const widget = document.querySelector('hospitable-direct-mps');
             if (widget && widget.shadowRoot) {
-                const shadowBgElement = widget.shadowRoot.querySelector('.search-bar-container-bg');
-                if (shadowBgElement) {
-                    shadowBgElement.style.backgroundColor = 'transparent';
-                    shadowBgElement.style.background = 'transparent';
-                }
+                const shadowBgs = widget.shadowRoot.querySelectorAll('.search-bar-container-bg');
+                shadowBgs.forEach(bg => {
+                    bg.style.backgroundColor = 'transparent';
+                    bg.style.background = 'transparent';
+                });
             }
         };
 
-        // Run the function multiple times to catch when the widget loads
-        const intervalId = setInterval(removeGrayBackground, 500);
-
-        // Also run after script loads
-        script.onload = () => {
-            setTimeout(removeGrayBackground, 1000);
-            setTimeout(removeGrayBackground, 2000);
-            setTimeout(removeGrayBackground, 3000);
-        };
+        // Run frequently to catch when widget renders
+        const intervalId = setInterval(removeGrayBackground, 100);
 
         return () => {
             clearInterval(intervalId);
-            window.removeEventListener('message', handleWidgetMessage);
             if (document.body.contains(script)) {
                 document.body.removeChild(script);
             }

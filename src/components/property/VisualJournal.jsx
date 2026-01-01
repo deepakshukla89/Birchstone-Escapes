@@ -25,10 +25,10 @@ const VisualJournal = () => {
     // Auto-play every 3 seconds
     useEffect(() => {
         const interval = setInterval(() => {
-            handleNext();
+            setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
         }, 3000);
         return () => clearInterval(interval);
-    }, [currentIndex]);
+    }, [images.length]);
 
     // Get the 3 visible images based on current index
     const getVisibleImages = () => {

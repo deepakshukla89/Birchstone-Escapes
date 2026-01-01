@@ -12,23 +12,8 @@ const ContactPage = () => {
         message: '',
     });
 
-    const [status, setStatus] = useState({ type: '', message: '' });
-    const [isLoading, setIsLoading] = useState(false);
+    const [status] = useState({ type: '', message: '' });
     const [errors, setErrors] = useState({});
-
-    const validate = () => {
-        const newErrors = {};
-        if (!formData.name.trim()) newErrors.name = 'Name is required';
-        if (!formData.email.trim()) {
-            newErrors.email = 'Email is required';
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-            newErrors.email = 'Invalid email format';
-        }
-        if (!formData.message.trim()) newErrors.message = 'Message is required';
-
-        setErrors(newErrors);
-        return Object.keys(newErrors).length === 0;
-    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;

@@ -28,7 +28,7 @@ function App() {
           <Route path="/" element={<HomepageScreen />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
-          <Route path="/property/frost-pine-chalet" element={<FrostPineChaletPage />} />
+          <Route path="/property/:id" element={<FrostPineChaletPage />} />
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/search" element={<SearchPage />} />
         </Routes>
