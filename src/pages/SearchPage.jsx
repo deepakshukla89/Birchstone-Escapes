@@ -13,6 +13,33 @@ const SearchPage = () => {
         script.async = true;
         document.body.appendChild(script);
 
+        // Event listener for Hospitable widget redirects
+        const handleWidgetMessage = (event) => {
+            // Log all messages to see what the widget is sending
+            console.log('Widget message received:', event.data);
+
+            // Check if message is from Hospitable widget
+            if (event.data && event.data.hospitable_widget_redirect) {
+                const redirectUrl = event.data.hospitable_widget_redirect;
+                console.log('Redirecting to:', redirectUrl);
+                // Redirect to the Hospitable booking page
+                window.location.href = redirectUrl;
+            }
+        };
+
+        // Add message event listener
+        window.addEventListener('message', handleWidgetMessage);
+
+        // Prevent navigation to /null
+        const preventNullNavigation = (e) => {
+            if (e.target.href && e.target.href.includes('/null')) {
+                e.preventDefault();
+                console.log('Prevented navigation to /null');
+            }
+        };
+
+        document.addEventListener('click', preventNullNavigation, true);
+
         // Function to remove the gray background from Hospitable widget
         const removeGrayBackground = () => {
             // Try to find and modify the element with the gray background
@@ -45,6 +72,7 @@ const SearchPage = () => {
 
         return () => {
             clearInterval(intervalId);
+            window.removeEventListener('message', handleWidgetMessage);
             if (document.body.contains(script)) {
                 document.body.removeChild(script);
             }
