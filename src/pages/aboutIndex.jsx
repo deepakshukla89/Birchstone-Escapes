@@ -20,11 +20,11 @@ const AboutIndex = () => {
             author: "The Miller Family"
         },
         {
-            text: "What sets Birchstone apart is the genuine care you feel. It's not just about the beautiful properties—it's about how they make you feel.",
+            text: "What sets TimbrLux apart is the genuine care you feel. It's not just about the beautiful property—it's about how they make you feel.",
             author: "Rachel K."
         },
         {
-            text: "We've stayed at many vacation rentals, but nothing compares to the Birchstone experience. Truly world-class hospitality.",
+            text: "We've stayed at many vacation rentals, but nothing compares to the TimbrLux experience. Truly world-class hospitality.",
             author: "James & Emily"
         }
     ];
@@ -33,25 +33,25 @@ const AboutIndex = () => {
     const aboutSchema = {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Birchstone Escapes",
-        "description": "At Birchstone Escapes, we believe a great stay is more than a getaway — it's a feeling. Beautifully designed homes, cared for with intention, and hosted with genuine warmth.",
-        "url": "https://birchstoneescapes.com/about",
+        "name": "TimbrLux Stays",
+        "description": "At TimbrLux Stays, we believe a great stay is more than a getaway — it's a feeling. A beautifully designed home, cared for with intention, and hosted with genuine warmth.",
+        "url": "https://timbrluxstays.com/about",
         "founder": {
             "@type": "Person",
             "name": "Vikas"
         },
         "sameAs": [
-            "https://instagram.com/birchstoneescapes",
-            "https://facebook.com/birchstoneescapes"
+            "https://instagram.com/timbrluxstays",
+            "https://facebook.com/timbrluxstays"
         ]
     };
 
     return (
         <>
             <SEOMetaTags
-                title="About Us | Birchstone Escapes"
-                description="At Birchstone Escapes, we believe a great stay is more than a getaway — it's a feeling. Beautifully designed homes, cared for with intention, and hosted with genuine warmth."
-                url="https://birchstoneescapes.com/about"
+                title="About Us | TimbrLux Stays"
+                description="At TimbrLux Stays, we believe a great stay is more than a getaway — it's a feeling. A beautifully designed home, cared for with intention, and hosted with genuine warmth."
+                url="https://timbrluxstays.com/about"
             />
 
             <script

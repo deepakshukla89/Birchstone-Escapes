@@ -15,7 +15,7 @@ const OurPromise = () => {
                     </p>
                     <div className="promise-signature">
                         <span className="signature-line"></span>
-                        <span className="signature-text">The Birchstone Family</span>
+                        <span className="signature-text">The TimbrLux Family</span>
                     </div>
                 </div>
             </div>

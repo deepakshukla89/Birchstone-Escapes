@@ -34,7 +34,7 @@
     font-size: 16px;
     line-height: 23px;
     text-transform: uppercase;
-    color: #ECAE6D;
+    color: var(--color-primary);
 }
 
 .facilities-main-title {
@@ -55,7 +55,7 @@
 .facilities-nav-btn {
     width: 47px;
     height: 24px;
-    border: 1px solid #EB973F;
+    border: 1px solid var(--color-primary);
     border-radius: 52px;
     background: transparent;
     display: flex;
@@ -67,7 +67,7 @@
 }
 
 .facilities-nav-btn:hover {
-    background: rgba(235, 151, 63, 0.1);
+    background: rgba(114, 47, 55, 0.1);
     transform: scale(1.05);
 }
 
@@ -91,7 +91,7 @@
 .facilities-swiper .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
-    background: #EB973F;
+    background: var(--color-primary);
     opacity: 0.3;
     transition: all 0.3s ease;
 }
@@ -136,8 +136,8 @@
 }
 
 .facility-content {
-    background: #FFFDF5;
-    border: 1px solid #FFECAF;
+    background: rgba(114, 47, 55, 0.04);
+    border: 1px solid rgba(114, 47, 55, 0.2);
     border-top: none;
     padding: 20px;
     flex-grow: 1;

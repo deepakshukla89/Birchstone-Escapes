@@ -9,9 +9,9 @@ const MeetHost = () => {
         "jobTitle": "Host & Founder",
         "worksFor": {
             "@type": "Organization",
-            "name": "Birchstone Escapes"
+            "name": "TimbrLux Stays"
         },
-        "description": "Vikas started Birchstone Escapes with a simple goal: to create vacation homes that feel welcoming and easy."
+        "description": "Vikas started TimbrLux Stays with a simple goal: to create a vacation property that feels welcoming and easy."
     };
 
     return (
@@ -33,9 +33,9 @@ const MeetHost = () => {
                         Meet your host :) <span className="host-name-italic">Vikas</span>
                     </h2>
                     <p className="meet-host-description" itemProp="description">
-                        Vikas started Birchstone Escapes with a simple goal: to create vacation homes that feel welcoming and easy, not just places to sleep. He believes the best stays come from thoughtful details and genuine care.
+                        Vikas started TimbrLux Stays with a simple goal: to create a vacation property that feels welcoming and easy, not just a place to sleep. He believes the best stays come from thoughtful details and genuine care.
                         <br /><br />
-                        Guests know him for being responsive, approachable, and committed to keeping property comfortable and well‑maintained. For Vikas, hospitality is about making sure you feel at home — whether you're here to relax, explore, or celebrate.
+                        Guests know him for being responsive, approachable, and committed to keeping the property comfortable and well‑maintained. For Vikas, hospitality is about making sure you feel at home — whether you're here to relax, explore, or celebrate.
                     </p>
                 </div>
 
@@ -44,7 +44,7 @@ const MeetHost = () => {
                     <div className="meet-host-image-bg"></div>
                     <img
                         src="https://picsum.photos/seed/vikas/321/343"
-                        alt="Vikas - Host of Birchstone Escapes"
+                        alt="Vikas - Host of TimbrLux Stays"
                         className="meet-host-image"
                         itemProp="image"
                         loading="lazy"

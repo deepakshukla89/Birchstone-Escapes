@@ -28,16 +28,16 @@ const HomeIndex = () => {
         },
         {
             question: "How do I contact the host?",
-            answer: "You can reach us anytime through the Airbnb messaging system, or via email at hello@birchstoneescapes.com. We typically respond within a few hours."
+            answer: "You can reach us anytime through the Airbnb messaging system, or via email at hello@timbrluxstays.com. We typically respond within a few hours."
         }
     ];
 
     return (
         <>
             <SEOMetaTags
-                title="Birchstone Escapes | Luxury Vacation Rentals"
-                description="At Birchstone Escapes, we believe a great stay is more than a getaway — it's a feeling. Beautifully designed vacation homes hosted with genuine warmth."
-                url="https://birchstoneescapes.com"
+                title="TimbrLux Stays | Luxury Vacation Rentals"
+                description="At TimbrLux Stays, we believe a great stay is more than a getaway — it's a feeling. Beautifully designed vacation home hosted with genuine warmth."
+                url="https://timbrluxstays.com"
             />
 
             <main className="homepage">

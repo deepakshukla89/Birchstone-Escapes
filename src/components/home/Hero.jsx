@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Hero.css';
 
 const Hero = ({
-    title = "Birchstone Escapes",
+    title = "TimbrLux Stays",
     tagline = "The best home experience, blending comfort, style, and serene settings.",
     ctaText = "Plan your escape!",
     ctaLink = "/booking",
@@ -15,9 +15,9 @@ const Hero = ({
         "@type": "LodgingBusiness",
         "name": title,
         "description": tagline,
-        "url": "https://birchstoneescapes.com",
+        "url": "https://timbrluxstays.com",
         "priceRange": "$$$",
-        "@id": "https://birchstoneescapes.com/#organization"
+        "@id": "https://timbrluxstays.com/#organization"
     };
 
     const bgImage = backgroundImage || `${process.env.PUBLIC_URL}/image/homeHeroBg.png`;

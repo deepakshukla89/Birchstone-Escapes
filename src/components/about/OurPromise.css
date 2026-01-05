@@ -1,7 +1,7 @@
 /* Our Promise Section */
 .our-promise-section {
     padding: 120px 0;
-    background: linear-gradient(180deg, #FFFDF5 0%, #FFF8E7 50%, #FFFDF5 100%);
+    background: linear-gradient(180deg, rgba(114, 47, 55, 0.04) 0%, rgba(114, 47, 55, 0.06) 50%, rgba(114, 47, 55, 0.04) 100%);
     text-align: center;
 }
 
@@ -24,7 +24,7 @@
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 4px;
-    color: #ECAE6D;
+    color: var(--color-primary);
 }
 
 .promise-title {
@@ -56,7 +56,7 @@
 .signature-line {
     width: 60px;
     height: 2px;
-    background: #ECAE6D;
+    background: var(--color-primary);
 }
 
 .signature-text {

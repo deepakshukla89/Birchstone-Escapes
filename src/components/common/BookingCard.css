@@ -12,18 +12,17 @@
     padding: 20px;
     max-width: 981px;
     width: 100%;
-    background-color: #FFFDF5;
-    border: 1px solid rgba(235, 151, 63, 0.2);
+    background-color: rgba(114, 47, 55, 0.04);
+    border: 1px solid rgba(114, 47, 55, 0.1);
 }
 
-/* Award Badge Section */
 .booking-card-badge {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 24px 22px;
-    background-color: var(--color-bg);
+    background-color: rgba(114, 47, 55, 0.06);
 }
 
 .badge-rating {

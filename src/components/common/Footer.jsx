@@ -9,9 +9,9 @@ const Footer = () => {
     const organizationSchema = {
         "@context": "https://schema.org",
         "@type": "VacationRental",
-        "name": "Birchstone Escapes",
-        "description": "Beautifully designed vacation homes, cared for with intention, and hosted with genuine warmth.",
-        "url": "https://birchstoneescapes.com",
+        "name": "TimbrLux Stays",
+        "description": "Your cozy mountain retreat awaits. Book direct and save.",
+        "url": "https://timbrluxstays.com",
         "address": {
             "@type": "PostalAddress",
             "addressLocality": "Newry",
@@ -19,9 +19,8 @@ const Footer = () => {
             "addressCountry": "United States"
         },
         "sameAs": [
-            "https://instagram.com/birchstoneescapes",
-            "https://facebook.com/birchstoneescapes",
-            "https://x.com/birchstoneescapes"
+            "https://instagram.com/timbrluxstays",
+            "https://facebook.com/timbrluxstays"
         ]
     };
 
@@ -42,11 +41,10 @@ const Footer = () => {
                 {/* Brand Section */}
                 <div className="footer-brand" itemScope itemType="https://schema.org/Organization">
                     <h2 className="footer-logo" itemProp="name">
-                        Birchstone Escapes
+                        TimbrLux Stays
                     </h2>
                     <p className="footer-description" itemProp="description">
-                        Frost Pine Chalet is a secluded mountain retreat where cozy interiors meet breathtaking views.
-                        Wake up to misty mornings, unwind by the fire, and soak under starry skies—your escape begins here.
+                        Your cozy mountain retreat awaits. Book direct and save.
                     </p>
                 </div>
 
@@ -100,9 +98,8 @@ const Footer = () => {
                     <div className="footer-column">
                         <h3 className="footer-column-title">Follow us</h3>
                         <ul className="footer-column-content footer-links footer-social">
-                            <li><a href="https://instagram.com/birchstoneescapes" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">Instagram</a></li>
-                            <li><a href="https://facebook.com/birchstoneescapes" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">Facebook</a></li>
-                            <li><a href="https://x.com/birchstoneescapes" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X">X</a></li>
+                            <li><a href="https://instagram.com/timbrluxstays" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">Instagram</a></li>
+                            <li><a href="https://facebook.com/timbrluxstays" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">Facebook</a></li>
                         </ul>
                     </div>
                 </div>
@@ -131,9 +128,8 @@ const Footer = () => {
                         <div className="footer-column">
                             <h3 className="footer-column-title">Follow us</h3>
                             <ul className="footer-column-content footer-links">
-                                <li><a href="https://instagram.com/birchstoneescapes" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                                <li><a href="https://facebook.com/birchstoneescapes" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-                                <li><a href="https://x.com/birchstoneescapes" target="_blank" rel="noopener noreferrer">X</a></li>
+                                <li><a href="https://instagram.com/timbrluxstays" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                                <li><a href="https://facebook.com/timbrluxstays" target="_blank" rel="noopener noreferrer">Facebook</a></li>
                             </ul>
                         </div>
                     </div>
@@ -145,7 +141,7 @@ const Footer = () => {
                 {/* Bottom Bar */}
                 <div className="footer-bottom">
                     <p className="footer-copyright">
-                        <small>Copyright {currentYear} Birchstone Escapes</small>
+                        <small>Copyright {currentYear} TimbrLux Stays</small>
                     </p>
 
                     <nav className="footer-legal" aria-label="Legal links">

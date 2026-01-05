@@ -12,7 +12,7 @@ const ExperienceSection = ({
         {
             number: "01",
             title: "Discover",
-            description: "Explore our curated collection of vacation homes",
+            description: "Explore our premium mountain retreat",
             icon: "search"
         },
         {

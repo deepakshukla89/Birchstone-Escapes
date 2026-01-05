@@ -59,7 +59,7 @@
     line-height: 23px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #ECAE6D;
+    color: var(--color-primary);
 }
 
 .about-hero-title {

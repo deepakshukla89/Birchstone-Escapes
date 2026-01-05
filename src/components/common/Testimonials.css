@@ -4,9 +4,9 @@
     width: 100%;
     min-height: 547px;
     padding: 109px 20px;
-    background: rgba(255, 253, 248, 0.8);
-    border-top: 1px solid #FFECAF;
-    border-bottom: 1px solid #FFECAF;
+    background: rgba(114, 47, 55, 0.05);
+    border-top: 1px solid rgba(114, 47, 55, 0.1);
+    border-bottom: 1px solid rgba(114, 47, 55, 0.1);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -157,7 +157,7 @@
 
 /* Completed slides - fully filled */
 .testimonials-dot.completed {
-    background-color: #ECAE6D;
+    background-color: #722F37;
 }
 
 /* Animated Progress Fill */
@@ -167,7 +167,7 @@
     left: 0;
     height: 100%;
     width: 0;
-    background-color: #ECAE6D;
+    background-color: #722F37;
     animation: progressFill linear forwards;
 }
 
@@ -182,7 +182,7 @@
 }
 
 .testimonials-dot:hover {
-    background-color: rgba(236, 174, 109, 0.3);
+    background-color: rgba(114, 47, 55, 0.3);
 }
 
 /* ===== Mobile Responsive ===== */

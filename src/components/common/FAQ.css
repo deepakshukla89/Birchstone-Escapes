@@ -23,7 +23,7 @@
     font-size: 16px;
     font-weight: 600;
     text-transform: uppercase;
-    color: #ECAE6D;
+    color: var(--color-primary);
 }
 
 .faq-title {
@@ -43,8 +43,8 @@
 
 /* FAQ Item - Default no radius */
 .faq-item {
-    background-color: #FFFDF5;
-    border-bottom: 1px solid rgba(236, 174, 109, 0.3);
+    background-color: rgba(114, 47, 55, 0.04);
+    border-bottom: 1px solid rgba(114, 47, 55, 0.1);
     border-radius: 0;
 }
 

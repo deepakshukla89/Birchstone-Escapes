@@ -44,9 +44,9 @@ const SearchPage = () => {
     return (
         <>
             <SEOMetaTags
-                title="Search Results | Birchstone Escapes"
-                description="Browse available properties at Birchstone Escapes based on your search criteria."
-                url="https://birchstoneescapes.com/search"
+                title="Search Results | TimbrLux Stays"
+                description="Browse our available property at TimbrLux Stays based on your search criteria."
+                url="https://timbrluxstays.com/search"
             />
 
             <main className="search-page">

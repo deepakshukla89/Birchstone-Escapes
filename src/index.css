@@ -1,10 +1,11 @@
 /* ===== CSS Variables ===== */
 :root {
-  --color-primary: #EB973F;
-  --color-primary-dark: #d4862f;
-  --color-primary-light: #f5a94f;
-  --color-bg: #FFFAEA;
-  --color-bg-secondary: #FFF5D6;
+  --color-primary: #722F37;
+  --color-primary-dark: #5a252c;
+  --color-primary-light: #8b3a42;
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #F8F8F8;
+  --color-bg-tint: rgba(114, 47, 55, 0.05);
   --color-black: #1A1A1A;
   --color-gray: #666666;
   --color-gray-light: #999999;
@@ -217,7 +218,7 @@ textarea:focus,
 select:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(235, 151, 63, 0.1);
+  box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.1);
 }
 
 /* ===== Responsive ===== */

@@ -218,9 +218,9 @@ const PropertyIndex = () => {
     return (
         <>
             <SEOMetaTags
-                title={`${property.name} | Birchstone Escapes`}
+                title={`${property.name} | TimbrLux Stays`}
                 description={property.description}
-                url={`https://birchstoneescapes.com/property/frost-pine-chalet`}
+                url={`https://timbrluxstays.com/property/frost-pine-chalet`}
             />
 
             <main className="property-page">

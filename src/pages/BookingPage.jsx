@@ -72,7 +72,7 @@ const BookingPage = () => {
         },
         {
             question: "What are the benefits of booking directly?",
-            answer: "Booking directly with Birchstone Escapes means no corporate surcharges, direct communication with our team, access to exclusive offers, and a straightforward booking process."
+            answer: "Booking directly with TimbrLux Stays means no corporate surcharges, direct communication with our team, access to exclusive offers, and a straightforward booking process."
         },
         {
             question: "Can I cancel or modify my booking?",
@@ -87,9 +87,9 @@ const BookingPage = () => {
     return (
         <>
             <SEOMetaTags
-                title="Book Your Stay | Birchstone Escapes"
-                description="Book your luxury vacation rental directly with Birchstone Escapes. No corporate fees, best rates guaranteed."
-                url="https://birchstoneescapes.com/booking"
+                title="Book Your Stay | TimbrLux Stays"
+                description="Book your luxury vacation rental directly with TimbrLux Stays. No corporate fees, best rates guaranteed."
+                url="https://timbrluxstays.com/booking"
             />
 
             <main className="booking-page">
@@ -106,9 +106,9 @@ const BookingPage = () => {
                         {/* Message Card */}
                         <div className="booking-message-card">
                             <div className="booking-message-text">
-                                <h1 className="booking-title">Your stay matters more than corporate fees.</h1>
+                                <h1 className="booking-title">Your stay matters.</h1>
                                 <p className="booking-subtitle">
-                                    By booking directly with Birchstone Escapes, you avoid the surcharges that third-party platforms add on.
+                                    By booking directly with TimbrLux Stays, you avoid the surcharges that third-party platforms add on.
                                     What you get instead: genuine conversations with our team, access to special offers, and a straightforward booking experience.
                                     Same quality escape, better price.
                                 </p>
@@ -145,7 +145,7 @@ const BookingPage = () => {
                                                 moveRangeOnFirstSelection={false}
                                                 ranges={dateRange}
                                                 minDate={new Date()}
-                                                rangeColors={['#EB973F']}
+                                                rangeColors={['#722F37']}
                                             />
                                         </div>
                                     )}

@@ -52,11 +52,11 @@ const HowToBook = ({
         "@type": "LodgingReservation",
         "reservationFor": {
             "@type": "LodgingBusiness",
-            "name": "Birchstone Escapes"
+            "name": "TimbrLux Stays"
         },
         "potentialAction": [
-            { "@type": "BookAction", "target": "https://airbnb.com/birchstoneescapes", "name": "Book on Airbnb" },
-            { "@type": "BookAction", "target": "https://vrbo.com/birchstoneescapes", "name": "Book on VRBO" },
+            { "@type": "BookAction", "target": "https://airbnb.com/timbrluxstays", "name": "Book on Airbnb" },
+            { "@type": "BookAction", "target": "https://vrbo.com/timbrluxstays", "name": "Book on VRBO" },
             { "@type": "BookAction", "target": "/booking", "name": "Book on Website" }
         ]
     };
@@ -90,19 +90,19 @@ const HowToBook = ({
                     {/* Row 1: b2 image | Airbnb */}
                     <div className="how-to-book-row how-to-book-row-1">
                         <BookingOptionCard isImageCard imageSrc={b2} />
-                        <BookingOptionCard label="Book on" platform="Airbnb" link="https://airbnb.com/birchstoneescapes" />
+                        <BookingOptionCard label="Book on" platform="Airbnb" link="https://airbnb.com/timbrluxstays" />
                     </div>
 
                     {/* Row 2: VRBO | b1 image */}
                     <div className="how-to-book-row how-to-book-row-2">
-                        <BookingOptionCard label="Book on" platform="VRBO" link="https://vrbo.com/birchstoneescapes" />
+                        <BookingOptionCard label="Book on" platform="VRBO" link="https://vrbo.com/timbrluxstays" />
                         <BookingOptionCard isImageCard imageSrc={b1} />
                     </div>
 
                     {/* Row 3: b3 image | Website */}
                     <div className="how-to-book-row how-to-book-row-3">
                         <BookingOptionCard isImageCard imageSrc={b3} />
-                        <BookingOptionCard label="Book direct & Save(15%)" platform="Website" link="/booking" />
+                        <BookingOptionCard label="Book direct & save" platform="Website" link="/booking" />
                     </div>
                 </div>
             </div>

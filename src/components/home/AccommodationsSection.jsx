@@ -4,7 +4,7 @@ import './AccommodationsSection.css';
 
 const AccommodationsSection = ({
     label = "Accommodations",
-    title = "Escapes of Birchstone Escapes",
+    title = "The Chalet",
     property = null
 }) => {
     // Default property

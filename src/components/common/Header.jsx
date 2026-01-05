@@ -9,6 +9,7 @@ const Header = () => {
     const navLinks = [
         { path: '/', label: 'Home' },
         { path: '/about', label: 'About' },
+        { path: '/property/frost-pine-chalet', label: 'The Chalet' },
         { path: '/contact', label: 'Contact us' },
     ];
 
@@ -30,10 +31,10 @@ const Header = () => {
                     className="logo"
                     itemScope
                     itemType="https://schema.org/Organization"
-                    aria-label="Birchstone Escapes - Home"
+                    aria-label="TimbrLux Stays - Home"
                 >
-                    <span itemProp="name">BIRCHSTONE ESCAPES</span>
-                    <meta itemProp="url" content="https://birchstoneescapes.com" />
+                    <span itemProp="name">TIMBRLUX STAYS</span>
+                    <meta itemProp="url" content="https://timbrluxstays.com" />
                 </Link>
 
                 {/* Navigation with SiteNavigationElement schema */}

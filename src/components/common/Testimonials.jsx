@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './Testimonials.css';
 
-const Testimonials = ({ testimonials = [], autoPlayInterval = 3000 }) => {
+const Testimonials = ({ testimonials = [], autoPlayInterval = 8000 }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [key, setKey] = useState(0); // Key for animation restart
 
@@ -9,23 +9,23 @@ const Testimonials = ({ testimonials = [], autoPlayInterval = 3000 }) => {
     const defaultTestimonials = [
         {
             text: "Such a beautiful, warm, welcoming house! Has everything you need for a relaxing mountain or ski getaway! We absolutely would come back and just lovedddd this house! Host was easy to reach, answered any questions quickly, check in was easy!",
-            author: "John Doe"
+            author: "John D."
         },
         {
             text: "An absolutely stunning property with breathtaking views. The attention to detail was remarkable and the host went above and beyond to make our stay special. Highly recommend!",
-            author: "Sarah Smith"
+            author: "Sarah S."
         },
         {
             text: "Perfect getaway spot! The home was spotless, beautifully decorated, and had all the amenities we needed. Can't wait to come back!",
-            author: "Mike Johnson"
+            author: "Mike J."
         },
         {
             text: "We had the most amazing family vacation here. The kids loved it and so did we. Everything was perfect from start to finish.",
-            author: "Emily Brown"
+            author: "Emily B."
         },
         {
             text: "This place exceeded all our expectations. The photos don't do it justice - it's even more beautiful in person!",
-            author: "David Wilson"
+            author: "David W."
         }
     ];
 
@@ -59,7 +59,7 @@ const Testimonials = ({ testimonials = [], autoPlayInterval = 3000 }) => {
     const reviewSchema = {
         "@context": "https://schema.org",
         "@type": "Product",
-        "name": "Birchstone Escapes Vacation Rental",
+        "name": "TimbrLux Stays Vacation Rental",
         "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5",

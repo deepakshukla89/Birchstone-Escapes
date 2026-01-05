@@ -9,7 +9,7 @@ const OurPhilosophy = () => {
                 <div className="philosophy-quote-wrapper">
                     <span className="philosophy-quote-mark">"</span>
                     <blockquote className="philosophy-quote">
-                        Birchstone Escapes was created with a simple vision: beautifully designed homes, cared for with intention, and hosted with genuine warmth.
+                        TimbrLux Stays was created with a simple vision: a beautifully designed property, cared for with intention, and hosted with genuine warmth.
                     </blockquote>
                 </div>
 

@@ -26,7 +26,7 @@
     line-height: 23px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #ECAE6D;
+    color: var(--color-primary);
 }
 
 .contact-hero-title {
@@ -51,7 +51,7 @@
 /* Contact Content Section */
 .contact-content-section {
     padding: 100px 0;
-    background: linear-gradient(135deg, #FFFDF5 0%, #FFF8E7 100%);
+    background: linear-gradient(135deg, rgba(114, 47, 55, 0.04) 0%, rgba(114, 47, 55, 0.06) 100%);
 }
 
 .contact-content-container {
@@ -89,7 +89,7 @@
 .info-icon-wrapper {
     width: 48px;
     height: 48px;
-    background-color: #ECAE6D;
+    background-color: var(--color-primary);
     color: #ffffff;
     border-radius: 8px;
     display: flex;
@@ -122,7 +122,7 @@
 }
 
 .contact-info-text a:hover {
-    color: #ECAE6D;
+    color: var(--color-primary);
 }
 
 /* Right: Form Side */
@@ -180,8 +180,8 @@
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #ECAE6D;
-    box-shadow: 0 0 0 3px rgba(236, 174, 109, 0.15);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.15);
 }
 
 .form-group input.error,
@@ -202,7 +202,7 @@
     font-family: 'Jost', sans-serif;
     font-weight: 500;
     font-size: 16px;
-    background-color: #ECAE6D;
+    background-color: var(--color-primary);
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -211,7 +211,7 @@
 }
 
 .btn-submit-contact:hover {
-    background-color: #d4933e;
+    background-color: var(--color-primary-dark);
 }
 
 .btn-submit-contact:disabled {

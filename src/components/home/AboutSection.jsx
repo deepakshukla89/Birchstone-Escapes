@@ -3,13 +3,13 @@ import './AboutSection.css';
 
 const AboutSection = ({
     label = "About Us",
-    title = "Birchstone Escapes",
-    shortDescription = "At Birchstone Escapes, we believe a great stay is more than a getaway — it's a feeling. A sense of calm the moment you walk in. A space that feels intentionally designed yet effortlessly comfortable.",
-    fullDescription = `At Birchstone Escapes, we believe a great stay is more than a getaway — it's a feeling. A sense of calm the moment you walk in. A space that feels intentionally designed yet effortlessly comfortable. A home where every detail has been considered so you can simply arrive, breathe, and enjoy.
+    title = "TimbrLux Stays",
+    shortDescription = "At TimbrLux Stays, we believe a great stay is more than a getaway — it's a feeling. A sense of calm the moment you walk in. A space that feels intentionally designed yet effortlessly comfortable.",
+    fullDescription = `At TimbrLux Stays, we believe a great stay is more than a getaway — it's a feeling. A sense of calm the moment you walk in. A space that feels intentionally designed yet effortlessly comfortable. A home where every detail has been considered so you can simply arrive, breathe, and enjoy.
 
-Birchstone Escapes was created with a simple vision: beautifully designed home, cared for with intention, and hosted with genuine warmth.
+TimbrLux Stays was created with a simple vision: a beautifully designed property, cared for with intention, and hosted with genuine warmth.
 
-Whether you're here for adventure, celebration, or a peaceful reset, our mission is simple: to create stays that feel unforgettable, effortless, and deeply comforting.
+Whether you're here for adventure, celebration, or a peaceful reset, our mission is simple: to create a stay that feels unforgettable, effortless, and deeply comforting.
 
 We're honored to be part of your travel story — and we can't wait to welcome you.`,
     stats = []
@@ -31,9 +31,9 @@ We're honored to be part of your travel story — and we can't wait to welcome y
         "@type": "AboutPage",
         "mainEntity": {
             "@type": "LodgingBusiness",
-            "name": "Birchstone Escapes",
+            "name": "TimbrLux Stays",
             "description": fullDescription,
-            "url": "https://birchstoneescapes.com",
+            "url": "https://timbrluxstays.com",
             "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "5.0",
@@ -111,7 +111,7 @@ We're honored to be part of your travel story — and we can't wait to welcome y
                     {/* Decorative Line */}
                     <div className="about-line" aria-hidden="true">
                         <span className="about-line-bar" />
-                        <span className="about-line-text">Est. 2024</span>
+                        <span className="about-line-text">Est. 2025</span>
                     </div>
                 </div>
             </div>

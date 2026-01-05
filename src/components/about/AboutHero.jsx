@@ -19,10 +19,10 @@ const AboutHero = () => {
             <div className="about-hero-container">
                 <span className="about-hero-label">ABOUT US</span>
                 <h1 id="about-hero-title" className="about-hero-title">
-                    Birchstone Escapes
+                    TimbrLux Stays
                 </h1>
                 <p className="about-hero-description">
-                    At Birchstone Escapes, we believe a great stay is more than a getaway — it's a feeling. A sense of calm the moment you walk in. A space that feels intentionally designed yet effortlessly comfortable. A home where every detail has been considered so you can simply arrive, breathe, and enjoy.
+                    At TimbrLux Stays, we believe a great stay is more than a getaway — it's a feeling. A sense of calm the moment you walk in. A space that feels intentionally designed yet effortlessly comfortable. A home where every detail has been considered so you can simply arrive, breathe, and enjoy.
                 </p>
             </div>
         </section>

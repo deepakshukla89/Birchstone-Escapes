@@ -1,7 +1,7 @@
 /* What We Offer Section */
 .what-we-offer-section {
     padding: 100px 0;
-    background-color: #FFFDF5;
+    background-color: rgba(114, 47, 55, 0.04);
 }
 
 .offer-container {
@@ -24,7 +24,7 @@
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: #ECAE6D;
+    color: var(--color-primary);
     display: block;
     margin-bottom: 16px;
 }
@@ -66,7 +66,7 @@
 .offer-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border-color: #ECAE6D;
+    border-color: var(--color-primary);
 }
 
 .offer-icon {
@@ -78,13 +78,13 @@
     height: 80px;
     margin-left: auto;
     margin-right: auto;
-    background: rgba(236, 174, 109, 0.1);
+    background: rgba(114, 47, 55, 0.1);
     border-radius: 50%;
     transition: all 0.3s ease;
 }
 
 .offer-card:hover .offer-icon {
-    background: rgba(236, 174, 109, 0.2);
+    background: rgba(114, 47, 55, 0.2);
     transform: scale(1.1);
 }
 

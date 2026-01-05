@@ -80,24 +80,9 @@ const FeaturesSection = ({
             description: 'Cook your favorite meals with premium appliances and cookware.'
         },
         {
-            icon: 'view',
-            title: 'Stunning Views',
-            description: 'Wake up to breathtaking mountain and nature views every morning.'
-        },
-        {
-            icon: 'fireplace',
-            title: 'Cozy Fireplace',
-            description: 'Relax by the fire after a day of adventure or relaxation.'
-        },
-        {
             icon: 'parking',
             title: 'Free Parking',
             description: 'Convenient and secure parking right at the property.'
-        },
-        {
-            icon: 'pet',
-            title: 'Pet Friendly',
-            description: 'Your furry friends are welcome at select properties.'
         }
     ];
 

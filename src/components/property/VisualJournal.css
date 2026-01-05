@@ -34,7 +34,7 @@
     font-size: 16px;
     line-height: 23px;
     text-transform: uppercase;
-    color: #ECAE6D;
+    color: var(--color-primary);
 }
 
 .journal-main-title {
@@ -55,7 +55,7 @@
 .journal-nav-btn {
     width: 47px;
     height: 24px;
-    border: 1px solid #EB973F;
+    border: 1px solid var(--color-primary);
     border-radius: 52px;
     background: transparent;
     display: flex;
@@ -66,7 +66,7 @@
 }
 
 .journal-nav-btn:hover {
-    background: rgba(235, 151, 63, 0.1);
+    background: rgba(114, 47, 55, 0.1);
 }
 
 /* Stacked Images Container */

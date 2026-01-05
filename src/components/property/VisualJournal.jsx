@@ -44,7 +44,7 @@ const VisualJournal = () => {
     const gallerySchema = {
         "@context": "https://schema.org",
         "@type": "ImageGallery",
-        "name": "Visual Journal - Birchstone Escapes",
+        "name": "Visual Journal - TimbrLux Stays",
         "description": "A visual journey through the lifestyle and atmosphere of our property.",
         "image": images.map(img => img.url)
     };
@@ -76,8 +76,8 @@ const VisualJournal = () => {
                             aria-label="Previous image"
                         >
                             <svg width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16 1H0" stroke="#EB973F" strokeWidth="1.5" />
-                                <path d="M4 0L0 1L4 2" stroke="#EB973F" strokeWidth="1.5" />
+                                <path d="M16 1H0" stroke="#722F37" strokeWidth="1.5" />
+                                <path d="M4 0L0 1L4 2" stroke="#722F37" strokeWidth="1.5" />
                             </svg>
                         </button>
                         <button
@@ -86,8 +86,8 @@ const VisualJournal = () => {
                             aria-label="Next image"
                         >
                             <svg width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 1H16" stroke="#EB973F" strokeWidth="1.5" />
-                                <path d="M12 0L16 1L12 2" stroke="#EB973F" strokeWidth="1.5" />
+                                <path d="M0 1H16" stroke="#722F37" strokeWidth="1.5" />
+                                <path d="M12 0L16 1L12 2" stroke="#722F37" strokeWidth="1.5" />
                             </svg>
                         </button>
                     </div>

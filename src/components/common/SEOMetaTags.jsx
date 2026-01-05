@@ -1,16 +1,16 @@
 import { Helmet } from 'react-helmet';
 
 const SEOMetaTags = ({
-    title = "Birchstone Escapes",
-    description = "Beautifully designed vacation homes, cared for with intention, and hosted with genuine warmth. Experience stays that feel unforgettable, effortless, and deeply comforting.",
-    keywords = "vacation rentals, luxury stays, vacation homes, Birchstone Escapes, getaway, travel, accommodation",
+    title = "TimbrLux Stays",
+    description = "At TimbrLux Stays, we believe a great stay is more than a getaway — it's a feeling. Beautifully designed vacation home hosted with genuine warmth.",
+    keywords = "vacation rentals, luxury stays, vacation homes, TimbrLux Stays, getaway, travel, accommodation",
     image = "/image/og-image.jpg",
-    url = "https://birchstoneescapes.com",
+    url = "https://timbrluxstays.com",
     type = "website"
 }) => {
-    const fullTitle = title === "Birchstone Escapes"
+    const fullTitle = title === "TimbrLux Stays"
         ? title
-        : `${title} | Birchstone Escapes`;
+        : `${title} | TimbrLux Stays`;
 
     return (
         <Helmet>

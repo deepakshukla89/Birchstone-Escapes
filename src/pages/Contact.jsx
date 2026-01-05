@@ -12,8 +12,47 @@ const ContactPage = () => {
         message: '',
     });
 
-    const [status] = useState({ type: '', message: '' });
+    const [status, setStatus] = useState({ type: '', message: '' });
     const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // Validation functions
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const validatePhone = (phone) => {
+        if (!phone) return true; // Phone is optional
+        // Accepts formats like: +1 (555) 123-4567, 555-123-4567, 5551234567, etc.
+        const phoneRegex = /^[\+]?[(]?[0-9]{1,3}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,9}$/;
+        return phoneRegex.test(phone.replace(/\s/g, ''));
+    };
+
+    const validate = () => {
+        const newErrors = {};
+
+        if (!formData.name.trim()) {
+            newErrors.name = 'Full name is required';
+        }
+
+        if (!formData.email.trim()) {
+            newErrors.email = 'Email address is required';
+        } else if (!validateEmail(formData.email)) {
+            newErrors.email = 'Please enter a valid email address';
+        }
+
+        if (formData.phone && !validatePhone(formData.phone)) {
+            newErrors.phone = 'Please enter a valid phone number';
+        }
+
+        if (!formData.message.trim()) {
+            newErrors.message = 'Message is required';
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,19 +62,35 @@ const ContactPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Form is disabled
-        return;
+
+        if (!validate()) {
+            return;
+        }
+
+        setIsSubmitting(true);
+
+        // Simulate form submission (replace with actual API call)
+        try {
+            // TODO: Add actual form submission logic here
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            setStatus({ type: 'success', message: 'Thank you! Your message has been sent. We\'ll get back to you soon.' });
+            setFormData({ name: '', email: '', phone: '', dates: '', message: '' });
+        } catch (error) {
+            setStatus({ type: 'error', message: 'Something went wrong. Please try again.' });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     // Schema.org structured data for SEO & AEO
     const contactSchema = {
         "@context": "https://schema.org",
         "@type": "ContactPage",
-        "name": "Contact Us - Birchstone Escapes",
-        "description": "Get in touch with Birchstone Escapes for luxury vacation rental inquiries.",
+        "name": "Contact Us - TimbrLux Stays",
+        "description": "Get in touch with TimbrLux Stays for luxury vacation rental inquiries.",
         "mainEntity": {
             "@type": "LodgingBusiness",
-            "name": "Birchstone Escapes",
+            "name": "TimbrLux Stays",
             "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Newry",
@@ -43,17 +98,17 @@ const ContactPage = () => {
                 "addressCountry": "US"
             },
             "telephone": "+1 (555) 247-2478",
-            "email": "hello@birchstoneescapes.com",
-            "url": "https://birchstoneescapes.com"
+            "email": "hello@timbrluxstays.com",
+            "url": "https://timbrluxstays.com"
         }
     };
 
     return (
         <>
             <SEOMetaTags
-                title="Contact Us | Birchstone Escapes"
-                description="Have questions about your stay? Get in touch with Birchstone Escapes. We're here to help you plan your perfect getaway."
-                url="https://birchstoneescapes.com/contact"
+                title="Contact Us | TimbrLux Stays"
+                description="Have questions about your stay? Get in touch with TimbrLux Stays. We're here to help you plan your perfect getaway."
+                url="https://timbrluxstays.com/contact"
             />
 
             <script
@@ -89,7 +144,7 @@ const ContactPage = () => {
                                 </div>
                                 <h3 className="contact-info-title">Email</h3>
                                 <p className="contact-info-text">
-                                    <a href="mailto:hello@birchstoneescapes.com">hello@birchstoneescapes.com</a>
+                                    <a href="mailto:hello@timbrluxstays.com">hello@timbrluxstays.com</a>
                                 </p>
                             </article>
 
@@ -105,7 +160,7 @@ const ContactPage = () => {
                                 </p>
                             </article>
 
-                            <article className="contact-info-card">
+                            <article className="contact-info-card contact-info-card-map">
                                 <div className="info-icon-wrapper">
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
@@ -116,6 +171,19 @@ const ContactPage = () => {
                                 <p className="contact-info-text">
                                     Newry, Maine — Near Sunday River
                                 </p>
+                                {/* Google Maps Embed */}
+                                <div className="contact-map-embed">
+                                    <iframe
+                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45764.34566595374!2d-70.88693671640624!3d44.46055899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb3d77f2f1ecb27%3A0x9b94c72c9e7a8d6f!2sNewry%2C%20ME!5e0!3m2!1sen!2sus!4v1704476400000!5m2!1sen!2sus"
+                                        width="100%"
+                                        height="200"
+                                        style={{ border: 0, borderRadius: '8px', marginTop: '12px' }}
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        title="TimbrLux Stays Location - Newry, Maine"
+                                    ></iframe>
+                                </div>
                             </article>
 
                         </div>
@@ -180,7 +248,9 @@ const ContactPage = () => {
                                             placeholder="+1 (xxx) xxx-xxxx"
                                             value={formData.phone}
                                             onChange={handleChange}
+                                            className={errors.phone ? 'error' : ''}
                                         />
+                                        {errors.phone && <span className="error-text">{errors.phone}</span>}
                                     </div>
 
                                     <div className="form-group">
@@ -213,9 +283,9 @@ const ContactPage = () => {
                                 <button
                                     type="submit"
                                     className="btn-submit-contact"
-                                    disabled={true}
+                                    disabled={isSubmitting}
                                 >
-                                    Send Inquiry (Disabled)
+                                    {isSubmitting ? 'Sending...' : 'Send Inquiry'}
                                 </button>
                             </form>
                         </div>
