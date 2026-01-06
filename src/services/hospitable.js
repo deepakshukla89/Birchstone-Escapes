@@ -1,25 +1,13 @@
-/**
- * Hospitable API Service
- * Professional service layer for Hospitable API interactions
- */
-
-const getHeaders = () => {
-    const API_KEY = process.env.REACT_APP_HOSPITAL_API_KEY;
-    if (!API_KEY) throw new Error('Hospitable API Key not found');
-
-    return {
-        'Authorization': `Bearer ${API_KEY}`,
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-    };
-};
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
 
 // 1. Property Details
 export const fetchPropertyDetails = async (propertyId) => {
     try {
-        const response = await fetch(`/api/hospitable/v2/properties/${propertyId}`, {
+        const response = await fetch(`${API_BASE_URL}/hospitable/properties/${propertyId}`, {
             method: 'GET',
-            headers: getHeaders()
+            headers: {
+                'Accept': 'application/json'
+            }
         });
         if (!response.ok) throw new Error(`Property Details API Error: ${response.status}`);
         return await response.json();
@@ -32,10 +20,11 @@ export const fetchPropertyDetails = async (propertyId) => {
 // 2. Property Images
 export const fetchPropertyImages = async (propertyId) => {
     try {
-        console.log(`Fetching images for: ${propertyId}`);
-        const response = await fetch(`/api/hospitable/v2/properties/${propertyId}/images`, {
+        const response = await fetch(`${API_BASE_URL}/hospitable/properties/${propertyId}/images`, {
             method: 'GET',
-            headers: getHeaders()
+            headers: {
+                'Accept': 'application/json'
+            }
         });
         if (!response.ok) throw new Error(`Property Images API Error: ${response.status}`);
         return await response.json();
@@ -46,13 +35,15 @@ export const fetchPropertyImages = async (propertyId) => {
 };
 
 /**
- * Combined review fetcher for property reviews (more common for general dashboards)
+ * Combined review fetcher for property reviews
  */
 export const fetchPropertyReviews = async (propertyId) => {
     try {
-        const response = await fetch(`/api/hospitable/v2/properties/${propertyId}/reviews`, {
+        const response = await fetch(`${API_BASE_URL}/hospitable/properties/${propertyId}/reviews`, {
             method: 'GET',
-            headers: getHeaders()
+            headers: {
+                'Accept': 'application/json'
+            }
         });
         if (!response.ok) return null;
         return await response.json();

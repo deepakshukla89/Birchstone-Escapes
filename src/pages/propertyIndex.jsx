@@ -23,7 +23,7 @@ const PropertyIndex = () => {
     const location = useLocation();
 
     const loadApiDashboard = async () => {
-        const PROPERTY_ID = process.env.REACT_APP_PROPERTY_ID || 'b7dfbe61-90ef-438c-9f65-11f60f759af3';
+        const PROPERTY_ID = process.env.REACT_APP_PROPERTY_ID;
         setIsLoading(true);
         setError(null);
 
