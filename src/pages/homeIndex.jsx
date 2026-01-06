@@ -27,7 +27,7 @@ const HomeIndex = () => {
         },
         {
             question: "How do I contact the host?",
-            answer: "You can reach us anytime through the Airbnb messaging system, or via email at hello@timbrluxstays.com. We typically respond within a few hours."
+            answer: "You can reach us anytime through the TimbrLux Stays messaging system, or via email at hello@timbrluxstays.com.We typically respond within a few hours."
         }
     ];
 
