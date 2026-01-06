@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './VisualJournal.css';
 
-const VisualJournal = () => {
-    // Dummy data: 20 images
-    const images = Array.from({ length: 20 }, (_, i) => ({
-        id: i + 1,
-        url: `https://picsum.photos/seed/journal${i + 1}/800/600`,
-        alt: `Visual Journal Image ${i + 1}`
+const VisualJournal = ({ images: apiImages = [], isLoading = false }) => {
+    // Process API images
+    const images = apiImages.map((img, i) => ({
+        id: img.id || i,
+        url: img.url || img.thumbnail_url,
+        alt: img.caption || `Property image ${i + 1}`
     }));
 
     // Track the current first image index
@@ -14,52 +14,45 @@ const VisualJournal = () => {
 
     // Navigate to previous
     const handlePrev = () => {
+        if (images.length === 0) return;
         setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
     };
 
     // Navigate to next
     const handleNext = () => {
+        if (images.length === 0) return;
         setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
     };
 
     // Auto-play every 3 seconds
     useEffect(() => {
+        if (images.length <= 1) return;
         const interval = setInterval(() => {
             setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
         }, 3000);
         return () => clearInterval(interval);
     }, [images.length]);
 
-    // Get the 3 visible images based on current index
+    // Get visible images with safety checks
     const getVisibleImages = () => {
+        if (isLoading || images.length === 0) return [null, null, null];
+
         const first = images[currentIndex];
-        const second = images[(currentIndex + 1) % images.length];
-        const third = images[(currentIndex + 2) % images.length];
+        const second = images.length > 1 ? images[(currentIndex + 1) % images.length] : first;
+        const third = images.length > 2 ? images[(currentIndex + 2) % images.length] : second;
+
         return [first, second, third];
     };
 
     const [firstImg, secondImg, thirdImg] = getVisibleImages();
 
-    // SEO Schema for ImageGallery
-    const gallerySchema = {
-        "@context": "https://schema.org",
-        "@type": "ImageGallery",
-        "name": "Visual Journal - TimbrLux Stays",
-        "description": "A visual journey through the lifestyle and atmosphere of our property.",
-        "image": images.map(img => img.url)
-    };
+    if (!isLoading && images.length === 0) return null;
 
     return (
         <section
             className="visual-journal-section"
             aria-labelledby="journal-title"
         >
-            {/* SEO Structured Data */}
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(gallerySchema) }}
-            />
-
             <div className="journal-container">
                 {/* Header Area */}
                 <div className="journal-header">
@@ -69,65 +62,64 @@ const VisualJournal = () => {
                     </div>
 
                     {/* Navigation Arrows */}
-                    <div className="journal-nav">
-                        <button
-                            className="journal-nav-btn prev"
-                            onClick={handlePrev}
-                            aria-label="Previous image"
-                        >
-                            <svg width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16 1H0" stroke="#722F37" strokeWidth="1.5" />
-                                <path d="M4 0L0 1L4 2" stroke="#722F37" strokeWidth="1.5" />
-                            </svg>
-                        </button>
-                        <button
-                            className="journal-nav-btn next"
-                            onClick={handleNext}
-                            aria-label="Next image"
-                        >
-                            <svg width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M0 1H16" stroke="#722F37" strokeWidth="1.5" />
-                                <path d="M12 0L16 1L12 2" stroke="#722F37" strokeWidth="1.5" />
-                            </svg>
-                        </button>
-                    </div>
+                    {!isLoading && images.length > 1 && (
+                        <div className="journal-nav">
+                            <button
+                                className="journal-nav-btn prev"
+                                onClick={handlePrev}
+                                aria-label="Previous image"
+                            >
+                                <svg width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16 1H0" stroke="#722F37" strokeWidth="1.5" />
+                                    <path d="M4 0L0 1L4 2" stroke="#722F37" strokeWidth="1.5" />
+                                </svg>
+                            </button>
+                            <button
+                                className="journal-nav-btn next"
+                                onClick={handleNext}
+                                aria-label="Next image"
+                            >
+                                <svg width="16" height="2" viewBox="0 0 16 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 1H16" stroke="#722F37" strokeWidth="1.5" />
+                                    <path d="M12 0L16 1L12 2" stroke="#722F37" strokeWidth="1.5" />
+                                </svg>
+                            </button>
+                        </div>
+                    )}
                 </div>
 
                 {/* Stacked Images Container */}
                 <div className="journal-stack">
-                    {/* 3rd Image - Fully grayscale, back */}
-                    <div className="journal-card journal-card-third">
-                        <img
-                            src={thirdImg.url}
-                            alt={thirdImg.alt}
-                            className="journal-img"
-                            loading="lazy"
-                        />
-                    </div>
-
-                    {/* 2nd Image - 50% grayscale, middle */}
-                    <div className="journal-card journal-card-second">
-                        <img
-                            src={secondImg.url}
-                            alt={secondImg.alt}
-                            className="journal-img"
-                            loading="lazy"
-                        />
-                    </div>
-
-                    {/* 1st Image - Full color, front */}
-                    <div className="journal-card journal-card-first">
-                        <img
-                            src={firstImg.url}
-                            alt={firstImg.alt}
-                            className="journal-img"
-                            loading="lazy"
-                        />
-                    </div>
+                    {isLoading ? (
+                        <>
+                            <div className="journal-card journal-card-third skeleton-shimmer"></div>
+                            <div className="journal-card journal-card-second skeleton-shimmer"></div>
+                            <div className="journal-card journal-card-first skeleton-shimmer"></div>
+                        </>
+                    ) : (
+                        <>
+                            {thirdImg && (
+                                <div className="journal-card journal-card-third">
+                                    <img src={thirdImg.url} alt={thirdImg.alt} className="journal-img" loading="lazy" />
+                                </div>
+                            )}
+                            {secondImg && (
+                                <div className="journal-card journal-card-second">
+                                    <img src={secondImg.url} alt={secondImg.alt} className="journal-img" loading="lazy" />
+                                </div>
+                            )}
+                            {firstImg && (
+                                <div className="journal-card journal-card-first">
+                                    <img src={firstImg.url} alt={firstImg.alt} className="journal-img" loading="lazy" />
+                                </div>
+                            )}
+                        </>
+                    )}
                 </div>
             </div>
         </section>
     );
 };
+
 
 export default VisualJournal;

@@ -134,6 +134,26 @@
     z-index: 1;
 }
 
+/* Skeleton Shimmer */
+.skeleton-shimmer {
+    background: #f0f0f0;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+    filter: none !important;
+    /* Disable grayscale for skeleton */
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
 /* Responsive Styles */
 @media (max-width: 1200px) {
     .journal-card-first {

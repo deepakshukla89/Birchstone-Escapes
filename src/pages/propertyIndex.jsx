@@ -10,12 +10,56 @@ import VisualJournal from '../components/property/VisualJournal';
 import Testimonials from '../components/common/Testimonials';
 import FAQ from '../components/common/FAQ';
 import BookingCard from '../components/common/BookingCard';
+import PropertyBookingSection from '../components/property/PropertyBookingSection';
+import { fetchPropertyDetails, fetchPropertyImages } from '../services/hospitable';
 import '../components/property/FrostPineChaletPage.css';
 import BookingModal from './BookingModal';
 
 const PropertyIndex = () => {
     const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+    const [propertyImages, setPropertyImages] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
     const location = useLocation();
+
+    const loadApiDashboard = async () => {
+        const PROPERTY_ID = process.env.REACT_APP_PROPERTY_ID || 'b7dfbe61-90ef-438c-9f65-11f60f759af3';
+        setIsLoading(true);
+        setError(null);
+
+        console.log("=== INITIATING PARALLEL API DASHBOARD LOGS ===");
+        console.log("Using Property ID:", PROPERTY_ID);
+
+        try {
+            // Execute both API calls in parallel
+            const [details, imagesResponse] = await Promise.all([
+                fetchPropertyDetails(PROPERTY_ID),
+                fetchPropertyImages(PROPERTY_ID)
+            ]);
+
+            console.log("1. PROPERTY DETAILS RESPONSE:", details);
+            console.log("2. PROPERTY IMAGES RESPONSE:", imagesResponse);
+
+            if (imagesResponse && imagesResponse.data) {
+                setPropertyImages(imagesResponse.data);
+            } else if (!imagesResponse) {
+                throw new Error("Failed to load images from API");
+            }
+
+            setIsLoading(false);
+        } catch (error) {
+            console.error("Error in parallel dashboard load:", error);
+            setError(error.message || "Something went wrong while fetching data");
+            setIsLoading(false);
+        }
+
+        console.log("=== API DASHBOARD LOGS COMPLETE ===");
+    };
+
+    // Fetch API Data on mount
+    useEffect(() => {
+        loadApiDashboard();
+    }, []);
 
     const handleOpenBooking = () => setIsBookingModalOpen(true);
     const handleCloseBooking = () => setIsBookingModalOpen(false);
@@ -221,6 +265,10 @@ const PropertyIndex = () => {
             <main className="property-page">
                 <PropertyHero
                     property={property}
+                    images={propertyImages}
+                    isLoading={isLoading}
+                    error={error}
+                    onReload={loadApiDashboard}
                     schemaData={schemaData}
                     onBookNow={handleOpenBooking}
                 />
@@ -228,7 +276,11 @@ const PropertyIndex = () => {
                 <FacilitiesSection />
                 <PropertyOffers offersRows={offersRows} />
                 <HouseRules />
-                <VisualJournal />
+                <PropertyBookingSection
+                    onBookNow={handleOpenBooking}
+                    propertyName={property.name}
+                />
+                <VisualJournal images={propertyImages} isLoading={isLoading} />
                 <Testimonials testimonials={propertyTestimonials} />
                 <FAQ title="Frost Pine Chalet FAQs" faqs={propertyFaqs} />
                 <BookingCard onBookNow={handleOpenBooking} />

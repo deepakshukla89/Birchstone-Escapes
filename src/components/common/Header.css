@@ -3,7 +3,7 @@
     position: sticky;
     top: 0;
     background-color: var(--color-bg);
-    padding: 19px 0;
+    padding: 15px 0;
     z-index: 999;
     transition: all 0.3s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -20,17 +20,21 @@
 
 /* Logo */
 .logo {
-    font-family: var(--font-logo);
-    font-size: 32px;
-    font-weight: 400;
-    text-transform: uppercase;
-    color: var(--color-primary);
-    line-height: 1.3;
+    display: flex;
+    align-items: center;
+    line-height: normal;
+}
+
+.logo-img {
+    height: 52px;
+    width: auto;
+    display: block;
 }
 
 .logo:hover {
-    color: var(--color-primary);
+    opacity: 0.9;
 }
+
 
 /* Navigation */
 .nav {
@@ -170,8 +174,8 @@
 }
 
 @media (max-width: 480px) {
-    .logo {
-        font-size: 20px;
+    .logo-img {
+        height: 32px;
     }
 
     .nav {

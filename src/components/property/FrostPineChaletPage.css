@@ -144,14 +144,204 @@
     color: var(--color-primary);
 }
 
-/* Hero Image - extends to right edge */
-.property-hero-image {
+/* Hero Collage Layout */
+.property-hero-collage-wrapper {
     width: 100%;
     min-width: 793px;
     height: 505px;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
+}
+
+.property-hero-collage {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 8px;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.collage-main {
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.collage-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.collage-side {
+    display: flex;
+    gap: 8px;
+    height: 100%;
+}
+
+.collage-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.collage-item {
+    height: calc(50% - 4px);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.collage-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.collage-main:hover img,
+.collage-item:hover img {
+    transform: scale(1.05);
+}
+
+.show-all-photos-btn {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    background: #ffffff;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    padding: 7px 15px;
+    font-family: var(--font-nav);
+    font-size: 14px;
+    font-weight: 500;
+    color: #222222;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+    z-index: 5;
+}
+
+.show-all-photos-btn svg {
+    margin-right: 8px;
+}
+
+.show-all-photos-btn:hover {
+    background: #f7f7f7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Skeleton Shimmer */
+.skeleton-shimmer {
+    background: #f0f0f0;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Error State */
+.property-hero-error {
+    width: 100%;
+    height: 100%;
+    background: rgba(114, 47, 55, 0.05);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--color-primary);
+    font-family: var(--font-nav);
+    border: 1px dashed rgba(114, 47, 55, 0.2);
+}
+
+.property-hero-reload-btn {
+    padding: 10px 20px;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.2s;
+}
+
+.property-hero-reload-btn:hover {
+    opacity: 0.9;
+}
+
+/* Tablet Collage */
+@media (max-width: 1200px) {
+    .property-hero-collage-wrapper {
+        min-width: auto;
+        height: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .property-hero-collage-wrapper {
+        height: min(300px, 60vw);
+    }
+
+    /* Preserve structure on mobile, just scale */
+    .property-hero-collage {
+        gap: 4px;
+    }
+
+    .collage-side {
+        gap: 4px;
+        display: flex;
+        /* Ensure it's showing */
+    }
+
+    .collage-column {
+        gap: 4px;
+    }
+
+    .collage-item {
+        height: calc(50% - 2px);
+    }
+
+    .show-all-photos-btn {
+        bottom: 12px;
+        right: 12px;
+        padding: 8px;
+        /* Square-ish button on mobile */
+        border-radius: 50%;
+        /* Make it circular */
+    }
+
+    .show-all-photos-btn .btn-text {
+        display: none;
+    }
+
+    .show-all-photos-btn svg {
+        margin-right: 0;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .property-hero-collage-wrapper {
+        height: 200px;
+    }
 }
 
 /* ===== Responsive Wrapper ===== */

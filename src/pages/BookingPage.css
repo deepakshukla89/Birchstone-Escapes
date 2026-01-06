@@ -417,6 +417,7 @@
         padding: 0 0 60px 0;
     }
 }
+
 /* Disabled Guest Row */
 .booking-guest-row-disabled {
     opacity: 0.5;
@@ -442,4 +443,3 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
-

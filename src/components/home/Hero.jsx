@@ -29,8 +29,20 @@ const Hero = ({
             aria-label="Hero section"
             itemScope
             itemType="https://schema.org/LodgingBusiness"
-            style={{ backgroundImage: `url(${bgImage})` }}
         >
+            {/* Background Video */}
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster={bgImage}
+                className="hero-video"
+            >
+                <source src={`${process.env.PUBLIC_URL}/hero_bg_video.mp4`} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+
             {/* Schema.org JSON-LD */}
             <script
                 type="application/ld+json"
