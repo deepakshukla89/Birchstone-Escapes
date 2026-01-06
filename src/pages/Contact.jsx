@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SEOMetaTags from '../components/common/SEOMetaTags';
-// API import removed for disabled form
+import { submitContactForm } from '../services/api';
 import './Contact.css';
 
 const ContactPage = () => {
@@ -25,7 +25,7 @@ const ContactPage = () => {
     const validatePhone = (phone) => {
         if (!phone) return true; // Phone is optional
         // Accepts formats like: +1 (555) 123-4567, 555-123-4567, 5551234567, etc.
-        const phoneRegex = /^[\+]?[(]?[0-9]{1,3}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,9}$/;
+        const phoneRegex = /^[+]?[(]?[0-9]{1,3}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,4}[-\s.]?[0-9]{1,9}$/;
         return phoneRegex.test(phone.replace(/\s/g, ''));
     };
 
@@ -68,15 +68,19 @@ const ContactPage = () => {
         }
 
         setIsSubmitting(true);
+        setStatus({ type: '', message: '' });
 
-        // Simulate form submission (replace with actual API call)
         try {
-            // TODO: Add actual form submission logic here
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            setStatus({ type: 'success', message: 'Thank you! Your message has been sent. We\'ll get back to you soon.' });
-            setFormData({ name: '', email: '', phone: '', dates: '', message: '' });
+            const result = await submitContactForm(formData);
+
+            if (result.success) {
+                setStatus({ type: 'success', message: result.message || 'Thank you! Your message has been sent. We\'ll get back to you soon.' });
+                setFormData({ name: '', email: '', phone: '', dates: '', message: '' });
+            } else {
+                setStatus({ type: 'error', message: result.message || 'Something went wrong. Please try again.' });
+            }
         } catch (error) {
-            setStatus({ type: 'error', message: 'Something went wrong. Please try again.' });
+            setStatus({ type: 'error', message: 'Unable to connect to the server. Please check your internet connection and try again.' });
         } finally {
             setIsSubmitting(false);
         }

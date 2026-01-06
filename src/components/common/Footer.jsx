@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { subscribeNewsletter } from '../../services/api';
 import './Footer.css';
 
 const Footer = () => {
@@ -7,8 +8,9 @@ const Footer = () => {
     const [promoEmail, setPromoEmail] = useState('');
     const [promoSubmitted, setPromoSubmitted] = useState(false);
     const [promoError, setPromoError] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handlePromoSubmit = (e) => {
+    const handlePromoSubmit = async (e) => {
         e.preventDefault();
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -21,10 +23,23 @@ const Footer = () => {
             return;
         }
 
-        // Store email and show success
-        localStorage.setItem('timbrlux_signup_email', promoEmail);
-        setPromoSubmitted(true);
+        setIsSubmitting(true);
         setPromoError('');
+
+        try {
+            const result = await subscribeNewsletter(promoEmail);
+            if (result.success) {
+                // Store email and show success
+                localStorage.setItem('timbrlux_signup_email', promoEmail);
+                setPromoSubmitted(true);
+            } else {
+                setPromoError(result.message || 'Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            setPromoError('Unable to connect to the server. Please try again later.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     // Structured data for Organization (SEO/AEO/GEO)
@@ -76,7 +91,9 @@ const Footer = () => {
                                     onChange={(e) => { setPromoEmail(e.target.value); setPromoError(''); }}
                                     className={promoError ? 'error' : ''}
                                 />
-                                <button type="submit">Get 10% Off</button>
+                                <button type="submit" disabled={isSubmitting}>
+                                    {isSubmitting ? 'Sending...' : 'Get 10% Off'}
+                                </button>
                             </form>
                             {promoError && <span className="footer-promo-error">{promoError}</span>}
                         </>

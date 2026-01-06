@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { subscribeNewsletter } from '../../services/api';
 import './SignupOfferPopup.css';
 
 const SignupOfferPopup = () => {
@@ -45,13 +46,16 @@ const SignupOfferPopup = () => {
 
         setIsSubmitting(true);
 
-        // Simulate API call
         try {
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            localStorage.setItem('timbrlux_signup_email', email);
-            setIsSubmitted(true);
+            const result = await subscribeNewsletter(email);
+            if (result.success) {
+                localStorage.setItem('timbrlux_signup_email', email);
+                setIsSubmitted(true);
+            } else {
+                setError(result.message || 'Something went wrong. Please try again.');
+            }
         } catch (err) {
-            setError('Something went wrong. Please try again.');
+            setError('Unable to connect to the server. Please check your internet connection.');
         } finally {
             setIsSubmitting(false);
         }

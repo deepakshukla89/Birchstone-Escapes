@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { submitContactForm } from '../../services/api';
 import './ContactModal.css';
 
 const ContactModal = ({ isOpen, onClose }) => {
@@ -77,13 +78,21 @@ const ContactModal = ({ isOpen, onClose }) => {
         }
 
         setIsSubmitting(true);
+        setStatus({ type: '', message: '' });
 
         try {
-            await new Promise(resolve => setTimeout(resolve, 1000));
-            setStatus({ type: 'success', message: 'Thank you! Your message has been sent. We\'ll get back to you soon.' });
-            setFormData({ name: '', email: '', phone: '', dates: '', message: '' });
+            const result = await submitContactForm(formData);
+
+            if (result.success) {
+                setStatus({ type: 'success', message: result.message || 'Thank you! Your message has been sent. We\'ll get back to you soon.' });
+                setFormData({ name: '', email: '', phone: '', dates: '', message: '' });
+                // Reset errors
+                setErrors({});
+            } else {
+                setStatus({ type: 'error', message: result.message || 'Something went wrong. Please try again.' });
+            }
         } catch (error) {
-            setStatus({ type: 'error', message: 'Something went wrong. Please try again.' });
+            setStatus({ type: 'error', message: 'Unable to connect to the server. Please try again later.' });
         } finally {
             setIsSubmitting(false);
         }

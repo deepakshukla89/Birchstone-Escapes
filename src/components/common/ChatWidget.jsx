@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { submitContactForm } from '../../services/api';
 import './ChatWidget.css';
 
 const ChatWidget = () => {
@@ -11,12 +12,15 @@ const ChatWidget = () => {
         message: ''
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const [errors, setErrors] = useState({});
+    const [serverError, setServerError] = useState('');
 
     const toggleChat = () => {
         setIsOpen(!isOpen);
         setIsSubmitted(false);
         setErrors({});
+        setServerError('');
     };
 
     const handleChange = (e) => {
@@ -26,6 +30,7 @@ const ChatWidget = () => {
             [name]: value
         }));
         if (errors[name]) setErrors(prev => ({ ...prev, [name]: null }));
+        if (serverError) setServerError('');
     };
 
     // Validation functions
@@ -36,7 +41,7 @@ const ChatWidget = () => {
 
     const validatePhone = (phone) => {
         if (!phone) return true; // Phone is optional
-        const phoneRegex = /^[\+]?[(]?[0-9]{1,3}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,9}$/;
+        const phoneRegex = /^[+]?[(]?[0-9]{1,3}[)]?[-\s.]?[(]?[0-9]{1,4}[)]?[-\s.]?[0-9]{1,4}[-\s.]?[0-9]{1,9}$/;
         return phoneRegex.test(phone.replace(/\s/g, ''));
     };
 
@@ -65,22 +70,33 @@ const ChatWidget = () => {
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!validate()) {
             return;
         }
 
-        // Here you can add your form submission logic (API call, etc.)
-        console.log('Form submitted:', formData);
-        setIsSubmitted(true);
+        setIsSubmitting(true);
+        setServerError('');
 
-        // Reset form after 3 seconds
-        setTimeout(() => {
-            setFormData({ name: '', email: '', phone: '', dates: '', message: '' });
-            setIsSubmitted(false);
-        }, 3000);
+        try {
+            const result = await submitContactForm(formData);
+            if (result.success) {
+                setIsSubmitted(true);
+                setFormData({ name: '', email: '', phone: '', dates: '', message: '' });
+                // Reset form after 3 seconds
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                }, 3000);
+            } else {
+                setServerError(result.message || 'Something went wrong. Please try again.');
+            }
+        } catch (error) {
+            setServerError('Unable to connect to the server. Please check your internet connection.');
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -134,10 +150,10 @@ const ChatWidget = () => {
                                         onChange={handleChange}
                                         placeholder="John Doe"
                                         className={errors.name ? 'error' : ''}
+                                        disabled={isSubmitting}
                                     />
                                     {errors.name && <span className="error-text">{errors.name}</span>}
                                 </div>
-
                                 <div className="form-group">
                                     <label htmlFor="chat-email">Email Address *</label>
                                     <input
@@ -148,11 +164,11 @@ const ChatWidget = () => {
                                         onChange={handleChange}
                                         placeholder="john@example.com"
                                         className={errors.email ? 'error' : ''}
+                                        disabled={isSubmitting}
                                     />
                                     {errors.email && <span className="error-text">{errors.email}</span>}
                                 </div>
                             </div>
-
                             <div className="form-row">
                                 <div className="form-group">
                                     <label htmlFor="chat-phone">Phone (Optional)</label>
@@ -164,10 +180,10 @@ const ChatWidget = () => {
                                         onChange={handleChange}
                                         placeholder="+1 (xxx) xxx-xxxx"
                                         className={errors.phone ? 'error' : ''}
+                                        disabled={isSubmitting}
                                     />
                                     {errors.phone && <span className="error-text">{errors.phone}</span>}
                                 </div>
-
                                 <div className="form-group">
                                     <label htmlFor="chat-dates">Proposed Dates (Optional)</label>
                                     <input
@@ -177,10 +193,10 @@ const ChatWidget = () => {
                                         value={formData.dates}
                                         onChange={handleChange}
                                         placeholder="e.g. July 12 - July 19"
+                                        disabled={isSubmitting}
                                     />
                                 </div>
                             </div>
-
                             <div className="form-group full-width">
                                 <label htmlFor="chat-message">How can we help? *</label>
                                 <textarea
@@ -191,12 +207,13 @@ const ChatWidget = () => {
                                     placeholder="Tell us about your trip plans or any questions you have..."
                                     rows="4"
                                     className={errors.message ? 'error' : ''}
+                                    disabled={isSubmitting}
                                 ></textarea>
                                 {errors.message && <span className="error-text">{errors.message}</span>}
                             </div>
-
-                            <button type="submit" className="chat-submit-btn">
-                                Send Inquiry
+                            {serverError && <p className="error-message-text" style={{ color: '#E53E3E', fontSize: '14px', marginBottom: '10px' }}>{serverError}</p>}
+                            <button type="submit" className="chat-submit-btn" disabled={isSubmitting}>
+                                {isSubmitting ? 'Sending...' : 'Send Inquiry'}
                             </button>
                         </form>
                     )}
