@@ -37,7 +37,7 @@
     position: fixed;
     bottom: 100px;
     right: 24px;
-    width: 380px;
+    width: 480px;
     max-width: calc(100vw - 48px);
     background-color: var(--color-white);
     border-radius: 16px;
@@ -69,19 +69,20 @@
     font-size: 24px;
     font-weight: 600;
     margin: 0 0 8px 0;
+    color: #FFFFFF;
 }
 
 .chat-widget-header p {
     font-family: var(--font-nav);
     font-size: 14px;
     margin: 0;
-    opacity: 1;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* ===== Chat Widget Body ===== */
 .chat-widget-body {
     padding: 24px;
-    max-height: 450px;
+    max-height: 500px;
     overflow-y: auto;
 }
 
@@ -92,10 +93,20 @@
     gap: 16px;
 }
 
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 6px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
 }
 
 .form-group label {
@@ -120,7 +131,18 @@
 .form-group textarea:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(205, 127, 50, 0.1);
+    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.1);
+}
+
+.form-group input.error,
+.form-group textarea.error {
+    border-color: #E53E3E;
+}
+
+.error-text {
+    font-family: var(--font-nav);
+    font-size: 12px;
+    color: #E53E3E;
 }
 
 .form-group textarea {
@@ -199,7 +221,7 @@
 }
 
 /* ===== Mobile Responsive ===== */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .chat-widget-button {
         width: 56px;
         height: 56px;
@@ -224,7 +246,15 @@
 
     .chat-widget-body {
         padding: 20px;
-        max-height: 380px;
+        max-height: 400px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
     }
 }
 

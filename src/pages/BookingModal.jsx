@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import HouseRules from '../components/property/HouseRules';
 import './BookingModal.css';
 
 const BookingModal = ({ isOpen, onClose }) => {
@@ -87,8 +88,8 @@ const BookingModal = ({ isOpen, onClose }) => {
                         <div className="promo-content">
                             <img src="/image/ready-to-book.png" alt="Book your stay" className="promo-image" />
                             <p className="promo-text">
-                                Book & Save upto <br />
-                                15% discount
+                                Your perfect <br />
+                                getaway awaits
                             </p>
                         </div>
                     </div>
@@ -101,6 +102,7 @@ const BookingModal = ({ isOpen, onClose }) => {
                             src="https://booking.hospitable.com/widget/a0b9a24b-c242-4195-aa65-2d78d0e6e6e6/1967238"
                             title="Booking Widget"
                         />
+                        <HouseRules compact />
                     </div>
                 </div>
             </div>

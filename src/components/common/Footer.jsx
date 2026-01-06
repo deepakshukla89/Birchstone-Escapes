@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
+    const [promoEmail, setPromoEmail] = useState('');
+    const [promoSubmitted, setPromoSubmitted] = useState(false);
+    const [promoError, setPromoError] = useState('');
+
+    const handlePromoSubmit = (e) => {
+        e.preventDefault();
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!promoEmail.trim()) {
+            setPromoError('Please enter your email');
+            return;
+        }
+        if (!emailRegex.test(promoEmail)) {
+            setPromoError('Please enter a valid email');
+            return;
+        }
+
+        // Store email and show success
+        localStorage.setItem('timbrlux_signup_email', promoEmail);
+        setPromoSubmitted(true);
+        setPromoError('');
+    };
 
     // Structured data for Organization (SEO/AEO/GEO)
     const organizationSchema = {
@@ -38,6 +60,33 @@ const Footer = () => {
             />
 
             <div className="footer-container">
+                {/* 10% Signup Promo Banner */}
+                <div className="footer-promo-banner">
+                    {!promoSubmitted ? (
+                        <>
+                            <div className="footer-promo-text">
+                                <span className="footer-promo-badge">NEW GUEST OFFER</span>
+                                <p>Sign up and save <strong>10%</strong> on your first stay</p>
+                            </div>
+                            <form className="footer-promo-form" onSubmit={handlePromoSubmit}>
+                                <input
+                                    type="email"
+                                    placeholder="Enter your email"
+                                    value={promoEmail}
+                                    onChange={(e) => { setPromoEmail(e.target.value); setPromoError(''); }}
+                                    className={promoError ? 'error' : ''}
+                                />
+                                <button type="submit">Get 10% Off</button>
+                            </form>
+                            {promoError && <span className="footer-promo-error">{promoError}</span>}
+                        </>
+                    ) : (
+                        <div className="footer-promo-success">
+                            <span>✓</span> Thanks! Check your email for your 10% discount code.
+                        </div>
+                    )}
+                </div>
+
                 {/* Brand Section */}
                 <div className="footer-brand" itemScope itemType="https://schema.org/Organization">
                     <h2 className="footer-logo" itemProp="name">

@@ -73,8 +73,9 @@
 
 .contact-info-card {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
     padding: 24px;
     background: rgba(255, 255, 255, 0.6);
     border-radius: 8px;
@@ -89,6 +90,7 @@
 .info-icon-wrapper {
     width: 48px;
     height: 48px;
+    min-width: 48px;
     background-color: var(--color-primary);
     color: #ffffff;
     border-radius: 8px;
@@ -97,11 +99,17 @@
     justify-content: center;
 }
 
+.contact-info-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
 .contact-info-title {
     font-family: 'Instrument Serif', serif;
     font-weight: 400;
     font-size: 24px;
-    line-height: 32px;
+    line-height: 28px;
     color: #1A1A1A;
     margin: 0;
 }
@@ -123,6 +131,48 @@
 
 .contact-info-text a:hover {
     color: var(--color-primary);
+}
+
+/* Location Card with Map */
+.contact-info-card-map {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-info-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-map-embed {
+    width: 100%;
+    margin-top: 16px;
+}
+
+/* Responsive Contact Info Cards */
+@media (max-width: 600px) {
+    .contact-info-card {
+        flex-direction: row;
+        gap: 16px;
+        padding: 20px;
+    }
+
+    .info-icon-wrapper {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+    }
+
+    .contact-info-title {
+        font-size: 20px;
+        line-height: 24px;
+    }
+
+    .contact-info-text {
+        font-size: 14px;
+    }
 }
 
 /* Right: Form Side */

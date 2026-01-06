@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Allow all crawlers
-Sitemap: https://birchstoneescapes.com/sitemap.xml
+Sitemap: https://www.timbrluxstays.com/sitemap.xml

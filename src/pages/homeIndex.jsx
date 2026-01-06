@@ -4,7 +4,6 @@ import Hero from '../components/home/Hero';
 import AboutSection from '../components/home/AboutSection';
 import FeaturesSection from '../components/home/FeaturesSection';
 import HowToBook from '../components/home/HowToBook';
-import ExperienceSection from '../components/common/ExperienceSection';
 import AccommodationsSection from '../components/home/AccommodationsSection';
 import Testimonials from '../components/common/Testimonials';
 import FAQ from '../components/common/FAQ';
@@ -46,7 +45,6 @@ const HomeIndex = () => {
                 <AboutSection />
                 <FeaturesSection />
                 <HowToBook />
-                <ExperienceSection />
                 <Testimonials />
                 <FAQ faqs={homeFaqs} />
                 <BookingCard />

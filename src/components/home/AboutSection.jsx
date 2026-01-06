@@ -19,7 +19,6 @@ We're honored to be part of your travel story — and we can't wait to welcome y
     // Default stats
     const defaultStats = [
         { number: "5.0", label: "Guest Rating" },
-        { number: "100+", label: "Happy Stays" },
         { number: "24/7", label: "Support" }
     ];
 

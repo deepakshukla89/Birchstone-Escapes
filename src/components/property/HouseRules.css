@@ -1,0 +1,147 @@
+/* House Rules Section */
+.house-rules-section {
+    padding: 80px 0;
+    background: rgba(114, 47, 55, 0.03);
+}
+
+.house-rules-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.house-rules-title {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 54px;
+    color: #1A1A1A;
+    margin: 0 0 12px 0;
+    text-align: center;
+}
+
+.house-rules-subtitle {
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+    color: #666666;
+    text-align: center;
+    margin: 0 0 48px 0;
+}
+
+.house-rules-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.house-rule-item {
+    display: flex;
+    gap: 16px;
+    padding: 24px;
+    background: #FFFFFF;
+    border: 1px solid rgba(114, 47, 55, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.house-rule-item:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 24px rgba(114, 47, 55, 0.1);
+}
+
+.house-rule-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(114, 47, 55, 0.1);
+    border-radius: 50%;
+    color: var(--color-primary);
+}
+
+.house-rule-content {
+    flex: 1;
+}
+
+.house-rule-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #1A1A1A;
+    margin: 0 0 8px 0;
+}
+
+.house-rule-description {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    line-height: 22px;
+    color: #666666;
+    margin: 0;
+}
+
+/* Compact Version for Booking Modal */
+.house-rules-compact {
+    background: rgba(114, 47, 55, 0.05);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-top: 16px;
+}
+
+.house-rules-compact-title {
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--color-primary);
+    margin: 0 0 12px 0;
+}
+
+.house-rules-compact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.house-rules-compact-list li {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: #666666;
+}
+
+.house-rules-compact-list li strong {
+    color: #1A1A1A;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .house-rules-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .house-rules-section {
+        padding: 60px 0;
+    }
+
+    .house-rules-title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .house-rules-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .house-rule-item {
+        padding: 20px;
+    }
+}

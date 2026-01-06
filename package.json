@@ -1,8 +1,8 @@
 {
-  "name": "birchstone-escapes",
+  "name": "timbrlux-stays",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://birchstoneescapes.com",
+  "homepage": "https://www.timbrluxstays.com",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",

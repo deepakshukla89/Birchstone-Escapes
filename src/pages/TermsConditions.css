@@ -1,0 +1,45 @@
+/* ===== Terms & Conditions Specific Styles ===== */
+/* Note: Most styles are shared with PrivacyPolicy.css */
+
+/* Import shared legal page styles */
+@import './PrivacyPolicy.css';
+
+/* Hero Subtitle for Terms page */
+.legal-hero-subtitle {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: var(--color-primary);
+    margin: -8px 0 0 0;
+}
+
+/* Inline link styling */
+.legal-inline-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    border-bottom: 1px solid rgba(114, 47, 55, 0.3);
+}
+
+.legal-inline-link:hover {
+    color: var(--color-primary-dark);
+    border-bottom-color: var(--color-primary-dark);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .legal-hero-subtitle {
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .legal-hero-subtitle {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}

@@ -6,13 +6,17 @@ const ChatWidget = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        phone: '',
+        dates: '',
         message: ''
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [errors, setErrors] = useState({});
 
     const toggleChat = () => {
         setIsOpen(!isOpen);
         setIsSubmitted(false);
+        setErrors({});
     };
 
     const handleChange = (e) => {
@@ -21,17 +25,60 @@ const ChatWidget = () => {
             ...prev,
             [name]: value
         }));
+        if (errors[name]) setErrors(prev => ({ ...prev, [name]: null }));
+    };
+
+    // Validation functions
+    const validateEmail = (email) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const validatePhone = (phone) => {
+        if (!phone) return true; // Phone is optional
+        const phoneRegex = /^[\+]?[(]?[0-9]{1,3}[)]?[-\s\.]?[(]?[0-9]{1,4}[)]?[-\s\.]?[0-9]{1,4}[-\s\.]?[0-9]{1,9}$/;
+        return phoneRegex.test(phone.replace(/\s/g, ''));
+    };
+
+    const validate = () => {
+        const newErrors = {};
+
+        if (!formData.name.trim()) {
+            newErrors.name = 'Full name is required';
+        }
+
+        if (!formData.email.trim()) {
+            newErrors.email = 'Email address is required';
+        } else if (!validateEmail(formData.email)) {
+            newErrors.email = 'Please enter a valid email address';
+        }
+
+        if (formData.phone && !validatePhone(formData.phone)) {
+            newErrors.phone = 'Please enter a valid phone number';
+        }
+
+        if (!formData.message.trim()) {
+            newErrors.message = 'Message is required';
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (!validate()) {
+            return;
+        }
+
         // Here you can add your form submission logic (API call, etc.)
         console.log('Form submitted:', formData);
         setIsSubmitted(true);
 
         // Reset form after 3 seconds
         setTimeout(() => {
-            setFormData({ name: '', email: '', message: '' });
+            setFormData({ name: '', email: '', phone: '', dates: '', message: '' });
             setIsSubmitted(false);
         }, 3000);
     };
@@ -60,7 +107,7 @@ const ChatWidget = () => {
             {/* Chat Window */}
             <div className={`chat-widget-window ${isOpen ? 'open' : ''}`}>
                 <div className="chat-widget-header">
-                    <h3>Contact Us</h3>
+                    <h3>Send Us a Message</h3>
                     <p>We'd love to hear from you!</p>
                 </div>
 
@@ -76,47 +123,80 @@ const ChatWidget = () => {
                         </div>
                     ) : (
                         <form onSubmit={handleSubmit} className="chat-widget-form">
-                            <div className="form-group">
-                                <label htmlFor="chat-name">Name *</label>
-                                <input
-                                    type="text"
-                                    id="chat-name"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    required
-                                    placeholder="Your name"
-                                />
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label htmlFor="chat-name">Full Name *</label>
+                                    <input
+                                        type="text"
+                                        id="chat-name"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        placeholder="John Doe"
+                                        className={errors.name ? 'error' : ''}
+                                    />
+                                    {errors.name && <span className="error-text">{errors.name}</span>}
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="chat-email">Email Address *</label>
+                                    <input
+                                        type="email"
+                                        id="chat-email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        placeholder="john@example.com"
+                                        className={errors.email ? 'error' : ''}
+                                    />
+                                    {errors.email && <span className="error-text">{errors.email}</span>}
+                                </div>
                             </div>
 
-                            <div className="form-group">
-                                <label htmlFor="chat-email">Email *</label>
-                                <input
-                                    type="email"
-                                    id="chat-email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    required
-                                    placeholder="your@email.com"
-                                />
+                            <div className="form-row">
+                                <div className="form-group">
+                                    <label htmlFor="chat-phone">Phone (Optional)</label>
+                                    <input
+                                        type="tel"
+                                        id="chat-phone"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        placeholder="+1 (xxx) xxx-xxxx"
+                                        className={errors.phone ? 'error' : ''}
+                                    />
+                                    {errors.phone && <span className="error-text">{errors.phone}</span>}
+                                </div>
+
+                                <div className="form-group">
+                                    <label htmlFor="chat-dates">Proposed Dates (Optional)</label>
+                                    <input
+                                        type="text"
+                                        id="chat-dates"
+                                        name="dates"
+                                        value={formData.dates}
+                                        onChange={handleChange}
+                                        placeholder="e.g. July 12 - July 19"
+                                    />
+                                </div>
                             </div>
 
-                            <div className="form-group">
-                                <label htmlFor="chat-message">Message *</label>
+                            <div className="form-group full-width">
+                                <label htmlFor="chat-message">How can we help? *</label>
                                 <textarea
                                     id="chat-message"
                                     name="message"
                                     value={formData.message}
                                     onChange={handleChange}
-                                    required
-                                    placeholder="How can we help you?"
+                                    placeholder="Tell us about your trip plans or any questions you have..."
                                     rows="4"
+                                    className={errors.message ? 'error' : ''}
                                 ></textarea>
+                                {errors.message && <span className="error-text">{errors.message}</span>}
                             </div>
 
                             <button type="submit" className="chat-submit-btn">
-                                Send Message
+                                Send Inquiry
                             </button>
                         </form>
                     )}
@@ -127,3 +207,4 @@ const ChatWidget = () => {
 };
 
 export default ChatWidget;
+

@@ -7,6 +7,9 @@ import FrostPineChaletPage from "./pages/propertyIndex";
 import ContactPage from "./pages/Contact";
 import BookingPage from "./pages/BookingPage";
 import SearchPage from "./pages/SearchPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsConditions from "./pages/TermsConditions";
+import SignupOfferPopup from "./components/common/SignupOfferPopup";
 
 // ScrollToTop component
 const ScrollToTop = () => {
@@ -23,6 +26,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <SignupOfferPopup />
       <Layout>
         <Routes>
           <Route path="/" element={<HomepageScreen />} />
@@ -31,6 +35,8 @@ function App() {
           <Route path="/property/:id" element={<FrostPineChaletPage />} />
           <Route path="/booking" element={<BookingPage />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsConditions />} />
         </Routes>
       </Layout>
     </Router>

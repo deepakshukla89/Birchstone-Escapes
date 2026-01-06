@@ -142,10 +142,12 @@ const ContactPage = () => {
                                         <polyline points="22,6 12,13 2,6" />
                                     </svg>
                                 </div>
-                                <h3 className="contact-info-title">Email</h3>
-                                <p className="contact-info-text">
-                                    <a href="mailto:hello@timbrluxstays.com">hello@timbrluxstays.com</a>
-                                </p>
+                                <div className="contact-info-content">
+                                    <h3 className="contact-info-title">Email</h3>
+                                    <p className="contact-info-text">
+                                        <a href="mailto:hello@timbrluxstays.com">hello@timbrluxstays.com</a>
+                                    </p>
+                                </div>
                             </article>
 
                             <article className="contact-info-card">
@@ -154,27 +156,33 @@ const ContactPage = () => {
                                         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                                     </svg>
                                 </div>
-                                <h3 className="contact-info-title">Phone</h3>
-                                <p className="contact-info-text">
-                                    <a href="tel:+15552472478">+1 (555) 247-2478</a>
-                                </p>
+                                <div className="contact-info-content">
+                                    <h3 className="contact-info-title">Phone</h3>
+                                    <p className="contact-info-text">
+                                        <a href="tel:+15552472478">+1 (555) 247-2478</a>
+                                    </p>
+                                </div>
                             </article>
 
                             <article className="contact-info-card contact-info-card-map">
-                                <div className="info-icon-wrapper">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                        <circle cx="12" cy="10" r="3" />
-                                    </svg>
+                                <div className="contact-info-row">
+                                    <div className="info-icon-wrapper">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                                            <circle cx="12" cy="10" r="3" />
+                                        </svg>
+                                    </div>
+                                    <div className="contact-info-content">
+                                        <h3 className="contact-info-title">Location</h3>
+                                        <p className="contact-info-text">
+                                            Newry, Maine — Near Sunday River
+                                        </p>
+                                    </div>
                                 </div>
-                                <h3 className="contact-info-title">Location</h3>
-                                <p className="contact-info-text">
-                                    Newry, Maine — Near Sunday River
-                                </p>
                                 {/* Google Maps Embed */}
                                 <div className="contact-map-embed">
                                     <iframe
-                                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45764.34566595374!2d-70.88693671640624!3d44.46055899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cb3d77f2f1ecb27%3A0x9b94c72c9e7a8d6f!2sNewry%2C%20ME!5e0!3m2!1sen!2sus!4v1704476400000!5m2!1sen!2sus"
+                                        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d2879.5!2d-70.8010278!3d44.5275278!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDTCsDMxJzM5LjEiTiA3MMKwNDgnMDMuNyJX!5e1!3m2!1sen!2sus!4v1704476400000!5m2!1sen!2sus"
                                         width="100%"
                                         height="200"
                                         style={{ border: 0, borderRadius: '8px', marginTop: '12px' }}

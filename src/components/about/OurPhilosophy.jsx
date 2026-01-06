@@ -26,7 +26,7 @@ const OurPhilosophy = () => {
                         <span className="value-number">02</span>
                         <h3 className="value-title">Genuine Care</h3>
                         <p className="value-description">
-                            We treat every home as if it were our own, with attention to every detail.
+                            Every corner of this home is cared for as our own, with thoughtful touches and detail in every stay.
                         </p>
                     </div>
                     <div className="philosophy-value">

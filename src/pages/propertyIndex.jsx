@@ -4,6 +4,7 @@ import SEOMetaTags from '../components/common/SEOMetaTags';
 import PropertyHero from '../components/property/PropertyHero';
 import PropertyHighlights from '../components/property/PropertyHighlights';
 import PropertyOffers from '../components/property/PropertyOffers';
+import HouseRules from '../components/property/HouseRules';
 import FacilitiesSection from '../components/property/FacilitiesSection';
 import VisualJournal from '../components/property/VisualJournal';
 import Testimonials from '../components/common/Testimonials';
@@ -68,7 +69,7 @@ const PropertyIndex = () => {
     const propertyFaqs = [
         {
             question: "What is the check-in and check-out time at Frost Pine Chalet?",
-            answer: "Check-in is at 4:00 PM and check-out is at 11:00 AM. Early check-in or late check-out may be available upon request, subject to availability. We use a smart lock for self check-in, so you'll receive a unique code before your arrival."
+            answer: "Check-in is at 4:00 PM EST and check-out is at 10:00 AM EST. Early check-in or late check-out may be available upon request, subject to availability. We use a smart lock for self check-in, so you'll receive a unique code before your arrival."
         },
         {
             question: "Is the hot tub available year-round?",
@@ -76,7 +77,7 @@ const PropertyIndex = () => {
         },
         {
             question: "How far is Frost Pine Chalet from the nearest ski resort?",
-            answer: "The chalet is located just 15 minutes from Sunday River Ski Resort, making it perfect for ski trips. We provide a ski storage area and boot warmers for your convenience."
+            answer: "The chalet is located just 13 mins from Sunday River Ski Resort, making it perfect for ski trips. We provide a ski storage area and boot warmers for your convenience."
         },
         {
             question: "Is the property pet-friendly?",
@@ -94,7 +95,7 @@ const PropertyIndex = () => {
 
     // Offers data organized by rows with their specific icons (72 total amenities)
     const offersRows = [
-        // Row 1: Scenic & Bathroom (9 items)
+        // Row 1: Scenic & Bathroom (8 items - removed Hot water)
         [
             { name: 'Mountain view', icon: <><path d="M24 30H3L7.84 16.13C10.19 9.38 11.37 6 13.5 6C15.51 6 16.67 9 18.77 15" stroke="#FFFAEA" strokeWidth="1.5" strokeLinejoin="round" /><path d="M9 30H33L26.11 18.99C23.82 15.33 22.68 13.5 21 13.5C19.32 13.5 18.18 15.33 15.89 18.99L13.69 22.5" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></> },
             { name: 'Bathroom', icon: <path d="M6 27H30M6 27V21C6 18 9 15 18 15C27 15 30 18 30 21V27" stroke="#FFFAEA" strokeWidth="1.5" /> },
@@ -103,7 +104,6 @@ const PropertyIndex = () => {
             { name: 'Cleaning products', icon: <path d="M12 30L15 6H21L24 30M9 18H27M12 24H24" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /> },
             { name: 'Shampoo', icon: <path d="M18 6V12M15 12H21V27C21 28.66 19.66 30 18 30C16.34 30 15 28.66 15 27V12Z" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
             { name: 'Conditioner', icon: <path d="M18 6V12M15 12H21V27C21 28.66 19.66 30 18 30C16.34 30 15 28.66 15 27V12Z" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
-            { name: 'Hot water', icon: <path d="M12 30C12 27 15 24 18 24C21 24 24 27 24 30M9 18C9 13 13 9 18 9C23 9 27 13 27 18C27 20 26 22 24 24H12C10 22 9 20 9 18Z" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
             { name: 'Shower gel', icon: <path d="M18 6V12M15 12H21V27C21 28.66 19.66 30 18 30C16.34 30 15 28.66 15 27V12Z" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> }
         ],
         // Row 2: Bedroom & Laundry (12 items)
@@ -121,19 +121,16 @@ const PropertyIndex = () => {
             { name: 'Drying rack', icon: <path d="M6 12H30V18M6 24H30" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Clothes storage', icon: <path d="M6 6H30V30H6V6ZM12 12H24V24H12V12Z" stroke="#FFFAEA" strokeWidth="1.5" /> }
         ],
-        // Row 3: Entertainment (7 items)
+        // Row 3: Entertainment (5 items - removed Books, Cinema)
         [
             { name: 'TV', icon: <path d="M6 6H30V24H6V6ZM12 30H24M18 24V30" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Sound system', icon: <path d="M6 12H30V24H6V12ZM12 6V12M24 6V12M12 24V30M24 24V30" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Pool table', icon: <path d="M6 15H30V21H6V15ZM12 12H24M12 24H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Arcade games', icon: <path d="M9 12H27V24H9V12ZM12 18H15M21 18H24M15 21H21" stroke="#FFFAEA" strokeWidth="1.5" /> },
-            { name: 'Books', icon: <path d="M6 6H30V30H6V6ZM12 12H24M12 18H24M12 24H18" stroke="#FFFAEA" strokeWidth="1.5" /> },
-            { name: 'Cinema', icon: <path d="M6 9H30V27H6V9ZM12 12H24M12 15H24M12 18H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Theme room', icon: <path d="M6 6H30V30H6V6ZM18 6V30M6 18H30" stroke="#FFFAEA" strokeWidth="1.5" /> }
         ],
-        // Row 4: Family (5 items)
+        // Row 4: Family (4 items - removed Cot)
         [
-            { name: 'Cot', icon: <path d="M9 12H27V30H9V12ZM12 12V9C12 6 15 6 18 6C21 6 24 6 24 9V12" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Travel cot', icon: <path d="M9 12H27V30H9V12ZM12 12V9C12 6 15 6 18 6C21 6 24 6 24 9V12" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Tableware', icon: <path d="M12 24H24M9 18H27M12 12H24" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
             { name: 'Fireplace guards', icon: <path d="M6 30V18H30V30M12 18V12M24 18V12" stroke="#FFFAEA" strokeWidth="1.5" /> },
@@ -146,24 +143,22 @@ const PropertyIndex = () => {
             { name: 'Portable fans', icon: <path d="M18 6V30M6 18H30M10 10L26 26M26 10L10 26" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Heating', icon: <path d="M18 30V12M12 18H24M15 24H21" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
             { name: 'Noise monitors', icon: <path d="M18 6C12 6 6 12 6 18C6 24 12 30 18 30C24 30 30 24 30 18C30 12 24 6 18 6ZM18 12V18L22 22" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
-            { name: 'Security cameras', icon: <path d="M24 6L30 12L24 18M6 12H27M18 30V18C18 15 21 12 24 12" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /> },
+            { name: 'Outdoor Security Cameras', icon: <path d="M24 6L30 12L24 18M6 12H27M18 30V18C18 15 21 12 24 12" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /> },
             { name: 'Smoke alarm', icon: <path d="M18 6C12 6 6 12 6 18C6 24 12 30 18 30C24 30 30 24 30 18C30 12 24 6 18 6Z" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'CO alarm', icon: <path d="M18 6C12 6 6 12 6 18C6 24 12 30 18 30C24 30 30 24 30 18C30 12 24 6 18 6Z" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Fire extinguisher', icon: <path d="M12 30L18 6L24 30M15 21H21" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
             { name: 'First aid kit', icon: <path d="M6 6H30V30H6V6ZM12 15H24M12 21H24" stroke="#FFFAEA" strokeWidth="1.5" /> }
         ],
-        // Row 6: Internet, Kitchen & Dining (19 items)
+        // Row 6: Internet, Kitchen & Dining (17 items - removed Cooker, Cooking basics; renamed Fridge)
         [
             { name: 'Wifi', icon: <path d="M6 27C8.5 24 12 21 18 21C24 21 27.5 24 30 27M9 21C11 18.5 14 15 18 15C22 15 25 18.5 27 21M12 15C13.5 13 15.5 10 18 10C20.5 10 22.5 13 24 15M18 6V8" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
             { name: 'Workspace', icon: <path d="M6 27H30V30H6V27ZM9 12H27V27H9V12ZM12 15V24M18 15V24M24 15V24" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Kitchen', icon: <path d="M3 30V12H33V30M3 12V6H12V12M12 6H24V12M24 6H33V12M9 18H27M9 24H27" stroke="#FFFAEA" strokeWidth="1.5" /> },
-            { name: 'Fridge', icon: <path d="M6 6H30V30H6V6ZM12 12H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
+            { name: 'Refrigerator', icon: <path d="M6 6H30V30H6V6ZM12 12H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Microwave', icon: <path d="M6 6H30V30H6V6ZM12 15H24M12 21H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
-            { name: 'Cooking basics', icon: <path d="M9 6H27V30H9V6ZM15 12H21M15 18H21" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Dishes', icon: <path d="M12 24H24M9 18H27M12 12H24" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
             { name: 'Freezer', icon: <path d="M6 6H30V30H6V6ZM12 18H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Dishwasher', icon: <path d="M6 6H30V30H6V6ZM18 12C21 12 24 15 24 18C24 21 21 24 18 24C15 24 12 21 12 18C12 15 15 12 18 12Z" stroke="#FFFAEA" strokeWidth="1.5" /> },
-            { name: 'Cooker', icon: <path d="M6 12H30M6 24H30M12 12V24M24 12V24" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Oven', icon: <path d="M6 6H30V30H6V6ZM12 12H24M12 18H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Kettle', icon: <path d="M12 6H24V18H12V6ZM9 18H27V30H9V18Z" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Coffee maker', icon: <path d="M12 6H24V24H12V6ZM15 24V30M21 24V30M9 30H27" stroke="#FFFAEA" strokeWidth="1.5" /> },
@@ -232,6 +227,7 @@ const PropertyIndex = () => {
                 <PropertyHighlights />
                 <FacilitiesSection />
                 <PropertyOffers offersRows={offersRows} />
+                <HouseRules />
                 <VisualJournal />
                 <Testimonials testimonials={propertyTestimonials} />
                 <FAQ title="Frost Pine Chalet FAQs" faqs={propertyFaqs} />

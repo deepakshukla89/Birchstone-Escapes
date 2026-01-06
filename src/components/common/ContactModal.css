@@ -1,0 +1,205 @@
+/* Contact Modal Styles */
+.contact-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease;
+    padding: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.contact-modal {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: rgba(114, 47, 55, 0.1);
+    border-radius: 50%;
+    font-size: 28px;
+    color: var(--color-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.contact-modal-close:hover {
+    background: var(--color-primary);
+    color: #FFFFFF;
+}
+
+.contact-modal-title {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 40px;
+    color: #1A1A1A;
+    margin: 0 0 24px 0;
+}
+
+.contact-modal-status {
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-modal-status.success {
+    background-color: #E6FFFA;
+    color: #276749;
+    border-left: 4px solid #38A169;
+}
+
+.contact-modal-status.error {
+    background-color: #FFF5F5;
+    color: #C53030;
+    border-left: 4px solid #E53E3E;
+}
+
+.contact-modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.contact-modal-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.contact-modal-field.full-width {
+    grid-column: span 2;
+}
+
+.contact-modal-field label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1A1A1A;
+}
+
+.contact-modal-field input,
+.contact-modal-field textarea {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    padding: 12px 14px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-modal-field input:focus,
+.contact-modal-field textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.1);
+}
+
+.contact-modal-field input.error,
+.contact-modal-field textarea.error {
+    border-color: #E53E3E;
+}
+
+.contact-modal-error {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    color: #E53E3E;
+}
+
+.contact-modal-submit {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px 28px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-modal-submit:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.contact-modal-submit:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .contact-modal {
+        padding: 28px 20px;
+        margin: 10px;
+    }
+
+    .contact-modal-title {
+        font-size: 26px;
+        padding-right: 30px;
+    }
+
+    .contact-modal-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-modal-field.full-width {
+        grid-column: span 1;
+    }
+}

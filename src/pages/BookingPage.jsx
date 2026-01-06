@@ -5,6 +5,7 @@ import { addDays, format } from 'date-fns';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import SEOMetaTags from '../components/common/SEOMetaTags';
+import HouseRules from '../components/property/HouseRules';
 import FAQ from '../components/common/FAQ';
 import './BookingPage.css';
 
@@ -279,6 +280,9 @@ const BookingPage = () => {
                         </div>
                     </div>
                 </section>
+
+                {/* House Rules Section */}
+                <HouseRules />
 
                 {/* FAQ Section */}
                 <section className="booking-faq-section">
