@@ -40,6 +40,23 @@ const FeatureIcon = ({ type }) => {
                 <circle cx="9" cy="5" r="1.5" stroke="currentColor" strokeWidth="2" />
                 <circle cx="15" cy="5" r="1.5" stroke="currentColor" strokeWidth="2" />
             </svg>
+        ),
+        tv: (
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="2" y="7" width="20" height="13" rx="2" stroke="currentColor" strokeWidth="2" />
+                <path d="M17 2l-5 5-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+        ),
+        bed: (
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 4v16M2 11h20M2 17h20M22 17v3M7 7a2 2 0 100-4 2 2 0 000 4zM22 11V7a3 3 0 00-3-3H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+        ),
+        workspace: (
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 7V5a2 2 0 012-2h14a2 2 0 012 2v2M3 17v2a2 2 0 002 2h14a2 2 0 002-2v-2M3 12h18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M7 12v3M17 12v3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
         )
     };
 
@@ -78,6 +95,21 @@ const FeaturesSection = ({
             icon: 'kitchen',
             title: 'Fully Equipped Kitchen',
             description: 'Cook your favorite meals with premium appliances and cookware.'
+        },
+        {
+            icon: 'tv',
+            title: 'Smart TVs',
+            description: 'All TVs are smart; just log in to your favorite apps and enjoy instant entertainment.'
+        },
+        {
+            icon: 'bed',
+            title: 'Luxury Bedding & Linens',
+            description: 'Sink into plush beds dressed in premium linens for the ultimate comfort and restful retreat.'
+        },
+        {
+            icon: 'workspace',
+            title: 'Dedicated Workspace',
+            description: 'Comfortable desk setup for guests who need to work remotely.'
         },
         {
             icon: 'parking',

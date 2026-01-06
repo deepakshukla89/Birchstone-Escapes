@@ -2,11 +2,43 @@
 .features-section {
     padding: 100px 20px;
     background-color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+    /* Subtle dot pattern */
+    background-image: radial-gradient(#d4d4d4 0.8px, transparent 0.8px);
+    background-size: 30px 30px;
 }
+
+/* Decorative background blobs */
+.features-section::before,
+.features-section::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+    opacity: 0.05;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.features-section::before {
+    top: -200px;
+    left: -200px;
+}
+
+.features-section::after {
+    bottom: -300px;
+    right: -200px;
+}
+
 
 .features-container {
     max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 /* Header */
@@ -49,8 +81,11 @@
     align-items: center;
     text-align: center;
     padding: 40px 30px;
-    background-color: var(--color-bg);
-    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 24px;
 }
 
 /* Icon */
