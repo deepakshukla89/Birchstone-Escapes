@@ -11,7 +11,29 @@ const HouseRules = ({ compact = false }) => {
                 </svg>
             ),
             title: "Check-in / Check-out",
-            description: "Check-in: 4:00 PM EST | Check-out: 10:00 AM EST"
+            description: "Check-in: After 4:00 PM | Check-out: by 10:00 AM"
+        },
+        {
+            icon: (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+            ),
+            title: "Maximum Guests",
+            description: "Maximum of 14 guests allowed per booking."
+        },
+        {
+            icon: (
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                </svg>
+            ),
+            title: "Minimum Age",
+            description: "Minimum booking age is 25 years old."
         },
         {
             icon: (
@@ -26,11 +48,12 @@ const HouseRules = ({ compact = false }) => {
         {
             icon: (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 2C8 6 4 10 4 14a8 8 0 0 0 16 0c0-4-4-8-8-12Z" />
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
                 </svg>
             ),
-            title: "Pets Welcome",
-            description: "Well-behaved dogs allowed ($50 fee, max 2 dogs)."
+            title: "No Pets",
+            description: "Pets are not allowed at this property."
         },
         {
             icon: (
@@ -40,29 +63,7 @@ const HouseRules = ({ compact = false }) => {
                 </svg>
             ),
             title: "No Parties",
-            description: "Parties and events are not allowed."
-        },
-        {
-            icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                    <polyline points="9 22 9 12 15 12 15 22" />
-                </svg>
-            ),
-            title: "Quiet Hours",
-            description: "Please observe quiet hours from 10 PM to 8 AM."
-        },
-        {
-            icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                    <line x1="16" y1="2" x2="16" y2="6" />
-                    <line x1="8" y1="2" x2="8" y2="6" />
-                    <line x1="3" y1="10" x2="21" y2="10" />
-                </svg>
-            ),
-            title: "Maximum Guests",
-            description: "Maximum of 10 guests allowed per booking."
+            description: "Parties and events are strictly prohibited."
         }
     ];
 

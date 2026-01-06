@@ -125,7 +125,7 @@ const PropertyIndex = () => {
         },
         {
             question: "Is the property pet-friendly?",
-            answer: "We welcome well-behaved dogs at Frost Pine Chalet! There's a $50 pet fee per stay. Please let us know in advance if you're bringing your furry friend, and note we have a 2-dog maximum."
+            answer: "For the comfort and safety of all our guests, pets are not permitted at Frost Pine Chalet. We maintain a strict no-pet policy to ensure the highest standards of cleanliness and to accommodate guests with allergies."
         },
         {
             question: "What's included in the kitchen?",
@@ -259,7 +259,7 @@ const PropertyIndex = () => {
             <SEOMetaTags
                 title={`${property.name} | TimbrLux Stays`}
                 description={property.description}
-                url={`https://timbrluxstays.com/property/frost-pine-chalet`}
+                url={`https://timbrluxstays.com/property/1967238`}
             />
 
             <main className="property-page">

@@ -10,28 +10,69 @@ const SearchPage = () => {
         script.async = true;
         document.body.appendChild(script);
 
-        // Remove gray background from widget
-        const removeGrayBackground = () => {
-            // Target elements in main DOM
-            const bgs = document.querySelectorAll('.search-bar-container-bg');
-            bgs.forEach(bg => {
-                bg.style.backgroundColor = 'transparent';
-                bg.style.background = 'transparent';
-            });
-
-            // Target elements in Shadow DOM
+        // Function to inject new theme into Shadow DOM
+        const applyNewTheme = () => {
             const widget = document.querySelector('hospitable-direct-mps');
             if (widget && widget.shadowRoot) {
+                // Remove gray background if it exists
                 const shadowBgs = widget.shadowRoot.querySelectorAll('.search-bar-container-bg');
                 shadowBgs.forEach(bg => {
                     bg.style.backgroundColor = 'transparent';
                     bg.style.background = 'transparent';
                 });
+
+                // Inject Custom Styles to override color theme
+                let style = widget.shadowRoot.querySelector('#theme-override');
+                if (!style) {
+                    style = document.createElement('style');
+                    style.id = 'theme-override';
+                    widget.shadowRoot.appendChild(style);
+                }
+
+                style.textContent = `
+                    :host {
+                        --mps-primary-color: #722F37 !important;
+                        --mps-button-bg: #722F37 !important;
+                        --mps-button-text: #ffffff !important;
+                    }
+                    .search-bar-container-bg {
+                        background: transparent !important;
+                        background-color: transparent !important;
+                    }
+                    button, .mps-button, .search-button, [type="button"] {
+                        background-color: #722F37 !important;
+                        color: #ffffff !important;
+                        border-color: #722F37 !important;
+                    }
+                    .property-title, .property-card-title, h2, h3 {
+                        color: #722F37 !important;
+                    }
+                    .price-amount, .price, .property-card-price {
+                        color: #722F37 !important;
+                    }
+                    .mps-input-icon, svg {
+                        fill: #722F37 !important;
+                        stroke: #722F37 !important;
+                    }
+                    a {
+                        color: #722F37 !important;
+                    }
+                    .mps-search-bar__button {
+                        background-color: #722F37 !important;
+                    }
+                `;
             }
+
+            // Also target main DOM just in case
+            const bgs = document.querySelectorAll('.search-bar-container-bg');
+            bgs.forEach(bg => {
+                bg.style.backgroundColor = 'transparent';
+                bg.style.background = 'transparent';
+            });
         };
 
         // Run frequently to catch when widget renders
-        const intervalId = setInterval(removeGrayBackground, 100);
+        const intervalId = setInterval(applyNewTheme, 100);
 
         return () => {
             clearInterval(intervalId);

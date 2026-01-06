@@ -4,18 +4,7 @@ import './AboutHero.css';
 const AboutHero = () => {
     return (
         <section className="about-hero" aria-labelledby="about-hero-title">
-            <div className="about-hero-bg-elements" aria-hidden="true">
-                <img
-                    src="/logo.svg"
-                    alt=""
-                    className="hero-bg-icon icon-1"
-                />
-                <img
-                    src="/logo.svg"
-                    alt=""
-                    className="hero-bg-icon icon-2"
-                />
-            </div>
+            <div className="about-hero-bg-elements" aria-hidden="true"></div>
             <div className="about-hero-container">
                 <span className="about-hero-label">ABOUT US</span>
                 <h1 id="about-hero-title" className="about-hero-title">

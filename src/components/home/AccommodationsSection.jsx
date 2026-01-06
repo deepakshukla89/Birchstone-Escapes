@@ -12,7 +12,7 @@ const AccommodationsSection = ({
         name: "Frost Pine Chalet",
         location: "Entire home in Newry, Maine, United States",
         image: `${process.env.PUBLIC_URL}/image/Frost-Pine-Chalet.png`,
-        link: "/property/frost-pine-chalet"
+        link: "/property/1967238"
     };
 
     const propertyData = property || defaultProperty;

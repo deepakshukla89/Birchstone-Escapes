@@ -15,30 +15,40 @@
     height: 100%;
     pointer-events: none;
     z-index: 0;
+    /* Sophisticated Topographic/Wave Pattern */
+    background-image:
+        repeating-radial-gradient(circle at 0% 0%, transparent 0, transparent 40px, rgba(114, 47, 55, 0.03) 41px, transparent 42px),
+        repeating-radial-gradient(circle at 100% 100%, transparent 0, transparent 60px, rgba(114, 47, 55, 0.02) 61px, transparent 62px);
+    opacity: 0.8;
 }
 
-.hero-bg-icon {
+/* Creative Mesh Glow */
+.about-hero::before,
+.about-hero::after {
+    content: '';
     position: absolute;
-    opacity: 0.03;
-    /* Very subtle 3% opacity */
-    width: 400px;
-    height: auto;
-    filter: grayscale(100%);
-    /* Make it monochrome to blend better */
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    /* background: radial-gradient(circle, var(--color-primary-light) 0%, transparent 70%); */
+    filter: blur(80px);
+    opacity: 0.12;
+    z-index: 0;
+    pointer-events: none;
 }
 
-.hero-bg-icon.icon-1 {
-    top: -100px;
-    left: -100px;
-    transform: rotate(-15deg);
-}
-
-.hero-bg-icon.icon-2 {
-    bottom: -100px;
+.about-hero::before {
+    top: -200px;
     right: -100px;
-    transform: rotate(15deg);
-    width: 500px;
+    background: radial-gradient(circle, #ECAE6D 0%, transparent 70%);
 }
+
+.about-hero::after {
+    bottom: -250px;
+    left: -100px;
+}
+
+
 
 .about-hero-container {
     max-width: 900px;

@@ -43,7 +43,7 @@ const MeetHost = () => {
                 <div className="meet-host-image-wrapper">
                     <div className="meet-host-image-bg"></div>
                     <img
-                        src="https://picsum.photos/seed/vikas/321/343"
+                        src="/image/about-owner.png"
                         alt="Vikas - Host of TimbrLux Stays"
                         className="meet-host-image"
                         itemProp="image"
