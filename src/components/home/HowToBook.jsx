@@ -1,51 +1,7 @@
 import React from 'react';
 import './HowToBook.css';
 
-// Reusable BookingOption Card Component
-const BookingOptionCard = ({
-    label = "Book on",
-    platform,
-    link,
-    isImageCard = false,
-    imageSrc = null
-}) => {
-    if (isImageCard) {
-        return (
-            <div
-                className="booking-option-card booking-option-image"
-                style={{ backgroundImage: imageSrc ? `url(${imageSrc})` : 'none' }}
-                aria-hidden="true"
-            />
-        );
-    }
-
-    return (
-        <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="booking-option-card booking-option-cta"
-            aria-label={`${label} ${platform}`}
-            itemScope
-            itemType="https://schema.org/BookAction"
-        >
-            <div className="booking-option-content">
-                <span className="booking-option-label">{label}</span>
-                <span className="booking-option-platform" itemProp="name">{platform}</span>
-            </div>
-            <span className="booking-option-arrow">→</span>
-        </a>
-    );
-};
-
-const HowToBook = ({
-    title = "How to book your stay?"
-}) => {
-    // Images
-    const b1 = `${process.env.PUBLIC_URL}/image/b1.png`;
-    const b2 = `${process.env.PUBLIC_URL}/image/b2.png`;
-    const b3 = `${process.env.PUBLIC_URL}/image/b3.png`;
-
+const HowToBook = () => {
     // Schema.org structured data
     const schemaData = {
         "@context": "https://schema.org",
@@ -54,11 +10,11 @@ const HowToBook = ({
             "@type": "LodgingBusiness",
             "name": "TimbrLux Stays"
         },
-        "potentialAction": [
-            { "@type": "BookAction", "target": "https://airbnb.com/timbrluxstays", "name": "Book on Airbnb" },
-            { "@type": "BookAction", "target": "https://vrbo.com/timbrluxstays", "name": "Book on VRBO" },
-            { "@type": "BookAction", "target": "/booking", "name": "Book on Website" }
-        ]
+        "potentialAction": {
+            "@type": "BookAction",
+            "target": "/booking",
+            "name": "Book Directly"
+        }
     };
 
     return (
@@ -79,36 +35,60 @@ const HowToBook = ({
             <div className="how-to-book-overlay" aria-hidden="true" />
 
             <div className="how-to-book-container">
-                {/* Title */}
+                <span className="how-to-book-label">The Best Way to Stay</span>
+
                 <h2 className="how-to-book-title" id="how-to-book-title">
-                    {title}
+                    Book Direct & Save
                 </h2>
 
-                {/* Desktop: 3 rows with 2 columns each */}
-                {/* Mobile: Each row becomes image + text stacked */}
-                <div className="how-to-book-grid" role="list">
-                    {/* Row 1: b2 image | Airbnb */}
-                    <div className="how-to-book-row how-to-book-row-1">
-                        <BookingOptionCard isImageCard imageSrc={b2} />
-                        <BookingOptionCard label="Book on" platform="Airbnb" link="https://airbnb.com/timbrluxstays" />
-                    </div>
+                <p className="how-to-book-description">
+                    Experience the most seamless way to plan your getaway.
+                    Enjoy exclusive rates, personalized service, and no hidden booking fees when you reserve directly with us.
+                </p>
 
-                    {/* Row 2: VRBO | b1 image */}
-                    <div className="how-to-book-row how-to-book-row-2">
-                        <BookingOptionCard label="Book on" platform="VRBO" link="https://vrbo.com/timbrluxstays" />
-                        <BookingOptionCard isImageCard imageSrc={b1} />
+                {/* Benefits Icons */}
+                <div className="book-direct-benefits">
+                    <div className="benefit-item">
+                        <div className="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>
+                        </div>
+                        <span className="benefit-text">Best Rate Guaranteed</span>
                     </div>
-
-                    {/* Row 3: b3 image | Website */}
-                    <div className="how-to-book-row how-to-book-row-3">
-                        <BookingOptionCard isImageCard imageSrc={b3} />
-                        <BookingOptionCard label="Book direct & save" platform="Website" link="/booking" />
+                    <div className="benefit-item">
+                        <div className="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                <path d="M9 12l2 2 4-4" />
+                            </svg>
+                        </div>
+                        <span className="benefit-text">Secure Booking</span>
+                    </div>
+                    <div className="benefit-item">
+                        <div className="benefit-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
+                                <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
+                                <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z" />
+                            </svg>
+                        </div>
+                        <span className="benefit-text">No Service Fees</span>
                     </div>
                 </div>
+
+                {/* Main CTA */}
+                <a
+                    href="/booking"
+                    className="btn-book-direct"
+                    aria-label="Book your stay directly"
+                >
+                    Check Availability <span>→</span>
+                </a>
             </div>
         </section>
     );
 };
 
-export { BookingOptionCard };
+
 export default HowToBook;

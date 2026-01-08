@@ -45,7 +45,24 @@ const HomeIndex = () => {
                 <AboutSection />
                 <FeaturesSection />
                 <HowToBook />
-                <Testimonials />
+                <Testimonials testimonials={[
+                    {
+                        text: "This is an outstanding home! Came upon this cabin by chance when we were looking for a family vacation. It's a true gem! The views are breathtaking, and the place has such a calm and private feel. It was spotless! The kitchen is fully stocked for meal prep which was important to us. Enjoyed quiet mornings drinking coffee on the deck watching the beautiful light in the trees. There was an amazing sense of peace all around. We really didn't want to leave to visit the town. There were so many amenities. There is a hot tub, game room, and sauna we enjoyed. We spent evenings at the fire pit with our family. Vikas was a wonderland responsive host. We're definitely coming back!",
+                        author: "Sangeeta P."
+                    },
+                    {
+                        text: "Met a couple of other families to reconnect and take advantage of the outdoor activities in the area. The house is great for that. it provides large communal areas to hang out with family/friends and it's close to local activities. The house does not disappoint. It looks as good as the pictures. The view of the mountain is amazing. We enjoyed watching New Year's fireworks from the living room.",
+                        author: "Kevin H."
+                    },
+                    {
+                        text: "Our family absolutely loved this stay! The mountain views were breathtaking especially at sunrise and sunset. The home was spotless, cozy, and had everything we needed for a relaxing getaway. The host was friendly and responsive, making check-in and communication super easy. It was the perfect mix of peaceful nature and family comfort. We can’t wait to come back, highly recommend!",
+                        author: "Felix L."
+                    },
+                    {
+                        text: "A dream rental! The view is even better than the pictures, the amenities are amazing! This place is a gem. Vikas is an amazing host as well! Very proactive and has really thought of everything to create a peaceful and memorable stay. 10 stars!!!",
+                        author: "Meridith K."
+                    }
+                ]} />
                 <FAQ faqs={homeFaqs} />
                 <BookingCard />
             </main>

@@ -12,20 +12,20 @@ const About = () => {
     // About page testimonials
     const aboutTestimonials = [
         {
-            text: "From the moment we booked, we knew this would be special. The attention to detail and personal touch made our vacation unforgettable.",
-            author: "Sarah & Tom"
+            text: "Our family absolutely loved this stay! The mountain views were breathtaking especially at sunrise and sunset. The home was spotless, cozy, and had everything we needed for a relaxing getaway. The host was friendly and responsive, making check-in and communication super easy. It was the perfect mix of peaceful nature and family comfort. We can’t wait to come back, highly recommend!",
+            author: "Felix L."
         },
         {
-            text: "Vikas is an incredible host! He went above and beyond to make sure everything was perfect. We've already booked our next stay.",
-            author: "The Miller Family"
+            text: "We had an amazing stay! The house is beautiful, super private, and there’s so much to do. It’s peaceful, relaxing, and was exactly what we were hoping for for a weekend getaway. Vikas was an incredible host, super helpful and very responsive. We would definitely come back!",
+            author: "Kath D."
         },
         {
-            text: "What sets TimbrLux apart is the genuine care you feel. It's not just about the beautiful property—it's about how they make you feel.",
-            author: "Rachel K."
+            text: "A dream rental! The view is even better than the pictures, the amenities are amazing! This place is a gem. Vikas is an amazing host as well! Very proactive and has really thought of everything to create a peaceful and memorable stay. 10 stars!!!",
+            author: "Meridith K."
         },
         {
-            text: "We've stayed at many vacation rentals, but nothing compares to the TimbrLux experience. Truly world-class hospitality.",
-            author: "James & Emily"
+            text: "The Airbnb was wonderful! We had an amazing stay. Everything was as described - even better in person. The house was fully renovated with all new appliances. Vikas was also a great host and very responsive if we had any questions. Highly recommend!",
+            author: "Riya K."
         }
     ];
 

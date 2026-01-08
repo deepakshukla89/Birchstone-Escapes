@@ -88,24 +88,28 @@ const PropertyIndex = () => {
     // Property-specific testimonials
     const propertyTestimonials = [
         {
-            text: "Frost Pine Chalet exceeded all our expectations! The views of the mountains were breathtaking, and waking up to the misty mornings was magical. The hot tub under the stars was the highlight of our trip!",
-            author: "Jennifer M."
+            text: "This is an outstanding home! Came upon this cabin by chance when we were looking for a family vacation. It's a true gem! The views are breathtaking, and the place has such a calm and private feel. It was spotless! The kitchen is fully stocked for meal prep which was important to us. Enjoyed quiet mornings drinking coffee on the deck watching the beautiful light in the trees. There was an amazing sense of peace all around. We really didn't want to leave to visit the town. There were so many amenities. There is a hot tub, game room, and sauna we enjoyed. We spent evenings at the fire pit with our family. Vikas was a wonderland responsive host. We're definitely coming back!",
+            author: "Sangeeta P."
         },
         {
-            text: "We stayed here for our anniversary and it was absolutely perfect. The chalet is beautifully designed, super clean, and has everything you need. The fireplace made our evenings so cozy!",
-            author: "Michael & Sarah"
+            text: "Met a couple of other families to reconnect and take advantage of the outdoor activities in the area. The house is great for that. it provides large communal areas to hang out with family/friends and it's close to local activities. The house does not disappoint. It looks as good as the pictures. The view of the mountain is amazing. We enjoyed watching New Year's fireworks from the living room.",
+            author: "Kevin H."
         },
         {
-            text: "Best family vacation we've ever had! The kids loved exploring the outdoors while we relaxed on the patio. The kitchen was fully equipped and the beds were incredibly comfortable.",
-            author: "The Anderson Family"
+            text: "Amazing view! My family had a lot fun and everything was great.",
+            author: "Diogo L."
         },
         {
-            text: "This chalet is a hidden gem! The modern amenities combined with the rustic mountain feel made for an unforgettable stay. Already planning our return trip!",
-            author: "David R."
+            text: "My family and I had a great weekend during our stay, the environment was extremely clean, we received all the instructions and arrived at the place easily, they always responded to us kindly and quickly, very comfortable, great view, we are looking forward to returning, the price is very fair with everything they offer, we loved it, thank you and see you soon.",
+            author: "Kerollen S."
         },
         {
-            text: "The attention to detail in this property is remarkable. From the quality linens to the thoughtful welcome guide with local recommendations - everything was perfect!",
-            author: "Emily T."
+            text: "We had such a great experience staying here! The home was private and luxurious. The home was spotless, beautifully decorated, and had everything we needed for a relaxing stay. We especially loved the deck with lovely view of the mountains. The location was perfect—close to Sunday river, peaceful and quiet. Communication with the host was easy and quick, and check-in was seamless. We will love to come back and stay here again.",
+            author: "Christina K."
+        },
+        {
+            text: "Such a beautiful, warm, welcoming house! Has everything you need for a relaxing mountain or ski getaway! We absolutely would come back and just lovedddd this house! Host was easy to reach, answered any questions quickly, check in was easy!",
+            author: "Maddy B."
         }
     ];
 
@@ -141,7 +145,7 @@ const PropertyIndex = () => {
     const offersRows = [
         // Row 1: Scenic & Bathroom (8 items - removed Hot water)
         [
-            { name: 'Mountain view', icon: <><path d="M24 30H3L7.84 16.13C10.19 9.38 11.37 6 13.5 6C15.51 6 16.67 9 18.77 15" stroke="#FFFAEA" strokeWidth="1.5" strokeLinejoin="round" /><path d="M9 30H33L26.11 18.99C23.82 15.33 22.68 13.5 21 13.5C19.32 13.5 18.18 15.33 15.89 18.99L13.69 22.5" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></> },
+
             { name: 'Bathroom', icon: <path d="M6 27H30M6 27V21C6 18 9 15 18 15C27 15 30 18 30 21V27" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Bath', icon: <path d="M6 27H30V30H6V27ZM9 12C9 9 12 6 18 6C24 6 27 9 27 12V27H9V12Z" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Hair dryer', icon: <path d="M24 12C24 9 21 6 18 6V12M18 12H12C9 12 6 15 6 18V24C6 27 9 30 12 30H24C27 30 30 27 30 24V18C30 15 27 12 24 12H18Z" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
@@ -153,13 +157,13 @@ const PropertyIndex = () => {
         // Row 2: Bedroom & Laundry (12 items)
         [
             { name: 'Washing machine', icon: <path d="M6 9H30V27H6V9ZM18 15C20 15 21 16 21 18C21 20 20 21 18 21C16 21 15 20 15 18C15 16 16 15 18 15Z" stroke="#FFFAEA" strokeWidth="1.5" /> },
-            { name: 'Free dryer', icon: <path d="M6 9H30V27H6V9ZM18 15C20 15 21 16 21 18C21 20 20 21 18 21C16 21 15 20 15 18C15 16 16 15 18 15Z" stroke="#FFFAEA" strokeWidth="1.5" /> },
+            { name: 'Dryer', icon: <path d="M6 9H30V27H6V9ZM18 15C20 15 21 16 21 18C21 20 20 21 18 21C16 21 15 20 15 18C15 16 16 15 18 15Z" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Essentials', icon: <path d="M6 30V18L18 6L30 18V30H6ZM12 24H24M12 18H24" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /> },
             { name: 'Towels & sheets', icon: <path d="M6 12H30V30H6V12ZM12 18H24M12 24H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Hangers', icon: <path d="M12 6L18 12L24 6M12 30V12H24V30" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /> },
             { name: 'Bed linen', icon: <path d="M6 12H30V30H6V12ZM12 18H24M12 24H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Cotton linen', icon: <path d="M6 12H30V30H6V12ZM12 18H24M12 24H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
-            { name: 'Extra pillows', icon: <path d="M6 27H30M9 27V15C9 12 12 9 18 9C24 9 27 12 27 15V27M12 21H24" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
+
             { name: 'Room-darkening blinds', icon: <path d="M6 6H30V30H6V6ZM12 12H24V24H12V12Z" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Iron', icon: <path d="M18 6V30M12 12H24" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
             { name: 'Drying rack', icon: <path d="M6 12H30V18M6 24H30" stroke="#FFFAEA" strokeWidth="1.5" /> },
@@ -184,7 +188,7 @@ const PropertyIndex = () => {
         [
             { name: 'AC', icon: <path d="M6 9H30V18H6V9ZM9 18V27M27 18V27M12 21H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Ceiling fan', icon: <path d="M18 6V30M6 18H30M10 10L26 26M26 10L10 26" stroke="#FFFAEA" strokeWidth="1.5" /> },
-            { name: 'Portable fans', icon: <path d="M18 6V30M6 18H30M10 10L26 26M26 10L10 26" stroke="#FFFAEA" strokeWidth="1.5" /> },
+
             { name: 'Heating', icon: <path d="M18 30V12M12 18H24M15 24H21" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
             { name: 'Noise monitors', icon: <path d="M18 6C12 6 6 12 6 18C6 24 12 30 18 30C24 30 30 24 30 18C30 12 24 6 18 6ZM18 12V18L22 22" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
             { name: 'Outdoor Security Cameras', icon: <path d="M24 6L30 12L24 18M6 12H27M18 30V18C18 15 21 12 24 12" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /> },
@@ -201,9 +205,9 @@ const PropertyIndex = () => {
             { name: 'Refrigerator', icon: <path d="M6 6H30V30H6V6ZM12 12H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Microwave', icon: <path d="M6 6H30V30H6V6ZM12 15H24M12 21H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Dishes', icon: <path d="M12 24H24M9 18H27M12 12H24" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },
-            { name: 'Freezer', icon: <path d="M6 6H30V30H6V6ZM12 18H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
+
             { name: 'Dishwasher', icon: <path d="M6 6H30V30H6V6ZM18 12C21 12 24 15 24 18C24 21 21 24 18 24C15 24 12 21 12 18C12 15 15 12 18 12Z" stroke="#FFFAEA" strokeWidth="1.5" /> },
-            { name: 'Oven', icon: <path d="M6 6H30V30H6V6ZM12 12H24M12 18H24" stroke="#FFFAEA" strokeWidth="1.5" /> },
+
             { name: 'Kettle', icon: <path d="M12 6H24V18H12V6ZM9 18H27V30H9V18Z" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Coffee maker', icon: <path d="M12 6H24V24H12V6ZM15 24V30M21 24V30M9 30H27" stroke="#FFFAEA" strokeWidth="1.5" /> },
             { name: 'Wine glasses', icon: <path d="M12 6C12 12 6 18 6 24C6 27 9 30 12 30H24C27 30 30 27 30 24C30 18 24 12 24 6" stroke="#FFFAEA" strokeWidth="1.5" strokeLinecap="round" /> },

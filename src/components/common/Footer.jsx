@@ -164,8 +164,8 @@ const Footer = () => {
                     <div className="footer-column">
                         <h3 className="footer-column-title">Follow us</h3>
                         <ul className="footer-column-content footer-links footer-social">
-                            <li><a href="https://instagram.com/timbrluxstays" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">Instagram</a></li>
-                            <li><a href="https://facebook.com/timbrluxstays" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/frostpinechalet/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">Instagram</a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=61580513130078" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">Facebook</a></li>
                         </ul>
                     </div>
                 </div>

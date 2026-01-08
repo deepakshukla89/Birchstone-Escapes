@@ -101,8 +101,8 @@ const ContactPage = () => {
                 "addressRegion": "ME",
                 "addressCountry": "US"
             },
-            "telephone": "+1 (555) 247-2478",
-            "email": "hello@timbrluxstays.com",
+            "telephone": "+1 (206) 558-8542",
+            "email": "vikas@timbrluxstays.com",
             "url": "https://timbrluxstays.com"
         }
     };
@@ -149,7 +149,7 @@ const ContactPage = () => {
                                 <div className="contact-info-content">
                                     <h3 className="contact-info-title">Email</h3>
                                     <p className="contact-info-text">
-                                        <a href="mailto:hello@timbrluxstays.com">hello@timbrluxstays.com</a>
+                                        <a href="mailto:vikas@timbrluxstays.com">vikas@timbrluxstays.com</a>
                                     </p>
                                 </div>
                             </article>
@@ -163,7 +163,7 @@ const ContactPage = () => {
                                 <div className="contact-info-content">
                                     <h3 className="contact-info-title">Phone</h3>
                                     <p className="contact-info-text">
-                                        <a href="tel:+15552472478">+1 (555) 247-2478</a>
+                                        <a href="tel:+12065588542">+1 (206) 558-8542</a>
                                     </p>
                                 </div>
                             </article>
