@@ -30,7 +30,7 @@ const MeetHost = () => {
                 {/* Content */}
                 <div className="meet-host-content">
                     <h2 id="host-title" className="meet-host-title" itemProp="name">
-                        Meet your host :) <span className="host-name-italic">Vikas</span>
+                        Meet your host <span className="host-name-italic">Vikas</span>
                     </h2>
                     <p className="meet-host-description" itemProp="description">
                         Vikas started TimbrLux Stays with a simple goal: to create a vacation property that feels welcoming and easy, not just a place to sleep. He believes the best stays come from thoughtful details and genuine care.

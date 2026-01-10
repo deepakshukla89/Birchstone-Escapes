@@ -43,7 +43,7 @@ const HowToBook = () => {
 
                 <p className="how-to-book-description">
                     Experience the most seamless way to plan your getaway.
-                    Enjoy exclusive rates, personalized service, and no hidden booking fees when you reserve directly with us.
+                    Enjoy exclusive rates and personalized service when you reserve directly with us.
                 </p>
 
                 {/* Benefits Icons */}
@@ -65,16 +65,7 @@ const HowToBook = () => {
                         </div>
                         <span className="benefit-text">Secure Booking</span>
                     </div>
-                    <div className="benefit-item">
-                        <div className="benefit-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4" />
-                                <path d="M4 6v12c0 1.1.9 2 2 2h14v-4" />
-                                <path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z" />
-                            </svg>
-                        </div>
-                        <span className="benefit-text">No Service Fees</span>
-                    </div>
+
                 </div>
 
                 {/* Main CTA */}

@@ -116,28 +116,28 @@ const PropertyIndex = () => {
     // Property-specific FAQs
     const propertyFaqs = [
         {
-            question: "What is the check-in and check-out time at Frost Pine Chalet?",
-            answer: "Check-in is at 4:00 PM EST and check-out is at 10:00 AM EST. Early check-in or late check-out may be available upon request, subject to availability. We use a smart lock for self check-in, so you'll receive a unique code before your arrival."
+            question: "What time is check-in and check-out?",
+            answer: "Check-in begins at 4:00 p.m. EST. Check-out is at 10:00 a.m. EST. Early check-in may be available depending on our schedule; we'll text you on your arrival day if it's possible (a small fee may apply)."
         },
         {
-            question: "Is the hot tub available year-round?",
-            answer: "Yes! The private hot tub is available year-round and is regularly maintained. It's especially magical during winter with snow falling around you, or in summer under the starry mountain sky."
+            question: "Is there an outdoor grill and firepit?",
+            answer: "Yes, the chalet offers an outdoor grill and firepit. These are available seasonally and may be restricted during certain weather conditions for safety reasons."
         },
         {
-            question: "How far is Frost Pine Chalet from the nearest ski resort?",
-            answer: "The chalet is located just 13 mins from Sunday River Ski Resort, making it perfect for ski trips. We provide a ski storage area and boot warmers for your convenience."
+            question: "Can guests use the indoor fireplace?",
+            answer: "No. For safety and insurance reasons, the indoor fireplace is not available for guest use, and operating it is strictly prohibited."
         },
         {
-            question: "Is the property pet-friendly?",
-            answer: "For the comfort and safety of all our guests, pets are not permitted at Frost Pine Chalet. We maintain a strict no-pet policy to ensure the highest standards of cleanliness and to accommodate guests with allergies."
+            question: "Are there quiet hours?",
+            answer: "Yes. Quiet hours are observed between 10:00 p.m. and 8:00 a.m. to respect the surrounding community."
         },
         {
-            question: "What's included in the kitchen?",
-            answer: "The fully-equipped kitchen features Fisher & Paykel appliances, a built-in wine fridge, Nespresso coffee maker, high-end cookware, and all the essentials for preparing meals. We also provide basic pantry items like coffee, tea, oil, and spices."
+            question: "Do I need a special vehicle in winter?",
+            answer: "An AWD or 4WD vehicle is strongly recommended during snowy months to ensure safe access to the driveway and surrounding roads."
         },
         {
-            question: "Is there WiFi and what's the speed like?",
-            answer: "Yes, we have high-speed WiFi (100+ Mbps) throughout the property. It's perfect for streaming, video calls, or remote work. We also have a dedicated workspace area if you need to get some work done."
+            question: "What happens after my booking is confirmed?",
+            answer: "After booking, you’ll receive a secure Happy Guest link to complete a rental agreement, verify your ID, and choose either a $1,000 security hold or an optional damage waiver. You’ll then gain access to your guest portal with property details, local recommendations, and—closer to arrival—your full check-in guide."
         }
     ];
 

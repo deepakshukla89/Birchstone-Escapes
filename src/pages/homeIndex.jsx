@@ -14,20 +14,28 @@ import '../components/home/homepageScreen.css';
 const HomeIndex = () => {
     const homeFaqs = [
         {
-            question: "What is included in my stay?",
-            answer: "Every stay includes fresh linens, towels, toiletries, a fully equipped kitchen, high-speed WiFi, and access to all property amenities. We also provide a welcome guide with local recommendations."
+            question: "What is TimbrLux Stays?",
+            answer: "TimbrLux Stays is a boutique vacation rental brand offering thoughtfully designed stays focused on comfort, quality, and memorable guest experiences."
         },
         {
-            question: "What is the check-in and check-out time?",
-            answer: "Check-in is at 4:00 PM and check-out is at 11:00 AM. Early check-in or late check-out may be available upon request, subject to availability."
+            question: "Why should I book directly through your website?",
+            answer: "Booking direct gives you the best available rate, direct communication with your host, priority support, and no third-party platform fees."
         },
         {
-            question: "Is the property pet-friendly?",
-            answer: "Some of our properties welcome pets! Please check the individual property listing for pet policies, or contact us directly with questions about your furry friend."
+            question: "Is the home suitable for families or groups?",
+            answer: "Yes. The chalet is designed for families and groups, with spacious gathering areas, thoughtful amenities, and a layout that encourages connection and relaxation."
         },
         {
-            question: "How do I contact the host?",
-            answer: "You can reach us anytime through the TimbrLux Stays messaging system, or via email at hello@timbrluxstays.com.We typically respond within a few hours."
+            question: "What is included with my stay?",
+            answer: "Your stay includes fresh linens, bath towels, starter paper products, a fully equipped kitchen, high-speed Wi-Fi, and curated local recommendations."
+        },
+        {
+            question: "How does check-in work?",
+            answer: "For your convenience and security, our home features electronic locks with no physical keys. Each guest receives a unique access code generated specifically for their stay, ensuring easy entry and added protection."
+        },
+        {
+            question: "Who do I contact if I have questions during my stay?",
+            answer: "You'll have direct access to your host and support team. Contact details are provided on our website, in your pre-arrival email, and in your guest portal."
         }
     ];
 

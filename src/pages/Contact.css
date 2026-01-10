@@ -234,6 +234,74 @@
     box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.15);
 }
 
+/* Date Picker Styles */
+.date-picker-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.date-picker-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    color: #4A4A4A;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.date-picker-trigger:hover {
+    border-color: #BDBDBD;
+}
+
+.date-picker-trigger.active {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.15);
+}
+
+.date-picker-trigger svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.date-picker-dropdown {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 1000;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile Adjustments for Calendar */
+@media (max-width: 600px) {
+    .date-picker-dropdown {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100vw;
+        max-width: 330px;
+    }
+    
+    .rdrCalendarWrapper {
+        font-size: 12px;
+    }
+}
+
 .form-group input.error,
 .form-group textarea.error {
     border-color: #E53E3E;

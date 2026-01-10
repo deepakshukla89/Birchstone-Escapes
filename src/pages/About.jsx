@@ -6,6 +6,7 @@ import WhatWeOffer from '../components/about/WhatWeOffer';
 import MeetHost from '../components/about/MeetHost';
 import OurPromise from '../components/about/OurPromise';
 import Testimonials from '../components/common/Testimonials';
+import FAQ from '../components/common/FAQ';
 import BookingCard from '../components/common/BookingCard';
 
 const About = () => {
@@ -26,6 +27,21 @@ const About = () => {
         {
             text: "The Airbnb was wonderful! We had an amazing stay. Everything was as described - even better in person. The house was fully renovated with all new appliances. Vikas was also a great host and very responsive if we had any questions. Highly recommend!",
             author: "Riya K."
+        }
+    ];
+
+    const aboutFaqs = [
+        {
+            question: "Who is behind TimbrLux Stays?",
+            answer: "TimbrLux Stays was created by host passionate about hospitality, design, and creating peaceful escapes where guests can truly unwind."
+        },
+        {
+            question: "Are you hands-on hosts?",
+            answer: "Yes. While we work with trusted local professionals, we remain closely involved in guest communication, property standards, and overall experience."
+        },
+        {
+            question: "What kind of experience do you aim to provide?",
+            answer: "A seamless, elevated stay that feels effortless—from booking to check-out—so guests can focus on enjoying their time away."
         }
     ];
 
@@ -66,6 +82,7 @@ const About = () => {
                 <MeetHost />
                 <OurPromise />
                 <Testimonials testimonials={aboutTestimonials} />
+                <FAQ title="About Us FAQs" faqs={aboutFaqs} />
                 <BookingCard />
             </main>
         </>

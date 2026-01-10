@@ -68,20 +68,28 @@ const BookingPage = () => {
 
     const bookingFaqs = [
         {
-            question: "How do I book a property directly?",
-            answer: "Simply select your dates and number of guests using the search form above, then click Search to view available properties. By booking directly, you avoid third-party fees and get the best rates."
+            question: "How do I book a stay?",
+            answer: "You can book directly through our website by selecting your dates and completing the secure checkout process."
         },
         {
-            question: "What are the benefits of booking directly?",
-            answer: "Booking directly with TimbrLux Stays means no corporate surcharges, direct communication with our team, access to exclusive offers, and a straightforward booking process."
+            question: "Is booking on your website secure?",
+            answer: "Yes. All payments are processed through secure, encrypted systems."
         },
         {
-            question: "Can I cancel or modify my booking?",
-            answer: "Yes! Each property has its own cancellation policy. You can view the specific terms during the booking process. Contact us directly for any modifications."
+            question: "What payment methods do you accept?",
+            answer: "We accept major credit and debit cards."
         },
         {
-            question: "How will I receive booking confirmation?",
-            answer: "You'll receive an email confirmation immediately after booking, along with check-in details and property information."
+            question: "What is your cancellation policy?",
+            answer: "You’ll always see the exact cancellation policy before confirming your booking at checkout."
+        },
+        {
+            question: "What happens after my booking is confirmed?",
+            answer: "After booking, you’ll receive a secure Happy Guest link to complete a rental agreement, verify your ID, and choose either a $1,000 security hold or an optional damage waiver. You’ll then gain access to your guest portal with property details, local recommendations, and—closer to arrival—your full check-in guide."
+        },
+        {
+            question: "Is there a minimum age requirement to book?",
+            answer: "Yes. The primary guest making the booking must be at least 25 years old and must stay at the property for the duration of the reservation."
         }
     ];
 

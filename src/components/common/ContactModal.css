@@ -148,6 +148,79 @@
     box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.1);
 }
 
+/* Modal Date Picker Styles */
+.modal-date-picker-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.modal-date-picker-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    color: #4A4A4A;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.modal-date-picker-trigger:hover {
+    border-color: #BDBDBD;
+}
+
+.modal-date-picker-trigger.active {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.1);
+}
+
+.modal-date-picker-trigger svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.modal-date-picker-dropdown {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    z-index: 1001;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal-specific responsive for date picker */
+@media (max-width: 600px) {
+    .modal-date-picker-dropdown {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90vw;
+        max-width: 330px;
+    }
+}
+
 .contact-modal-field input.error,
 .contact-modal-field textarea.error {
     border-color: #E53E3E;
