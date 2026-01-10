@@ -6,7 +6,6 @@ import PropertyHighlights from '../components/property/PropertyHighlights';
 import PropertyOffers from '../components/property/PropertyOffers';
 import HouseRules from '../components/property/HouseRules';
 import FacilitiesSection from '../components/property/FacilitiesSection';
-import VisualJournal from '../components/property/VisualJournal';
 import Testimonials from '../components/common/Testimonials';
 import FAQ from '../components/common/FAQ';
 import BookingCard from '../components/common/BookingCard';
@@ -284,7 +283,6 @@ const PropertyIndex = () => {
                     onBookNow={handleOpenBooking}
                     propertyName={property.name}
                 />
-                <VisualJournal images={propertyImages} isLoading={isLoading} />
                 <Testimonials testimonials={propertyTestimonials} />
                 <FAQ title="Frost Pine Chalet FAQs" faqs={propertyFaqs} />
                 <BookingCard onBookNow={handleOpenBooking} />
