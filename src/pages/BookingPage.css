@@ -31,7 +31,7 @@
     width: 100%;
 }
 
-/* ===== Message Card ===== */
+/* ===== Message Card (Now Top Search Card) ===== */
 .booking-message-card {
     display: flex;
     flex-direction: column;
@@ -39,17 +39,35 @@
     width: 100%;
     background: var(--color-bg);
     border-radius: 122.5px;
-    padding: 29px 40px;
-    gap: 20px;
+    padding: 29px 100px;
+    gap: 32px;
 }
 
-.booking-message-text {
+/* Moved Text Section (formerly Top Search Section) */
+.booking-text-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 13px;
+    gap: 15px;
     max-width: 820px;
+    text-align: center;
 }
+
+.booking-text-section .booking-title {
+    margin-bottom: 0;
+}
+
+.booking-divider {
+    width: 2px;
+    height: 100px;
+    background-color: var(--color-primary);
+    display: block;
+    margin: 10px 0;
+}
+
+
+
+
 
 .booking-title {
     font-family: var(--font-heading);
@@ -71,22 +89,7 @@
     margin: 0;
 }
 
-.booking-divider {
-    width: 1px;
-    height: 118px;
-    background: var(--color-primary);
-}
-
-/* ===== Search Form Section ===== */
-.booking-search-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 64px;
-    max-width: 788px;
-    width: 100%;
-}
-
+/* ===== Search Form Section Elements (Now inside Top Card) ===== */
 .booking-search-title {
     font-family: var(--font-heading);
     font-style: italic;
@@ -105,6 +108,8 @@
     padding: 24px;
     gap: 12px;
     width: 100%;
+    max-width: 900px;
+    /* Constrain width inside the curve */
     background: var(--color-primary);
     border-radius: 16px;
 }
@@ -376,7 +381,7 @@
 
     .booking-message-card {
         border-radius: 60px;
-        padding: 24px 20px;
+        padding: 30px 20px;
     }
 
     .booking-title {
@@ -389,9 +394,7 @@
         line-height: 24px;
     }
 
-    .booking-divider {
-        height: 80px;
-    }
+
 
     .booking-search-section {
         gap: 40px;

@@ -30,14 +30,16 @@ const Hero = ({
             itemScope
             itemType="https://schema.org/LodgingBusiness"
         >
-            {/* Background Video */}
+            {/* Background Video - LCP Element */}
             <video
                 autoPlay
                 muted
                 loop
                 playsInline
+                preload="auto"
                 poster={bgImage}
                 className="hero-video"
+                fetchpriority="high"
             >
                 <source src={`${process.env.PUBLIC_URL}/hero_bg_video.mp4`} type="video/mp4" />
                 Your browser does not support the video tag.

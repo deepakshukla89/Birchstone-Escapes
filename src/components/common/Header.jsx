@@ -33,7 +33,7 @@ const Header = () => {
                     itemType="https://schema.org/Organization"
                     aria-label="TimbrLux Stays - Home"
                 >
-                    <img src="/image/logo.svg" alt="TimbrLux Stays" className="logo-img" itemProp="logo" />
+                    <img src="/image/logo.svg" alt="TimbrLux Stays" className="logo-img" itemProp="logo" width="180" height="45" />
                     <meta itemProp="name" content="TimbrLux Stays" />
                     <meta itemProp="url" content="https://timbrluxstays.com" />
                 </Link>

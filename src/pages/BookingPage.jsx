@@ -112,21 +112,8 @@ const BookingPage = () => {
                 {/* Content Section */}
                 <section className="booking-content-section">
                     <div className="booking-container">
-                        {/* Message Card */}
-                        <div className="booking-message-card">
-                            <div className="booking-message-text">
-                                <h1 className="booking-title">Your stay matters.</h1>
-                                <p className="booking-subtitle">
-                                    By booking directly with TimbrLux Stays, you avoid the surcharges that third-party platforms add on.
-                                    What you get instead: genuine conversations with our team, access to special offers, and a straightforward booking experience.
-                                    Same quality escape, better price.
-                                </p>
-                            </div>
-                            <div className="booking-divider"></div>
-                        </div>
-
-                        {/* Search Form */}
-                        <div className="booking-search-section">
+                        {/* Search Card (Top curved card) */}
+                        <div className="booking-message-card booking-search-card-top">
                             <h2 className="booking-search-title">Search and book your stay</h2>
 
                             <div className="booking-search-form">
@@ -285,6 +272,19 @@ const BookingPage = () => {
                                     Search
                                 </button>
                             </div>
+                        </div>
+
+                        {/* Divider - BETWEEN both sections */}
+                        <div className="booking-divider"></div>
+
+                        {/* Message Text Section */}
+                        <div className="booking-text-section">
+                            <h1 className="booking-title">Your stay matters.</h1>
+                            <p className="booking-subtitle">
+                                By booking directly with TimbrLux Stays, you avoid the surcharges that third-party platforms add on.
+                                What you get instead: genuine conversations with our team, access to special offers, and a straightforward booking experience.
+                                Same quality escape, better price.
+                            </p>
                         </div>
                     </div>
                 </section>

@@ -23,6 +23,8 @@ const BookingCard = ({ onBookNow }) => {
                             alt="Award laurel left"
                             className="badge-laurel badge-laurel-left"
                             loading="lazy"
+                            width="40"
+                            height="40"
                         />
                         <span
                             className="badge-score"
@@ -35,6 +37,8 @@ const BookingCard = ({ onBookNow }) => {
                             alt="Award laurel right"
                             className="badge-laurel badge-laurel-right"
                             loading="lazy"
+                            width="40"
+                            height="40"
                         />
                     </div>
                     <p className="badge-title" itemProp="description">Guest favourite</p>
