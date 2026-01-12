@@ -92,7 +92,7 @@ const FacilitiesSection = () => {
         },
         {
             id: 14,
-            title: "Primary Ensuite",
+            title: "Primary Ensuite Bathroom",
             description: "Full bath with modern finishes and private access.",
             image: "full-bathroom-1-a.jpg"
         },
@@ -183,7 +183,7 @@ const FacilitiesSection = () => {
                         dynamicBullets: true
                     }}
                     autoplay={{
-                        delay: 3000,
+                        delay: 5000,
                         disableOnInteraction: false,
                         pauseOnMouseEnter: true
                     }}

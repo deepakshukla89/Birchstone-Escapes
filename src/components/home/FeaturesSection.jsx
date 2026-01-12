@@ -87,9 +87,9 @@ const FeaturesSection = ({
     // Default features
     const defaultFeatures = [
         {
-            icon: 'wifi',
-            title: 'High-Speed WiFi',
-            description: 'Stay connected with blazing fast internet throughout the property.'
+            icon: 'bed',
+            title: 'Luxury Bedding & Linens',
+            description: 'Sink into plush beds dressed in premium linens for the ultimate comfort and restful retreat.'
         },
         {
             icon: 'kitchen',
@@ -102,9 +102,9 @@ const FeaturesSection = ({
             description: 'All TVs are smart; just log in to your favorite apps and enjoy instant entertainment.'
         },
         {
-            icon: 'bed',
-            title: 'Luxury Bedding & Linens',
-            description: 'Sink into plush beds dressed in premium linens for the ultimate comfort and restful retreat.'
+            icon: 'wifi',
+            title: 'High-Speed WiFi',
+            description: 'Stay connected with blazing fast internet throughout the property.'
         },
         {
             icon: 'workspace',

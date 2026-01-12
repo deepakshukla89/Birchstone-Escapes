@@ -153,7 +153,6 @@ const Footer = () => {
                         <ul className="footer-column-content footer-links">
                             <li><Link to="/" itemProp="url"><span itemProp="name">Home</span></Link></li>
                             <li><Link to="/about" itemProp="url"><span itemProp="name">About Us</span></Link></li>
-                            <li><Link to="/properties" itemProp="url"><span itemProp="name">Our Homes</span></Link></li>
                         </ul>
                     </nav>
 
@@ -187,7 +186,6 @@ const Footer = () => {
                             <ul className="footer-column-content footer-links">
                                 <li><Link to="/">Home</Link></li>
                                 <li><Link to="/about">About Us</Link></li>
-                                <li><Link to="/properties">Our Homes</Link></li>
                             </ul>
                         </nav>
 
