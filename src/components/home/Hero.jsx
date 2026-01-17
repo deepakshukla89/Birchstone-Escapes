@@ -17,7 +17,24 @@ const Hero = ({
         "description": tagline,
         "url": "https://timbrluxstays.com",
         "priceRange": "$$$",
-        "@id": "https://timbrluxstays.com/#organization"
+        "@id": "https://timbrluxstays.com/#organization",
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero-title", ".hero-tagline"]
+        }
+    };
+
+    // VideoObject schema for hero video
+    const videoSchema = {
+        "@context": "https://schema.org",
+        "@type": "VideoObject",
+        "name": "TimbrLux Stays - Luxury Vacation Rentals",
+        "description": "Experience beautifully designed vacation homes at TimbrLux Stays. Watch our property showcase.",
+        "thumbnailUrl": "https://timbrluxstays.com/image/homeHeroBg.png",
+        "uploadDate": "2024-01-01",
+        "contentUrl": "https://timbrluxstays.com/hero_bg_video.mp4",
+        "embedUrl": "https://timbrluxstays.com",
+        "duration": "PT30S"
     };
 
     const bgImage = backgroundImage || `${process.env.PUBLIC_URL}/image/homeHeroBg.png`;
@@ -49,6 +66,10 @@ const Hero = ({
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(heroSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
             />
 
             {/* Dark Overlay */}

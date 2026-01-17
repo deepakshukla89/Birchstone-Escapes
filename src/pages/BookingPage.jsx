@@ -101,6 +101,37 @@ const BookingPage = () => {
                 url="https://timbrluxstays.com/booking"
             />
 
+            {/* Schema.org structured data for Booking Page */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "WebPage",
+                        "name": "Book Your Stay - TimbrLux Stays",
+                        "description": "Book your luxury vacation rental directly with TimbrLux Stays. No corporate fees, best rates guaranteed.",
+                        "url": "https://timbrluxstays.com/booking",
+                        "speakable": {
+                            "@type": "SpeakableSpecification",
+                            "cssSelector": [".booking-title", ".booking-subtitle"]
+                        },
+                        "mainEntity": {
+                            "@type": "LodgingReservation",
+                            "reservationFor": {
+                                "@type": "LodgingBusiness",
+                                "name": "Frost Pine Chalet",
+                                "address": {
+                                    "@type": "PostalAddress",
+                                    "addressLocality": "Newry",
+                                    "addressRegion": "ME",
+                                    "addressCountry": "US"
+                                }
+                            }
+                        }
+                    })
+                }}
+            />
+
             <main className="booking-page">
                 {/* Hero Image Section */}
                 <section

@@ -90,6 +90,29 @@ const SearchPage = () => {
                 url="https://timbrluxstays.com/search"
             />
 
+            {/* Schema.org structured data for Search Page */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "SearchResultsPage",
+                        "name": "Search Results - TimbrLux Stays",
+                        "description": "Browse available vacation rental properties at TimbrLux Stays.",
+                        "url": "https://timbrluxstays.com/search",
+                        "mainEntity": {
+                            "@type": "ItemList",
+                            "name": "Available Properties",
+                            "itemListElement": [{
+                                "@type": "LodgingBusiness",
+                                "name": "Frost Pine Chalet",
+                                "url": "https://timbrluxstays.com/property/1967238"
+                            }]
+                        }
+                    })
+                }}
+            />
+
             <main className="search-page">
                 <section
                     className="search-hero"

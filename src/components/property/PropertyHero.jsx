@@ -56,18 +56,18 @@ const PropertyHero = ({ property, images = [], isLoading = false, error = null, 
                     <div className="collage-side">
                         <div className="collage-column">
                             <div className="collage-item" onClick={handleOpenGallery}>
-                                <img src={images[1]?.url || images[0].url} alt="" />
+                                <img src={images[1]?.url || images[0].url} alt={`${property.name} - Interior View`} loading="lazy" />
                             </div>
                             <div className="collage-item" onClick={handleOpenGallery}>
-                                <img src={images[2]?.url || images[0].url} alt="" />
+                                <img src={images[2]?.url || images[0].url} alt={`${property.name} - Living Space`} loading="lazy" />
                             </div>
                         </div>
                         <div className="collage-column">
                             <div className="collage-item" onClick={handleOpenGallery}>
-                                <img src={images[3]?.url || images[0].url} alt="" />
+                                <img src={images[3]?.url || images[0].url} alt={`${property.name} - Amenities`} loading="lazy" />
                             </div>
                             <div className="collage-item" onClick={handleOpenGallery} style={{ position: 'relative' }}>
-                                <img src={images[4]?.url || images[0].url} alt="" />
+                                <img src={images[4]?.url || images[0].url} alt={`${property.name} - Exterior View`} loading="lazy" />
                                 {images.length > 5 && (
                                     <button className="show-all-photos-btn" onClick={(e) => { e.stopPropagation(); handleOpenGallery(); }}>
                                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

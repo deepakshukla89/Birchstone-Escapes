@@ -54,6 +54,65 @@
 
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   <title>TimbrLux Stays - Beautifully Designed Vacation Homes</title>
+
+  <!-- Schema.org WebSite markup for sitelinks searchbox -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TimbrLux Stays",
+    "alternateName": ["Timbr Lux Stays", "Frost Pine Chalet"],
+    "url": "https://www.timbrluxstays.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.timbrluxstays.com/search?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Schema.org LocalBusiness for GEO/AEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "@id": "https://www.timbrluxstays.com/#organization",
+    "name": "TimbrLux Stays",
+    "image": "https://www.timbrluxstays.com/image/og-image.jpg",
+    "logo": "https://www.timbrluxstays.com/image/logo.svg",
+    "description": "Beautifully designed vacation homes, cared for with intention, and hosted with genuine warmth.",
+    "url": "https://www.timbrluxstays.com",
+    "telephone": "+1-206-558-8542",
+    "email": "vikas@timbrluxstays.com",
+    "priceRange": "$$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Frost Pine Chalet",
+      "addressLocality": "Newry",
+      "addressRegion": "ME",
+      "postalCode": "04261",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 44.5275,
+      "longitude": -70.8011
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "9"
+    },
+    "sameAs": [
+      "https://www.instagram.com/frostpinechalet/",
+      "https://www.facebook.com/profile.php?id=61580513130078",
+      "https://www.airbnb.com/rooms/1967238"
+    ]
+  }
+  </script>
 </head>
 
 <body>

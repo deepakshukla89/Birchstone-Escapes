@@ -34,16 +34,42 @@ const AboutIndex = () => {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "TimbrLux Stays",
+        "alternateName": "Timbr Lux Stays",
         "description": "At TimbrLux Stays, we believe a great stay is more than a getaway — it's a feeling. A beautifully designed home, cared for with intention, and hosted with genuine warmth.",
-        "url": "https://timbrluxstays.com/about",
+        "url": "https://timbrluxstays.com",
+        "logo": "https://timbrluxstays.com/image/logo.svg",
+        "telephone": "+1-206-558-8542",
+        "email": "vikas@timbrluxstays.com",
         "founder": {
             "@type": "Person",
-            "name": "Vikas"
+            "name": "Vikas",
+            "jobTitle": "Founder & Host"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Newry",
+            "addressRegion": "ME",
+            "postalCode": "04261",
+            "addressCountry": "US"
         },
         "sameAs": [
             "https://instagram.com/timbrluxstays",
-            "https://facebook.com/timbrluxstays"
-        ]
+            "https://facebook.com/timbrluxstays",
+            "https://www.airbnb.com/rooms/1967238",
+            "https://twitter.com/timbrluxstays",
+            "https://linkedin.com/company/timbrluxstays"
+        ],
+        "knowsAbout": [
+            "Vacation Rentals",
+            "Luxury Stays",
+            "Mountain Getaways",
+            "Short-term Rentals",
+            "Maine Tourism"
+        ],
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".philosophy-text", ".host-description"]
+        }
     };
 
     return (

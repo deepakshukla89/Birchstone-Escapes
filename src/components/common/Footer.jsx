@@ -45,16 +45,43 @@ const Footer = () => {
     // Structured data for Organization (SEO/AEO/GEO)
     const organizationSchema = {
         "@context": "https://schema.org",
-        "@type": "VacationRental",
+        "@type": "LodgingBusiness",
         "name": "TimbrLux Stays",
+        "alternateName": "Frost Pine Chalet",
         "description": "Your cozy mountain retreat awaits. Book direct and save.",
         "url": "https://timbrluxstays.com",
+        "logo": "https://timbrluxstays.com/image/logo.svg",
+        "image": "https://timbrluxstays.com/image/og-image.jpg",
+        "telephone": "+1-206-558-8542",
+        "email": "vikas@timbrluxstays.com",
+        "priceRange": "$$$",
         "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Frost Pine Chalet",
             "addressLocality": "Newry",
-            "addressRegion": "Maine",
-            "addressCountry": "United States"
+            "addressRegion": "ME",
+            "postalCode": "04261",
+            "addressCountry": "US"
         },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "44.5275",
+            "longitude": "-70.8011"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "reviewCount": "9",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
+        "amenityFeature": [
+            { "@type": "LocationFeatureSpecification", "name": "Hot Tub" },
+            { "@type": "LocationFeatureSpecification", "name": "Private Sauna" },
+            { "@type": "LocationFeatureSpecification", "name": "Game Room" },
+            { "@type": "LocationFeatureSpecification", "name": "Mountain Views" },
+            { "@type": "LocationFeatureSpecification", "name": "Free WiFi" }
+        ],
         "sameAs": [
             "https://instagram.com/timbrluxstays",
             "https://facebook.com/timbrluxstays"
