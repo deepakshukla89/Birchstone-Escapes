@@ -187,37 +187,54 @@
 
 .modal-date-picker-dropdown {
     position: absolute;
-    top: calc(100% + 5px);
-    left: 0;
+    top: 50%;
+    right: calc(100% + 20px);
+    transform: translateY(-50%);
     z-index: 1001;
     background: #ffffff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
     border-radius: 12px;
     overflow: hidden;
-    animation: modalFadeIn 0.3s ease;
+    animation: modalPopFadeIn 0.3s ease;
 }
 
-@keyframes modalFadeIn {
+.modal-date-picker-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    border-width: 10px 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #ffffff;
+}
+
+@keyframes modalPopFadeIn {
     from {
         opacity: 0;
-        transform: translateY(-5px);
+        transform: translateY(-50%) translateX(10px);
     }
 
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(-50%) translateX(0);
     }
 }
 
-/* Modal-specific responsive for date picker */
-@media (max-width: 600px) {
+@media (max-width: 850px) {
     .modal-date-picker-dropdown {
         position: fixed;
         top: 50%;
         left: 50%;
+        right: auto;
         transform: translate(-50%, -50%);
         width: 90vw;
         max-width: 330px;
+        animation: modalFadeIn 0.3s ease;
+    }
+
+    .modal-date-picker-dropdown::after {
+        display: none;
     }
 }
 

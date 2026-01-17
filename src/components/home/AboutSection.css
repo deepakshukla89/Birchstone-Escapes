@@ -55,6 +55,16 @@
     opacity: 0.8;
 }
 
+.bento-accent-quote {
+    font-family: var(--font-logo);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--color-white);
+    text-align: center;
+    margin: 0;
+    line-height: 1.5;
+}
+
 /* Quote Block */
 .bento-quote {
     background-color: var(--color-black);

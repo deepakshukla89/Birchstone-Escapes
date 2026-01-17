@@ -66,7 +66,7 @@ We're honored to be part of your travel story — and we can't wait to welcome y
                         />
                     </div>
                     <div className="bento-item bento-accent">
-                        <p style={{ fontSize: '0.9rem', color: '#ffffff', textAlign: 'center', lineHeight: '1.5', margin: 0 }}>Luxury stays, <br /> lasting impressions</p>
+                        <p className="bento-accent-quote">Luxury stays, <br /> lasting impressions</p>
                     </div>
                     <div className="bento-item bento-quote">
                         <p>Where every stay becomes a cherished memory</p>

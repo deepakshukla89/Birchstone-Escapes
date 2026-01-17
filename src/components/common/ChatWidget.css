@@ -47,7 +47,7 @@
     transform: translateY(20px) scale(0.95);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 997;
-    overflow: hidden;
+    /* overflow: hidden; removed to allow popovers */
 }
 
 .chat-widget-window.open {
@@ -58,25 +58,26 @@
 
 /* ===== Chat Widget Header ===== */
 .chat-widget-header {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: 24px;
-    text-align: center;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    padding: 32px 24px 0;
+    text-align: left;
+    position: relative;
+    border-radius: 16px 16px 0 0;
+    /* Apply radius manually since overflow:hidden is gone */
 }
 
 .chat-widget-header h3 {
-    font-family: var(--font-logo);
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0 0 8px 0;
-    color: #FFFFFF;
+    font-family: 'Instrument Serif', serif;
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0;
+    color: #1A1A1A;
 }
 
 .chat-widget-header p {
-    font-family: var(--font-nav);
-    font-size: 14px;
-    margin: 0;
-    color: rgba(255, 255, 255, 0.8);
+    display: none;
+    /* Remove "We'd love to hear from you" if we want it identical to page title, or keep it subtle */
 }
 
 /* ===== Chat Widget Body ===== */
@@ -110,18 +111,18 @@
 }
 
 .form-group label {
-    font-family: var(--font-nav);
+    font-family: 'Jost', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    color: var(--color-black);
+    color: #1A1A1A;
 }
 
 .form-group input,
 .form-group textarea {
-    font-family: var(--font-nav);
-    font-size: 14px;
-    padding: 12px;
-    border: 1px solid #ddd;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    padding: 14px 16px;
+    border: 1px solid #E0E0E0;
     border-radius: 8px;
     transition: all 0.3s ease;
     background-color: var(--color-white);
@@ -131,7 +132,7 @@
 .form-group textarea:focus {
     outline: none;
     border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.1);
+    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.15);
 }
 
 .form-group input.error,
@@ -139,9 +140,120 @@
     border-color: #E53E3E;
 }
 
+/* Date Picker Styles */
+.date-picker-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.date-picker-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    color: #4A4A4A;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.date-picker-trigger:hover {
+    border-color: #BDBDBD;
+}
+
+.date-picker-trigger.active {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(114, 47, 55, 0.15);
+}
+
+.date-picker-trigger svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.date-picker-dropdown {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 15px);
+    transform: translateY(-50%);
+    z-index: 2000;
+    background: #ffffff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    animation: popoverFadeIn 0.3s ease;
+}
+
+.date-picker-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    border-width: 10px 0 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent #ffffff;
+}
+
+@keyframes popoverFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50%) translateX(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+@media (max-width: 900px) {
+    .date-picker-dropdown {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%);
+        width: 90vw;
+        max-width: 330px;
+        z-index: 10001;
+    }
+
+    .date-picker-dropdown::after {
+        display: none;
+    }
+}
+
+/* Ensure body doesn't clip the dropdown */
+.chat-widget-body {
+    padding: 24px;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: visible;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .error-text {
-    font-family: var(--font-nav);
-    font-size: 12px;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
     color: #E53E3E;
 }
 
@@ -151,10 +263,10 @@
 }
 
 .chat-submit-btn {
-    font-family: var(--font-nav);
+    font-family: 'Jost', sans-serif;
     font-size: 16px;
     font-weight: 500;
-    padding: 14px 24px;
+    padding: 16px 32px;
     background-color: var(--color-primary);
     color: var(--color-white);
     border: none;
@@ -165,8 +277,7 @@
 }
 
 .chat-submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(205, 127, 50, 0.3);
+    background-color: var(--color-primary-dark);
 }
 
 .chat-submit-btn:active {

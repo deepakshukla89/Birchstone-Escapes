@@ -57,8 +57,8 @@ const ContactPage = () => {
 
     const validatePhone = (phone) => {
         if (!phone.trim()) return false;
-        // Strict phone validation: supports international and various formats
-        const phoneRegex = /^(\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+        // Exactly 10 digits required
+        const phoneRegex = /^\d{10}$/;
         return phoneRegex.test(phone.trim());
     };
 
@@ -91,7 +91,15 @@ const ContactPage = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+
+        // Only allow numbers and max 10 digits for phone
+        if (name === 'phone') {
+            const numericValue = value.replace(/\D/g, '').slice(0, 10);
+            setFormData(prev => ({ ...prev, [name]: numericValue }));
+        } else {
+            setFormData(prev => ({ ...prev, [name]: value }));
+        }
+
         if (errors[name]) setErrors(prev => ({ ...prev, [name]: null }));
     };
 
@@ -286,13 +294,13 @@ const ContactPage = () => {
                                         {errors.email && <span className="error-text">{errors.email}</span>}
                                     </div>
 
-                                    <div className="form-group">
+                                    <div className="form-group full-width">
                                         <label htmlFor="phone">Phone Number *</label>
                                         <input
                                             type="tel"
                                             id="phone"
                                             name="phone"
-                                            placeholder="+1 (xxx) xxx-xxxx"
+                                            placeholder="10-digit phone number"
                                             value={formData.phone}
                                             onChange={handleChange}
                                             className={errors.phone ? 'error' : ''}
@@ -300,7 +308,7 @@ const ContactPage = () => {
                                         {errors.phone && <span className="error-text">{errors.phone}</span>}
                                     </div>
 
-                                    <div className="form-group" ref={datePickerRef}>
+                                    <div className="form-group full-width" ref={datePickerRef}>
                                         <label htmlFor="dates">Proposed Dates</label>
                                         <div className="date-picker-input-wrapper">
                                             <button
